@@ -10,13 +10,19 @@ const sharp = require('sharp');
 
 const root = path.resolve(__dirname, '..');
 const flags = new Set(process.argv.slice(2));
-for (const flag of flags) if (!['--lessons', '--stills'].includes(flag)) throw new Error('Unknown option: ' + flag);
+for (const flag of flags) if (!['--lessons', '--dynamics', '--stills'].includes(flag)) throw new Error('Unknown option: ' + flag);
 const lessons = flags.has('--lessons');
+const dynamics = flags.has('--dynamics');
+if (lessons && dynamics) throw new Error('Choose either --lessons or --dynamics');
 const stillsOnly = flags.has('--stills');
-const command = lessons ? 'src/cmd/lessons' : 'src/cmd/videos';
-const output = path.join(root, 'output', lessons ? 'lessons' : 'videos');
+const command = dynamics ? 'src/cmd/dynamics' : lessons ? 'src/cmd/lessons' : 'src/cmd/videos';
+const output = path.join(root, 'output', dynamics ? 'dynamics' : lessons ? 'lessons' : 'videos');
 const ffmpeg = process.env.MOONMANIM_FFMPEG || 'ffmpeg';
-const scenes = lessons ? [
+const scenes = dynamics ? [
+  { name: 'tangent', file: '01-tangent', title: '从割线到切线：让导数动起来',
+    subtitle: 'Moving points / Secant limit / Tangent slope',
+    frames: 720, posters: [180, 360, 420, 480, 600, 690], contact: [420, 600] },
+] : lessons ? [
   { name: 'formula', file: '01-quadratic', title: '配方法：从方程到两个根',
     subtitle: 'Completing the square / Semantic formula matching / Graph verification',
     frames: 1158, posters: [180, 480, 780, 1080], contact: [480, 1080] },
@@ -182,7 +188,7 @@ async function compilation() {
   const child = spawn(ffmpeg, [
     '-hide_banner', '-loglevel', 'error', '-y', '-f', 'concat', '-safe', '0',
     '-i', list, '-c', 'copy', '-movflags', '+faststart',
-    path.join(output, lessons ? '00-all-lessons.mp4' : '00-all-demos.mp4'),
+    path.join(output, dynamics ? '00-all-dynamics.mp4' : lessons ? '00-all-lessons.mp4' : '00-all-demos.mp4'),
   ], { stdio: ['ignore', 'ignore', 'pipe'] });
   const result = await watch(child);
   await fs.rm(list, { force: true });

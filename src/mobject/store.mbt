@@ -148,6 +148,34 @@ pub fn Store::get(
 }
 
 ///|
+/// The owning parent, if any. Foreign and expired handles are rejected.
+pub fn Store::parent(
+  self : Store,
+  id : ObjectId,
+) -> ObjectId? raise @errors.EngineError {
+  self.entry(id).parent
+}
+
+///|
+/// Includes the node itself. Useful for ordering world-space dependencies.
+pub fn Store::is_ancestor(
+  self : Store,
+  ancestor : ObjectId,
+  node : ObjectId,
+) -> Bool raise @errors.EngineError {
+  ignore(self.entry(ancestor))
+  let mut current = Some(node)
+  while current is Some(id) {
+    let entry = self.entry(id)
+    if id == ancestor {
+      return true
+    }
+    current = entry.parent
+  }
+  false
+}
+
+///|
 /// Compose the node's transform with all ancestors, in world coordinates.
 pub fn Store::world_transform(
   self : Store,

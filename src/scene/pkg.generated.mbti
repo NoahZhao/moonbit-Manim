@@ -2,14 +2,17 @@
 package "moonmanim/core/scene"
 
 import {
+  "moonbitlang/core/debug",
   "moonmanim/core/animation",
   "moonmanim/core/errors",
+  "moonmanim/core/math",
   "moonmanim/core/mobject",
   "moonmanim/core/render",
   "moonmanim/core/timeline",
 }
 
 // Values
+pub fn value_to(ValueTracker, Double, easing? : @animation.Easing) -> ValueAnimation
 
 // Errors
 
@@ -18,19 +21,45 @@ pub struct Scene {
   // private fields
 }
 pub fn Scene::add(Self, @mobject.ObjectState) -> @mobject.ObjectId raise @errors.EngineError
+pub fn Scene::add_tracker(Self, Double) -> ValueTracker raise @errors.EngineError
+pub fn Scene::clear_updater(Self, @mobject.ObjectId) -> Unit raise @errors.EngineError
 pub fn Scene::contains(Self, @mobject.ObjectId) -> Bool
 pub fn Scene::frame_index(Self) -> Int64
 pub fn Scene::get(Self, @mobject.ObjectId) -> @mobject.ObjectState raise @errors.EngineError
+pub fn Scene::get_value(Self, ValueTracker) -> Double raise @errors.EngineError
 pub fn Scene::new(&@render.Renderer, frame_rate? : @timeline.FrameRate) -> Self
-pub fn Scene::play(Self, Array[@animation.Animation], duration~ : Double) -> Unit raise
-pub fn Scene::play_staggered(Self, Array[@animation.Animation], duration~ : Double, lag_ratio? : Double) -> Unit raise
+pub fn Scene::play(Self, Array[@animation.Animation], duration~ : Double, values? : Array[ValueAnimation]) -> Unit raise
+pub fn Scene::play_staggered(Self, Array[@animation.Animation], duration~ : Double, lag_ratio? : Double, values? : Array[ValueAnimation]) -> Unit raise
 pub fn Scene::remove(Self, @mobject.ObjectId) -> Unit raise @errors.EngineError
+pub fn Scene::remove_tracker(Self, ValueTracker) -> Unit raise @errors.EngineError
 pub fn Scene::reparent(Self, @mobject.ObjectId, @mobject.ObjectId?) -> Unit raise @errors.EngineError
 pub fn Scene::set(Self, @mobject.ObjectId, @mobject.ObjectState) -> Unit raise @errors.EngineError
+pub fn Scene::set_updater(Self, @mobject.ObjectId, (UpdateContext, @mobject.ObjectState) -> @mobject.ObjectState raise, depends_on? : Array[@mobject.ObjectId], trackers? : Array[ValueTracker]) -> Unit raise @errors.EngineError
+pub fn Scene::set_value(Self, ValueTracker, Double) -> Unit raise @errors.EngineError
 pub fn Scene::snapshot(Self) -> @render.Frame raise @errors.EngineError
 pub fn Scene::time(Self) -> Double
+pub fn Scene::update(Self) -> Unit raise
 pub fn Scene::validate_duration(Self, Double) -> Unit raise @errors.EngineError
 pub fn Scene::wait(Self, Double) -> Unit raise
+
+pub struct UpdateContext {
+  time : Double
+  dt : Double
+  // private fields
+}
+pub fn UpdateContext::get(Self, @mobject.ObjectId) -> @mobject.ObjectState raise @errors.EngineError
+pub fn UpdateContext::get_value(Self, ValueTracker) -> Double raise @errors.EngineError
+pub fn UpdateContext::world_transform(Self, @mobject.ObjectId) -> @math.Affine2 raise @errors.EngineError
+
+pub struct ValueAnimation {
+  // private fields
+}
+
+#derive(@debug.Debug)
+pub struct ValueTracker {
+  // private fields
+}
+pub impl Eq for ValueTracker
 
 // Type aliases
 

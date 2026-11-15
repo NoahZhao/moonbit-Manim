@@ -66,8 +66,10 @@ pub fn Store::contains(Self, ObjectId) -> Bool
 pub fn Store::drawables(Self) -> ReadOnlyArray[DrawItem] raise @errors.EngineError
 pub fn Store::get(Self, ObjectId) -> ObjectState raise @errors.EngineError
 pub fn Store::has_children(Self, ObjectId) -> Bool raise @errors.EngineError
+pub fn Store::is_ancestor(Self, ObjectId, ObjectId) -> Bool raise @errors.EngineError
 pub fn Store::length(Self) -> Int32
 pub fn Store::new() -> Self
+pub fn Store::parent(Self, ObjectId) -> ObjectId? raise @errors.EngineError
 pub fn Store::related(Self, ObjectId, ObjectId) -> Bool raise @errors.EngineError
 pub fn Store::remove(Self, ObjectId) -> Unit raise @errors.EngineError
 pub fn Store::reparent(Self, ObjectId, ObjectId?) -> Unit raise @errors.EngineError

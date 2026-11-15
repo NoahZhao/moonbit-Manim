@@ -89,4 +89,4 @@ play_staggered 的 duration 包含全部延迟，lag_ratio=0 同时开始，1 �
 
 ## 边界与后续
 
-这是一套可扩展的二维数学教学基础，尚未提供完整 Manim/ManimGL 兼容、运行时 TeX 编译、通用 SVG 导入、自然语言排版、ValueTracker/Updater、三维、GPU 或原生像素/媒体后端。下一步优先增加动态依赖更新和相机控制，再拓展公式字形匹配与正式渲染管线。
+这是一套可扩展的二维数学教学基础，尚未提供完整 Manim/ManimGL 兼容、运行时 TeX 编译、通用 SVG 导入、自然语言排版、移动相机、三维、GPU 或原生像素/媒体后端。ValueTracker / Updater 已支持参数驱动与动态几何依赖，见 [动态几何开发说明](dynamics.zh-CN.md)。后续将扩展相机控制、公式字形匹配与正式渲染管线。

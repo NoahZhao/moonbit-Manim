@@ -1,6 +1,6 @@
 # MoonBit 数学动画引擎实现方案
 
-本文是总体设计方案，调研依据为当前工作区的 Manim CE 源码、MoonBit 官方文档，以及本机 MoonBit 工具链；截至 2026-11-15。二维核心、坐标绘图和语义公式教学已实现，实际可用 API、运行命令与当前限制见 [项目 README](../README.md) 和 [教学开发说明](teaching.zh-CN.md)；本文中其他 API 草图仍是设计，不代表已经交付。
+本文是总体设计方案，调研依据为当前工作区的 Manim CE 源码、MoonBit 官方文档，以及本机 MoonBit 工具链；截至 2026-11-15。二维核心、坐标绘图、语义公式教学及 ValueTracker / Updater 已实现，实际可用 API、运行命令与当前限制见 [项目 README](../README.md)、[教学开发说明](teaching.zh-CN.md) 和 [动态几何开发说明](dynamics.zh-CN.md)；本文中其他 API 草图仍是设计，不代表已经交付。
 
 ## 1. 产品与实现边界
 

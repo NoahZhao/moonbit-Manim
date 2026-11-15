@@ -1,0 +1,14 @@
+import {
+  "moonmanim/core/scene",
+  "moonmanim/core/animation",
+  "moonmanim/core/geometry",
+  "moonmanim/core/mobject",
+  "moonmanim/core/math",
+  "moonmanim/core/render",
+  "moonmanim/core/coordinates",
+  "moonmanim/core/text",
+  "moonmanim/core/teaching",
+  "moonbitlang/core/json",
+}
+
+pkgtype(kind: "executable")

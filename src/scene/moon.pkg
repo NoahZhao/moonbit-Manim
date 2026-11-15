@@ -4,10 +4,11 @@ import {
   "moonmanim/core/timeline",
   "moonmanim/core/render",
   "moonmanim/core/errors",
+  "moonmanim/core/math",
+  "moonbitlang/core/debug",
 }
 
 import {
   "moonbitlang/core/test",
   "moonmanim/core/geometry",
-  "moonmanim/core/math",
 } for "test"

@@ -8,6 +8,8 @@
     "lessons": "node scripts/render-videos.cjs --lessons",
     "lesson-stills": "node scripts/render-videos.cjs --lessons --stills",
     "demos": "node scripts/render-videos.cjs",
+    "dynamics": "node scripts/render-videos.cjs --dynamics",
+    "dynamics-stills": "node scripts/render-videos.cjs --dynamics --stills",
     "site:build": "node scripts/build-site.cjs",
     "site:media": "node scripts/build-site.cjs --media",
     "site:check": "node scripts/check-site.cjs",

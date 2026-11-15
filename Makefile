@@ -1,4 +1,4 @@
-.PHONY: check test demo demo-foundation demo-create demo-videos tex-assets lesson-stills lesson-videos
+.PHONY: check test demo demo-foundation demo-create demo-videos tex-assets lesson-stills lesson-videos dynamics-stills dynamics-videos
 
 check:
 	moon fmt --check
@@ -29,3 +29,9 @@ lesson-stills:
 
 lesson-videos:
 	node scripts/render-videos.cjs --lessons
+
+dynamics-stills:
+	node scripts/render-videos.cjs --dynamics --stills
+
+dynamics-videos:
+	node scripts/render-videos.cjs --dynamics
