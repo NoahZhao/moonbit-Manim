@@ -338,13 +338,15 @@ fn render(
 #cfg(target="js")
 extern "js" fn install(
   callback : (String, Double, Double, Double, Double) -> String,
+  describe : () -> String,
+  lesson : (Double) -> String,
 ) -> Unit =
-  #| (callback) => { globalThis.MoonManim = Object.freeze({ render: callback }); }
+  #| (callback, describe, lesson) => { globalThis.MoonManim = Object.freeze({ render: callback, describeLesson: describe, renderLesson: lesson }); }
 
 ///|
 #cfg(target="js")
 fn main {
-  install(render)
+  install(render, describe_lesson, render_lesson)
 }
 
 ///|

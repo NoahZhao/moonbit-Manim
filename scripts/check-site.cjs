@@ -78,6 +78,21 @@ for (const t of [0, 0.5, 1]) {
   near(values.rotation, 45);
 }
 assert.ok(JSON.parse(context.MoonManim.render('pythagoras', 0, -1, 2, 0)).error);
+const lesson = JSON.parse(context.MoonManim.describeLesson());
+assert.equal(lesson.duration, 12);
+assert.equal(lesson.chapters.length, 6);
+assert.deepEqual(lesson.parameters.map(p => p.key), ['x', 'h']);
+for (const chapter of lesson.chapters) {
+  const sample = JSON.parse(context.MoonManim.renderLesson(chapter.start / lesson.duration));
+  assert.equal(sample.title, chapter.title);
+  assert.ok(sample.svg.startsWith('<svg '));
+  assert.ok(!/NaN|Infinity/.test(sample.svg));
+}
+const retained = context.MoonManim.renderLesson(0.2);
+context.MoonManim.renderLesson(1);
+context.MoonManim.render('tangent', 0, 3, 2, 0);
+assert.equal(context.MoonManim.renderLesson(0.2), retained);
+assert.ok(JSON.parse(context.MoonManim.renderLesson(NaN)).error);
 for (const args of [['tangent', 0, 4, 1, 0], ['lissajous', 0, 1.5, 2, 0],
   ['lissajous', 0, 1, 7, 0], ['matrix', NaN, 1, 1, 0], ['unknown', 0, 0, 0, 0]]) {
   assert.ok(JSON.parse(context.MoonManim.render(...args)).error);

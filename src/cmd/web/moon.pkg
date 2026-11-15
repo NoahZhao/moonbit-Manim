@@ -1,11 +1,11 @@
 import {
+  "moonmanim/core/lessons/tangent",
   "moonmanim/core/animation",
   "moonmanim/core/coordinates",
   "moonmanim/core/geometry",
   "moonmanim/core/math",
   "moonmanim/core/mobject",
   "moonmanim/core/render",
-  "moonmanim/core/scene",
   "moonmanim/core/errors",
   "moonmanim/core/teaching",
   "moonbitlang/core/json",

@@ -1,0 +1,16 @@
+import {
+  "moonmanim/core/lesson",
+  "moonmanim/core/coordinates",
+  "moonmanim/core/geometry",
+  "moonmanim/core/math",
+  "moonmanim/core/mobject",
+  "moonmanim/core/render",
+  "moonmanim/core/scene",
+  "moonmanim/core/text",
+  "moonmanim/core/teaching",
+  "moonbitlang/core/json",
+}
+
+import {
+  "moonbitlang/core/test",
+} for "test"

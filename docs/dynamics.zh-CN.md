@@ -91,3 +91,8 @@ npm run dynamics          # 完整视频；需要 FFmpeg
 产物位于 `output/dynamics/`：`01-tangent.mp4` 为 12 秒、1280×720、60 fps 的无声视频；`demo-contact-sheet.png` 为关键帧接触表。原始场景可直接运行 `moon run src/cmd/dynamics --target native --release --deny-warn` 输出流式 JSONL SVG 帧。Node/sharp 与 FFmpeg 仅负责光栅化和编码，所有几何、参数动画及 TeX 公式对象由 MoonBit 引擎生成。
 
 设计参考本地 Manim CE 的 ValueTracker、Mobject Updater 与 Scene 更新生命周期，并采用适合 MoonBit 的场景所属句柄、静态类型回调及显式依赖声明。这里不承诺与 Python Manim 的任意回调行为兼容。
+
+
+## 视频与交互共用课程
+
+割线案例已迁移到 `src/lessons/tangent/tangent.mbt`。离线入口 `src/cmd/dynamics/main.mbt` 与网页入口 `src/cmd/web/dynamics.mbt` 仅负责适配输出，共用参数、六个讲解章节、几何对象、公式与相机。上述 `Scene.play` API 仍适用于命令式动画；可随机拖动的课程使用声明式绝对时间采样，两种时间模型的边界见 [课程指南](lessons.zh-CN.md)。

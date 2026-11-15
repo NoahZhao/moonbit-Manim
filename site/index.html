@@ -60,7 +60,7 @@
 
     <div class="container project-metrics" aria-label="项目规模与开放性">
       <div><strong>04<span>编译目标</span></strong><small>Native · JavaScript · Wasm · Wasm-GC</small></div>
-      <div><strong>76<span>核心测试用例</span></strong><small>几何精度、动态依赖与确定性时间</small></div>
+      <div><strong>82<span>核心测试用例</span></strong><small>几何精度、动态依赖与确定性时间</small></div>
       <div><strong>06<span>参数化交互项目</span></strong><small>另有 7 段数学教学与引擎演示视频</small></div>
       <div><strong>MIT<span>开放许可</span></strong><small>源代码、教学示例与构建流程公开</small></div>
     </div>
@@ -78,7 +78,7 @@
     <section id="projects" class="section container projects-section" aria-labelledby="projects-title">
       <div class="section-heading"><div><div class="eyebrow">02 / PROJECT COLLECTION</div><h2 id="projects-title">六个项目，六种理解数学的方式。</h2></div><p>从变化率到振动，从线性代数到几何证明。<br>选择一个项目，亲手改变参数，观察结果。</p></div>
       <div class="project-grid">
-        <article class="project-card"><a class="project-preview" href="?scene=tangent#playground" data-open-scene="tangent" aria-label="打开割线与切线交互项目"><img src="assets/projects/tangent.svg" width="960" height="600" alt="抛物线上两个点与黄色割线" loading="lazy"><span class="project-badge">新项目 · 微积分</span><span class="project-open" aria-hidden="true">↗</span></a><div class="project-copy"><span class="project-subject">01 / CALCULUS</span><h3>从割线，到切线</h3><p>让两点间距趋于零，看差商如何成为某一点的瞬时变化率。</p><a href="?scene=tangent#playground" data-open-scene="tangent">探索导数与极限 <span aria-hidden="true">→</span></a></div></article>
+        <article class="project-card"><a class="project-preview" href="?scene=tangent#playground" data-open-scene="tangent" aria-label="打开割线与切线交互项目"><img src="assets/projects/tangent.svg" width="960" height="600" alt="抛物线上两个点与黄色割线" loading="lazy"><span class="project-badge">新体验 · 可交互课程</span><span class="project-open" aria-hidden="true">↗</span></a><div class="project-copy"><span class="project-subject">01 / CALCULUS</span><h3>从割线，到切线</h3><p>跟随六个章节理解导数，随时暂停并接管画面中的参数。</p><a href="?scene=tangent#playground" data-open-scene="tangent">探索导数与极限 <span aria-hidden="true">→</span></a></div></article>
         <article class="project-card"><a class="project-preview" href="?scene=lissajous#playground" data-open-scene="lissajous" aria-label="打开利萨如曲线交互项目"><img src="assets/projects/lissajous.svg" width="960" height="600" alt="由两个简谐振动合成的多瓣闭合曲线" loading="lazy"><span class="project-badge">新项目 · 振动</span><span class="project-open" aria-hidden="true">↗</span></a><div class="project-copy"><span class="project-subject">02 / OSCILLATIONS</span><h3>两个振动，一条曲线</h3><p>改变频率比与相位差，用利萨如图形观察两个振动的合成。</p><a href="?scene=lissajous#playground" data-open-scene="lissajous">探索频率与相位 <span aria-hidden="true">→</span></a></div></article>
         <article class="project-card"><a class="project-preview" href="?scene=matrix#playground" data-open-scene="matrix" aria-label="打开线性变换交互项目"><img src="assets/projects/matrix.svg" width="960" height="600" alt="剪切后的坐标网格、基向量和单位正方形" loading="lazy"><span class="project-badge">线性代数</span><span class="project-open" aria-hidden="true">↗</span></a><div class="project-copy"><span class="project-subject">03 / LINEAR ALGEBRA</span><h3>矩阵如何改变空间</h3><p>从剪切、旋转到镜像，观察基向量和行列式如何描述空间变化。</p><a href="?scene=matrix#playground" data-open-scene="matrix">探索矩阵与面积 <span aria-hidden="true">→</span></a></div></article>
         <article class="project-card"><a class="project-preview" href="?scene=bezier#playground" data-open-scene="bezier" aria-label="打开贝塞尔曲线交互项目"><img src="assets/projects/bezier.svg" width="960" height="600" alt="带控制多边形的 S 形贝塞尔曲线" loading="lazy"><span class="project-badge">计算几何</span><span class="project-open" aria-hidden="true">↗</span></a><div class="project-copy"><span class="project-subject">04 / COMPUTATIONAL GEOMETRY</span><h3>一条曲线如何被画出</h3><p>拖动控制点塑造曲线，比较参数进度与等弧长描绘的关系。</p><a href="?scene=bezier#playground" data-open-scene="bezier">探索曲线与弧长 <span aria-hidden="true">→</span></a></div></article>
@@ -103,6 +103,7 @@
             <div class="canvas-heading"><span><span class="status-dot"></span> <span id="scene-caption">LINEAR TRANSFORMATION</span></span><span>MOONBIT → SVG</span></div>
             <div id="lab-stage" class="lab-stage" aria-label="数学实验画布"></div>
             <div id="stage-legend" class="stage-legend"></div>
+            <div id="lesson-narration" class="lesson-narration" hidden><strong id="lesson-title"></strong><span id="lesson-caption"></span></div>
             <div id="engine-error" class="engine-error" role="alert" hidden>画布加载失败。请刷新页面后重试。</div>
             <div class="transport">
               <button id="play-toggle" class="transport-play" aria-label="播放实验动画" aria-pressed="false">▶</button>
@@ -116,6 +117,11 @@
             <div class="control-eyebrow">EXPERIMENT PARAMETERS <span>参数设置</span></div>
             <h3 id="control-title">线性变换与面积尺度</h3>
             <p id="control-description">矩阵的两列决定两根基向量的新位置。拖动参数，观察单位正方形和整个网格如何一起改变。</p>
+            <div id="lesson-tools" class="lesson-tools" hidden>
+              <span class="lesson-badge">一份场景 · 视频与交互</span>
+              <div class="lesson-modes" role="group" aria-label="课程模式"><button id="mode-follow" aria-pressed="true">跟随讲解</button><button id="mode-explore" aria-pressed="false">自由探索</button></div>
+              <div id="lesson-chapters" class="lesson-chapters" role="group" aria-label="跳转讲解章节"></div>
+            </div>
             <div id="parameter-controls" class="parameter-controls"></div>
             <div id="presets" class="presets" aria-label="参数预设"></div>
             <div id="math-readout" class="math-readout" aria-live="off"></div>
@@ -132,7 +138,7 @@
       <div class="container">
         <div class="section-heading"><div><div class="eyebrow">04 / DEMONSTRATIONS</div><h2 id="showcase-title">数学原理的动态呈现。</h2></div><div class="gallery-filters" role="group" aria-label="筛选作品"><button class="filter active" aria-pressed="true" data-filter="all">全部案例 <span>07</span></button><button class="filter" aria-pressed="false" data-filter="dynamics">动态几何</button><button class="filter" aria-pressed="false" data-filter="lesson">教学案例</button><button class="filter" aria-pressed="false" data-filter="foundation">基础能力</button></div></div>
         <div class="gallery" id="gallery">
-          <article class="work-card" data-category="dynamics"><div class="work-media"><video controls playsinline preload="none" poster="assets/demos/tangent.webp" aria-label="割线趋近切线与导数教学动画"><source src="assets/demos/tangent.mp4" type="video/mp4"></video><span class="work-number">01 / CALCULUS</span></div><div class="work-info"><span class="work-tag">新增 · 动态几何 <span>12.0s</span></span><h3>让导数动起来</h3><p>从曲线上动点的切线，到割线趋近切线的极限过程。</p><a href="?scene=tangent#playground" data-open-scene="tangent">动手探索割线与切线 <span aria-hidden="true">↗</span></a></div></article>
+          <article class="work-card" data-category="dynamics"><div class="work-media"><video id="tangent-video" controls playsinline preload="none" poster="assets/demos/tangent.webp" aria-label="割线趋近切线与导数教学动画"><source src="assets/demos/tangent.mp4" type="video/mp4"></video><span class="work-number">01 / CALCULUS</span></div><div class="work-info"><span class="work-tag">新增 · 动态几何 <span>12.0s</span></span><h3>让导数动起来</h3><p>视频和交互由同一份场景生成。暂停视频，可以在当前时刻接管参数。</p><button id="takeover-video" class="takeover-video">在视频当前时刻自由探索 →</button><a href="?scene=tangent#playground" data-open-scene="tangent">动手探索割线与切线 <span aria-hidden="true">↗</span></a></div></article>
           <article class="work-card" data-category="lesson"><div class="work-media"><video controls playsinline preload="none" poster="assets/demos/quadratic.webp" aria-label="配方法求根教学动画"><source src="assets/demos/quadratic.mp4" type="video/mp4"></video><span class="work-number">02 / ALGEBRA</span></div><div class="work-info"><span class="work-tag">教学案例 <span>19.3s</span></span><h3>二次方程的配方法推导</h3><p>对齐公式项的语义变化，以抛物线交点验证代数求解结果。</p><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/src/cmd/lessons/quadratic.mbt" target="_blank" rel="noopener noreferrer">配方法与二次方程 <span aria-hidden="true">↗</span></a></div></article>
           <article class="work-card" data-category="lesson"><div class="work-media"><video controls playsinline preload="none" poster="assets/demos/matrix.webp" aria-label="矩阵与行列式教学动画"><source src="assets/demos/matrix.mp4" type="video/mp4"></video><span class="work-number">03 / LINEAR ALGEBRA</span></div><div class="work-info"><span class="work-tag">教学案例 <span>18.0s</span></span><h3>线性变换与行列式</h3><p>从基向量、坐标网格与单位面积，呈现矩阵的几何意义。</p><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/src/cmd/lessons/matrix.mbt" target="_blank" rel="noopener noreferrer">矩阵与行列式 <span aria-hidden="true">↗</span></a></div></article>
           <article class="work-card" data-category="lesson"><div class="work-media"><video controls playsinline preload="none" poster="assets/demos/pythagoras.webp" aria-label="勾股定理面积重排教学动画"><source src="assets/demos/pythagoras.mp4" type="video/mp4"></video><span class="work-number">04 / GEOMETRY</span></div><div class="work-info"><span class="work-tag">教学案例 <span>21.3s</span></span><h3>勾股定理的面积重排</h3><p>通过全等三角形的平移，建立两个端点的面积等价关系。</p><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/src/cmd/lessons/pythagoras.mbt" target="_blank" rel="noopener noreferrer">勾股定理的面积证明 <span aria-hidden="true">↗</span></a></div></article>

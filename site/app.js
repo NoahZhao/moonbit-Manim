@@ -7,6 +7,7 @@
   const progress = $('#progress');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const sourceBase = 'https://github.com/NoahZhao/moonbit-Manim/blob/main/';
+  const lesson = window.MoonManim?.describeLesson ? JSON.parse(window.MoonManim.describeLesson()) : null;
   const scenes = {
     matrix: {
       caption: 'LINEAR TRANSFORMATION', title: '线性变换与面积尺度',
@@ -44,13 +45,10 @@
     },
     tangent: {
       caption: 'FROM SECANT TO TANGENT', title: '割线极限与瞬时变化率',
-      description: '在抛物线 y = x²/4 上选定一个点。播放或拖动进度，让两点间距 h 逐渐趋于零，观察割线如何成为切线。',
-      defaults: [-1.5, 2, 0], progress: 0.25,
-      source: 'src/cmd/web/dynamics.mbt',
-      parameters: [
-        { label: '观察位置 x', min: -3, max: 3, step: 0.05, unit: '' },
-        { label: '初始间距 h', min: 0, max: 2, step: 0.05, unit: '' },
-      ],
+      description: '跟随讲解理解割线极限。随时切换自由探索，在当前画面上调整 x 和 h，再返回讲解继续观看。',
+      defaults: [...(lesson?.parameters.map(p => p.initial) || []), 0], progress: 0,
+      source: 'src/lessons/tangent/tangent.mbt',
+      parameters: lesson?.parameters || [],
       presets: [['下降', [-2, 1.5, 0]], ['最低点', [0, 2, 0]], ['上升', [2, 1.5, 0]], ['直接看切线', [-1.5, 0, 0]]],
       legend: '<span><i class="legend-swatch pink"></i>观察点 P</span><span><i class="legend-swatch"></i>靠近的点 Q</span><span><i class="legend-swatch coral"></i>割线 → 切线</span>',
     },
@@ -75,7 +73,7 @@
       legend: '<span><i class="legend-swatch blue"></i>正方形 → 圆</span><span><i class="legend-swatch"></i>圆 → 正方形</span>',
     },
   };
-  const state = { scene: 'matrix', parameters: [...scenes.matrix.defaults], progress: 1, playing: false };
+  const state = { scene: 'matrix', parameters: [...scenes.matrix.defaults], progress: 1, playing: false, lessonMode: 'follow' };
   let lastFrame = null;
   let heroPaused = reduceMotion.matches;
   let heroTime = 0;
@@ -102,6 +100,11 @@
     $('#play-toggle').textContent = playing ? 'Ⅱ' : '▶';
     $('#play-toggle').setAttribute('aria-pressed', String(playing));
     $('#play-toggle').setAttribute('aria-label', playing ? '暂停实验动画' : '播放实验动画');
+    if (playing && state.scene === 'tangent') {
+      if (state.progress >= 1) state.progress = 0;
+      animationTime = state.progress * lesson.duration;
+      return;
+    }
     if (playing) animationTime = state.scene === 'bezier' || scenes[state.scene].loop
       ? state.progress * 6
       : Math.acos(1 - 2 * state.progress) / Math.PI * 4;
@@ -134,6 +137,24 @@
     state.scene = name;
     state.parameters = [...scene.defaults];
     state.progress = scene.progress;
+    state.lessonMode = 'follow';
+    $('.lab-canvas').classList.toggle('is-lesson', name === 'tangent');
+    $('#lesson-tools').hidden = name !== 'tangent';
+    $('#lesson-narration').hidden = name !== 'tangent';
+    $('#lesson-chapters').replaceChildren();
+    if (name === 'tangent' && lesson) lesson.chapters.forEach((chapter, index) => {
+      const button = document.createElement('button');
+      button.textContent = chapter.title;
+      button.addEventListener('click', () => {
+        setPlaying(false);
+        state.progress = chapter.start / lesson.duration;
+        setLessonMode('follow');
+      });
+      button.dataset.chapter = String(index);
+      $('#lesson-chapters').append(button);
+    });
+    progress.disabled = false;
+    $('#play-toggle').disabled = false;
     $('#control-title').textContent = scene.title;
     $('#control-description').textContent = scene.description;
     $('#scene-caption').textContent = scene.caption;
@@ -167,6 +188,7 @@
       button.className = 'preset';
       button.textContent = label;
       button.addEventListener('click', () => {
+        if (state.scene === 'tangent') { state.lessonMode = 'explore'; setPlaying(false); }
         state.parameters = [...values];
         if (state.scene === 'matrix') { setPlaying(false); state.progress = 1; }
         syncParameters();
@@ -177,6 +199,15 @@
     syncParameters();
     drawLab();
   }
+
+  function setLessonMode(mode) {
+    setPlaying(false);
+    state.lessonMode = mode;
+    drawLab();
+  }
+
+  $('#mode-follow').addEventListener('click', () => setLessonMode('follow'));
+  $('#mode-explore').addEventListener('click', () => setLessonMode('explore'));
 
   function frame(name, t, parameters) {
     const result = JSON.parse(window.MoonManim.render(name, t, ...parameters));
@@ -204,7 +235,30 @@
     $('#progress-value').textContent = `${Math.round(state.progress * 100)}%`;
     if (!engineReady) return;
     try {
-      lastFrame = frame(state.scene, state.progress, state.parameters);
+      if (state.scene === 'tangent' && state.lessonMode === 'follow') {
+        lastFrame = JSON.parse(window.MoonManim.renderLesson(state.progress));
+        if (lastFrame.error || !lastFrame.svg) throw new Error(lastFrame.error || 'Missing lesson frame');
+        state.parameters = [lastFrame.values.x, lastFrame.values.gap, 0];
+      } else {
+        lastFrame = frame(state.scene, state.scene === 'tangent' ? 0 : state.progress, state.parameters);
+      }
+      if (state.scene === 'tangent') {
+        const follow = state.lessonMode === 'follow';
+        $('#mode-follow').setAttribute('aria-pressed', String(follow));
+        $('#mode-explore').setAttribute('aria-pressed', String(!follow));
+        $$('#parameter-controls input').forEach(input => { input.disabled = follow; });
+        progress.disabled = !follow;
+        $('#play-toggle').disabled = !follow;
+        $('#lesson-title').textContent = follow ? lastFrame.title : '自由探索 · 已接管当前画面';
+        $('#lesson-caption').textContent = follow ? lastFrame.phase : '拖动 x 与 h，验证你的猜想。返回讲解后，从刚才暂停的位置继续。';
+        $('#progress-value').textContent = `${format(state.progress * lesson.duration, 1)} / ${lesson.duration}s`;
+        $$('#lesson-chapters button').forEach((button, index) => {
+          if (follow && index === lastFrame.chapter) button.setAttribute('aria-current', 'step');
+          else button.removeAttribute('aria-current');
+        });
+        $('#presets').hidden = follow;
+        syncParameters();
+      } else { $('#presets').hidden = false; }
       stage.innerHTML = lastFrame.svg;
       const svg = stage.querySelector('svg');
       svg.setAttribute('role', 'img');
@@ -262,6 +316,16 @@
     $(`#tab-${link.dataset.openScene}`).focus({ preventScroll: true });
   }));
   $('#play-toggle').addEventListener('click', () => setPlaying(!state.playing));
+  $('#takeover-video').addEventListener('click', () => {
+    const video = $('#tangent-video');
+    video.pause();
+    selectScene('tangent');
+    state.progress = Math.max(0, Math.min(1, video.currentTime / lesson.duration));
+    drawLab();
+    setLessonMode('explore');
+    $('#playground').scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth' });
+    $('#mode-explore').focus({ preventScroll: true });
+  });
   progress.addEventListener('input', () => { setPlaying(false); state.progress = Number(progress.value) / 100; drawLab(); });
   $('#reset').addEventListener('click', () => selectScene(state.scene));
   $('#hero-toggle').addEventListener('click', () => { heroPaused = !heroPaused; syncHeroButton(); });
@@ -370,7 +434,10 @@
         previousDraw = time;
         if (!heroPaused && heroVisible) drawHero((1 - Math.cos(heroTime * 0.65)) / 2, heroTime * 0.15);
         if (state.playing && labVisible) {
-          state.progress = state.scene === 'bezier' || scenes[state.scene].loop
+          if (state.scene === 'tangent') {
+            state.progress = Math.min(1, animationTime / lesson.duration);
+            if (state.progress >= 1) setPlaying(false);
+          } else state.progress = state.scene === 'bezier' || scenes[state.scene].loop
             ? (animationTime / 6) % 1
             : (1 - Math.cos(animationTime * Math.PI / 4)) / 2;
           drawLab();

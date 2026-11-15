@@ -1,0 +1,10 @@
+import {
+  "moonmanim/core/animation",
+  "moonmanim/core/math",
+  "moonmanim/core/errors",
+  "moonbitlang/core/json",
+}
+
+import {
+  "moonbitlang/core/test",
+} for "test"

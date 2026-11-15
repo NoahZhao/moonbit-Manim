@@ -1,0 +1,63 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/lesson"
+
+import {
+  "moonbitlang/core/json",
+  "moonmanim/core/animation",
+  "moonmanim/core/errors",
+}
+
+// Values
+pub fn cue(String, String, Double, targets? : Array[Target]) -> Cue
+
+pub fn to(String, Double, easing? : @animation.Easing) -> Target
+
+// Errors
+
+// Types and methods
+pub struct Cue {
+  title : String
+  caption : String
+  duration : Double
+  targets : ReadOnlyArray[Target]
+}
+
+pub struct Lesson {
+  parameters : ReadOnlyArray[Parameter]
+  duration : Double
+  // private fields
+}
+pub fn Lesson::describe(Self) -> @json.Json
+pub fn Lesson::explore(Self, Array[(String, Double)]) -> Sample raise @errors.EngineError
+pub fn Lesson::new(Array[Parameter], Array[Cue]) -> Self raise @errors.EngineError
+pub fn Lesson::sample(Self, Double) -> Sample raise @errors.EngineError
+
+pub(all) struct Parameter {
+  key : String
+  label : String
+  initial : Double
+  min : Double
+  max : Double
+  step : Double
+  unit : String
+}
+
+pub struct Sample {
+  time : Double
+  progress : Double
+  chapter : Int32
+  title : String
+  caption : String
+  values : ReadOnlyArray[(String, Double)]
+}
+pub fn Sample::get(Self, String) -> Double raise @errors.EngineError
+
+pub struct Target {
+  key : String
+  value : Double
+  easing : @animation.Easing
+}
+
+// Type aliases
+
+// Traits

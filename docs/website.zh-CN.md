@@ -42,7 +42,7 @@ npm run site:serve
 
 ### 更新 MoonBit 交互逻辑
 
-编辑 `src/cmd/web/main.mbt`，然后运行：
+普通实验编辑 `src/cmd/web/main.mbt`；割线课程编辑 `src/lessons/tangent/tangent.mbt`。然后运行：
 
 ```sh
 moon fmt
@@ -54,9 +54,9 @@ npm run site:check
 
 **编译后的 `site/assets/engine.js` 需要一并提交。** GitHub Pages 工作流直接发布静态文件，不安装 MoonBit，也不会自动编译 `src/` 中的变更。已验证的工具链版本见根目录 README。
 
-浏览器只提供输入控件和播放时间，几何、路径弧长、三角形构造、矩阵变换和 SVG 投影都复用 MoonBit 核心。视频中的完整教学场景与网页中的参数实验有各自的入口，源码链接已分别提供。
+浏览器只提供输入控件和播放时间，几何、路径弧长、三角形构造、矩阵变换和 SVG 投影都复用 MoonBit 核心。割线课程的视频和网页复用同一个场景、参数描述与章节时间线；其余五个实验仍保留各自的入口。
 
-切线项目的入口是 `src/cmd/web/dynamics.mbt`，每次构造纯场景，通过 ValueTracker 和 Updater 计算一个快照，因此拖动进度不需要模拟前面的帧。利萨如项目在 `src/cmd/web/main.mbt` 中以每周期 720 条线段采样参数曲线，进度对应振动相位比例，不代表等弧长运动；频率限制为 1–6 的整数。
+切线课程定义于 `src/lessons/tangent/tangent.mbt`，通过 `src/lesson` 提供的绝对时间采样驱动 ValueTracker 和 Updater。网页缓存几何与 TeX 资产，随机跳转时重新设置完整的参数状态，无需模拟前面的帧。“跟随讲解”按 12 秒章节时间线播放；“自由探索”保留切换瞬间的参数并开放编辑。返回讲解会恢复原来的课程时刻。视频卡片的接管按钮将视频 `currentTime` 映射到同一条课程时间线。控件范围与章节按钮直接读取 MoonBit 元数据，JavaScript 不复制课程轨迹。详见 [课程指南](lessons.zh-CN.md)。利萨如项目在 `src/cmd/web/main.mbt` 中以每周期 720 条线段采样参数曲线，进度对应振动相位比例，不代表等弧长运动；频率限制为 1–6 的整数。
 
 ### 更新视频和封面
 

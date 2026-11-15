@@ -1,0 +1,24 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/lessons/tangent"
+
+import {
+  "moonbitlang/core/json",
+  "moonmanim/core/lesson",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub struct Tangent {
+  lesson : @lesson.Lesson
+  // private fields
+}
+pub fn Tangent::at(Self, Double) -> @json.Json raise
+pub fn Tangent::manual(Self, Double, Double) -> @json.Json raise
+pub fn Tangent::new() -> Self raise
+
+// Type aliases
+
+// Traits
