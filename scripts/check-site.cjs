@@ -46,19 +46,64 @@ for (const a of [0.5, 2, 4]) {
   }
 }
 for (const t of [0, 0.5, 1]) render('morph', t, 0, 0, t);
+for (const x of [-3, -1.5, 0, 1.5, 3]) {
+  for (const gap of [0, 0.05, 1, 2]) {
+    for (const t of [0, 0.25, 0.75, 1]) {
+      const values = render('tangent', t, x, gap);
+      near(values.x, x);
+      near(values.y, x * x / 4);
+      near(values.gap, gap * (1 - t));
+      near(values.derivative, x / 2);
+      near(values.slope, x / 2 + values.gap / 4);
+      if (values.gap > 1e-6) near(values.slope,
+        (((x + values.gap) ** 2 - x ** 2) / 4) / values.gap);
+    }
+  }
+}
+for (const a of [1, 3, 6]) {
+  for (const b of [1, 2, 6]) {
+    for (const phase of [-180, 0, 90, 180]) {
+      for (const t of [0, 0.25, 0.5, 1]) {
+        const values = render('lissajous', t, a, b, phase);
+        near(values.x, 3.6 * Math.sin(a * t * 2 * Math.PI + phase * Math.PI / 180));
+        near(values.y, 2.6 * Math.sin(b * t * 2 * Math.PI));
+      }
+      near(render('lissajous', 0, a, b, phase).x, render('lissajous', 1, a, b, phase).x);
+    }
+  }
+}
+for (const t of [0, 0.5, 1]) {
+  const values = render('morph', t, 0, 0, Math.PI / 4);
+  near(values.alpha, t);
+  near(values.rotation, 45);
+}
 assert.ok(JSON.parse(context.MoonManim.render('pythagoras', 0, -1, 2, 0)).error);
+for (const args of [['tangent', 0, 4, 1, 0], ['lissajous', 0, 1.5, 2, 0],
+  ['lissajous', 0, 1, 7, 0], ['matrix', NaN, 1, 1, 0], ['unknown', 0, 0, 0, 0]]) {
+  assert.ok(JSON.parse(context.MoonManim.render(...args)).error);
+}
 
 // Relative assets must resolve both at / and at /moonbit-Manim/ on GitHub Pages.
 const html = fs.readFileSync(path.join(site, 'index.html'), 'utf8');
 let assets = 0;
-for (const match of html.matchAll(/(?:src|href|poster)="([^"#]+)"/g)) {
+for (const match of html.matchAll(/(?:src|href|poster)="([^"]+)"/g)) {
   const url = match[1];
-  if (/^https?:/.test(url)) continue;
+  if (/^https?:/.test(url) || url.startsWith('#')) continue;
   assert.ok(!url.startsWith('/'), `Use a relative URL for Pages: ${url}`);
-  assert.ok(fs.existsSync(path.join(site, url.split('#')[0])), `Missing asset: ${url}`);
+  const parsed = new URL(url, 'https://example.com/moonbit-Manim/');
+  const local = parsed.pathname.slice('/moonbit-Manim/'.length) || 'index.html';
+  assert.ok(fs.existsSync(path.join(site, local)), `Missing asset: ${url}`);
   assets++;
 }
-assert.equal((html.match(/<video\b/g) || []).length, 6);
+const projects = ['matrix', 'bezier', 'pythagoras', 'tangent', 'lissajous', 'morph'];
+assert.equal((html.match(/role="tab"/g) || []).length, projects.length);
+assert.equal((html.match(/class="project-card"/g) || []).length, projects.length);
+for (const name of projects) {
+  assert.ok(html.includes(`data-scene="${name}"`), `Missing experiment tab: ${name}`);
+  assert.ok(html.includes(`?scene=${name}#playground`), `Missing project link: ${name}`);
+  assert.ok(fs.readFileSync(path.join(site, 'assets/projects', name + '.svg'), 'utf8').startsWith('<svg '));
+}
+assert.equal((html.match(/<video\b/g) || []).length, 7);
 assert.ok(fs.existsSync(path.join(site, 'assets/licenses/MATHJAX-LICENSE.txt')));
 assert.ok(fs.existsSync(path.join(site, 'assets/social.png')));
-console.log(`Browser engine verified: identity, shear, rotation, reflection, singular matrices, arc lengths and area invariance. ${assets} local links/assets verified.`);
+console.log(`Six browser projects verified: matrices, arc lengths, area invariance, secant limits, oscillator coordinates and morph endpoints. Seven videos and ${assets} local links/assets verified.`);

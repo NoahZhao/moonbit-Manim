@@ -4,6 +4,7 @@
 // Regenerate the committed browser runtime. Pages serves site/ without a toolchain.
 const fs = require('node:fs');
 const path = require('node:path');
+const vm = require('node:vm');
 const { execFileSync } = require('node:child_process');
 const root = path.resolve(__dirname, '..');
 const site = path.join(root, 'site');
@@ -18,9 +19,29 @@ for (const file of ['NOTICE.md', 'MATHJAX-LICENSE.txt']) {
 }
 console.log('Site runtime and license notices updated in site/.');
 
+// Project covers come from the exact browser engine shipped with the website.
+const context = vm.createContext({ console });
+vm.runInContext(fs.readFileSync(path.join(site, 'assets/engine.js'), 'utf8'), context);
+const projects = [
+  ['tangent', 0.25, -1.5, 2, 0],
+  ['lissajous', 0.85, 3, 2, 90],
+  ['matrix', 1, 1, 1.5, 15],
+  ['bezier', 0.75, 2.6, -2.6, 0],
+  ['pythagoras', 1, 2, 3, 0],
+  ['morph', 0.45, 0, 0, 0.3],
+];
+fs.mkdirSync(path.join(site, 'assets/projects'), { recursive: true });
+for (const [name, ...parameters] of projects) {
+  const result = JSON.parse(context.MoonManim.render(name, ...parameters));
+  if (result.error || !result.svg || /NaN|Infinity/.test(result.svg)) throw new Error('Invalid project cover: ' + name);
+  fs.writeFileSync(path.join(site, 'assets/projects', name + '.svg'), result.svg);
+}
+console.log('Generated six mathematical project covers.');
+
 if (process.argv.includes('--media')) {
   const sharp = require('sharp');
   const demos = [
+    ['dynamics/01-tangent.mp4', 'tangent', 7],
     ['lessons/01-quadratic.mp4', 'quadratic', 13],
     ['lessons/02-linear-algebra.mp4', 'matrix', 14],
     ['lessons/03-pythagoras.mp4', 'pythagoras', 19],

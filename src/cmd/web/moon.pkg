@@ -5,8 +5,11 @@ import {
   "moonmanim/core/math",
   "moonmanim/core/mobject",
   "moonmanim/core/render",
+  "moonmanim/core/scene",
+  "moonmanim/core/errors",
   "moonmanim/core/teaching",
   "moonbitlang/core/json",
+  "moonbitlang/core/math" @scalar,
 }
 
 pkgtype(kind: "executable")

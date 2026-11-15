@@ -22,6 +22,10 @@ function _M0TP39moonmanim4core7mobject5Color(param0, param1, param2) {
   this.g = param1;
   this.b = param2;
 }
+function _M0TP39moonmanim4core8timeline9FrameRate(param0, param1) {
+  this.numerator = param0;
+  this.denominator = param1;
+}
 function _M0DTPC16option6OptionGdE4None() {}
 _M0DTPC16option6OptionGdE4None.prototype.$tag = 0;
 const _M0DTPC16option6OptionGdE4None__ = new _M0DTPC16option6OptionGdE4None();
@@ -73,6 +77,38 @@ function $make_array_len_and_init(a, b) {
   arr.fill(b);
   return arr;
 }
+function _M0DTPC16result6ResultGNRP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGNRP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGNRP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGNRP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGARP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGARP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGARP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGARP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGNURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGNURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGNURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGNURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGAURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGAURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGAURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGAURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
 function _M0TPB9ArrayViewGRP39moonmanim4core8geometry7ContourE(param0, param1, param2) {
   this.buf = param0;
   this.start = param1;
@@ -82,6 +118,14 @@ function _M0TPB9ArrayViewGRP39moonmanim4core8geometry5CubicE(param0, param1, par
   this.buf = param0;
   this.start = param1;
   this.end = param2;
+}
+function _M0TPB5ArrayGiE(param0, param1) {
+  this.buf = param0;
+  this.len = param1;
+}
+function _M0TPB5ArrayGRPB5ArrayGiEE(param0, param1) {
+  this.buf = param0;
+  this.len = param1;
 }
 function _M0TPB3MapGsRPC14json4JsonE(param0, param1, param2, param3, param4, param5, param6) {
   this.entries = param0;
@@ -180,8 +224,10 @@ function _M0DTPC15error5Error59moonmanim_2fcore_2ferrors_2eEngineError_2eAnimati
 _M0DTPC15error5Error59moonmanim_2fcore_2ferrors_2eEngineError_2eAnimationConflict.prototype.$tag = 2;
 function _M0DTPC15error5Error51moonmanim_2fcore_2ferrors_2eEngineError_2eSceneBusy() {}
 _M0DTPC15error5Error51moonmanim_2fcore_2ferrors_2eEngineError_2eSceneBusy.prototype.$tag = 1;
+const _M0DTPC15error5Error51moonmanim_2fcore_2ferrors_2eEngineError_2eSceneBusy__ = new _M0DTPC15error5Error51moonmanim_2fcore_2ferrors_2eEngineError_2eSceneBusy();
 function _M0DTPC15error5Error53moonmanim_2fcore_2ferrors_2eEngineError_2eSceneFailed() {}
 _M0DTPC15error5Error53moonmanim_2fcore_2ferrors_2eEngineError_2eSceneFailed.prototype.$tag = 0;
+const _M0DTPC15error5Error53moonmanim_2fcore_2ferrors_2eEngineError_2eSceneFailed__ = new _M0DTPC15error5Error53moonmanim_2fcore_2ferrors_2eEngineError_2eSceneFailed();
 function _M0DTPC16result6ResultGRP39moonmanim4core4math7Affine2RP39moonmanim4core6errors11EngineErrorE3Err(param0) {
   this._0 = param0;
 }
@@ -301,6 +347,14 @@ function _M0DTPC16result6ResultGORP39moonmanim4core4math4Vec3RP39moonmanim4core6
   this._0 = param0;
 }
 _M0DTPC16result6ResultGORP39moonmanim4core4math4Vec3RP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRP39moonmanim4core8geometry5CubicRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP39moonmanim4core8geometry5CubicRP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP39moonmanim4core8geometry5CubicRP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP39moonmanim4core8geometry5CubicRP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
 function _M0DTPC16result6ResultGRP39moonmanim4core7mobject5ColorRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
   this._0 = param0;
 }
@@ -339,10 +393,6 @@ function _M0TPB5ArrayGRP39moonmanim4core7mobject4SlotE(param0, param1) {
   this.buf = param0;
   this.len = param1;
 }
-function _M0TPB5ArrayGiE(param0, param1) {
-  this.buf = param0;
-  this.len = param1;
-}
 function _M0DTPC16result6ResultGRP39moonmanim4core7mobject5EntryRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
   this._0 = param0;
 }
@@ -373,6 +423,14 @@ function _M0TP39moonmanim4core7mobject8ObjectId(param0, param1, param2) {
   this.slot = param1;
   this.generation = param2;
 }
+function _M0DTPC16result6ResultGbRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGbRP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGbRP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGbRP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
 function _M0TPB5ArrayGRP39moonmanim4core7mobject8DrawItemE(param0, param1) {
   this.buf = param0;
   this.len = param1;
@@ -418,6 +476,13 @@ function _M0TP39moonmanim4core11coordinates11NumberPlane(param0, param1, param2,
   this.y_max = param3;
   this.transform = param4;
 }
+function _M0TPB8MutLocalGdE(param0) {
+  this.val = param0;
+}
+function _M0TPB5ArrayGdE(param0, param1) {
+  this.buf = param0;
+  this.len = param1;
+}
 function _M0DTPC16result6ResultGsRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
   this._0 = param0;
 }
@@ -441,6 +506,148 @@ function _M0TP39moonmanim4core6render8Camera2D(param0, param1, param2, param3, p
   this.frame_height = param3;
   this.center = param4;
   this.background = param5;
+}
+function _M0DTPC16result6ResultGdRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGdRP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGdRP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGdRP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function _M0TPB5ArrayGRP39moonmanim4core5scene7UpdaterE(param0, param1) {
+  this.buf = param0;
+  this.len = param1;
+}
+function _M0DTPC16result6ResultGRPB5ArrayGRP39moonmanim4core5scene7UpdaterERP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB5ArrayGRP39moonmanim4core5scene7UpdaterERP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB5ArrayGRP39moonmanim4core5scene7UpdaterERP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB5ArrayGRP39moonmanim4core5scene7UpdaterERP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function _M0TP39moonmanim4core5scene7Updater(param0, param1, param2, param3) {
+  this.target = param0;
+  this.dependencies = param1;
+  this.trackers = param2;
+  this.callback = param3;
+}
+function _M0TPB9ArrayViewGRP39moonmanim4core7mobject8ObjectIdE(param0, param1, param2) {
+  this.buf = param0;
+  this.start = param1;
+  this.end = param2;
+}
+function _M0TPB9ArrayViewGRP39moonmanim4core5scene12ValueTrackerE(param0, param1, param2) {
+  this.buf = param0;
+  this.start = param1;
+  this.end = param2;
+}
+function _M0TPB5ArrayGRP39moonmanim4core7mobject8ObjectIdE(param0, param1) {
+  this.buf = param0;
+  this.len = param1;
+}
+function _M0TPB5ArrayGRP39moonmanim4core5scene12ValueTrackerE(param0, param1) {
+  this.buf = param0;
+  this.len = param1;
+}
+function _M0DTPC16result6ResultGORP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGORP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGORP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGORP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function $f64_convert_i64(a) {
+  return Number(BigInt.asIntN(64, a));
+}
+function _M0TPB5ArrayGURP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core7mobject11ObjectStateEE(param0, param1) {
+  this.buf = param0;
+  this.len = param1;
+}
+function _M0DTPC16result6ResultGRP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function _M0TP39moonmanim4core5scene11ObjectInput(param0, param1, param2) {
+  this.id = param0;
+  this.state = param1;
+  this.world = param2;
+}
+function _M0DTPC16result6ResultGURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function _M0TP39moonmanim4core5scene13UpdateContext(param0, param1, param2, param3) {
+  this.time = param0;
+  this.dt = param1;
+  this.objects = param2;
+  this.values = param3;
+}
+function _M0DTPC16result6ResultGuRPC15error5ErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGuRPC15error5ErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGuRPC15error5ErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGuRPC15error5ErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRP39moonmanim4core5scene12ValueTrackerRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP39moonmanim4core5scene12ValueTrackerRP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP39moonmanim4core5scene12ValueTrackerRP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP39moonmanim4core5scene12ValueTrackerRP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function _M0TP39moonmanim4core5scene12ValueTracker(param0, param1) {
+  this.owner = param0;
+  this.slot = param1;
+}
+function _M0TP39moonmanim4core5scene5Scene(param0, param1, param2, param3, param4, param5, param6, param7, param8) {
+  this.store = param0;
+  this.renderer = param1;
+  this.rate = param2;
+  this.frame_index = param3;
+  this.busy = param4;
+  this.failed = param5;
+  this.tracker_owner = param6;
+  this.trackers = param7;
+  this.updaters = param8;
+}
+function _M0TPB5ArrayGOdE(param0, param1) {
+  this.buf = param0;
+  this.len = param1;
+}
+function _M0DTPC16result6ResultGRP39moonmanim4core6render5FrameRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP39moonmanim4core6render5FrameRP39moonmanim4core6errors11EngineErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP39moonmanim4core6render5FrameRP39moonmanim4core6errors11EngineErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP39moonmanim4core6render5FrameRP39moonmanim4core6errors11EngineErrorE2Ok.prototype.$tag = 1;
+function _M0TP39moonmanim4core6render5Frame(param0, param1, param2) {
+  this.index = param0;
+  this.time = param1;
+  this.items = param2;
 }
 function _M0DTPC16result6ResultGRP39moonmanim4core8teaching10PythagorasRP39moonmanim4core6errors11EngineErrorE3Err(param0) {
   this._0 = param0;
@@ -471,16 +678,14 @@ function _M0TPB9ArrayViewGRP39moonmanim4core4math4Vec3E(param0, param1, param2) 
   this.start = param1;
   this.end = param2;
 }
-function _M0TPB9ArrayViewGUsRPC14json4JsonEE(param0, param1, param2) {
-  this.buf = param0;
-  this.start = param1;
-  this.end = param2;
+function _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRPC15error5ErrorE3Err(param0) {
+  this._0 = param0;
 }
-function _M0TP39moonmanim4core6render5Frame(param0, param1, param2) {
-  this.index = param0;
-  this.time = param1;
-  this.items = param2;
+_M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRPC15error5ErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRPC15error5ErrorE2Ok(param0) {
+  this._0 = param0;
 }
+_M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRPC15error5ErrorE2Ok.prototype.$tag = 1;
 function _M0DTPC16result6ResultGsRPC15error5ErrorE3Err(param0) {
   this._0 = param0;
 }
@@ -489,27 +694,39 @@ function _M0DTPC16result6ResultGsRPC15error5ErrorE2Ok(param0) {
   this._0 = param0;
 }
 _M0DTPC16result6ResultGsRPC15error5ErrorE2Ok.prototype.$tag = 1;
+function _M0TPB9ArrayViewGUsRPC14json4JsonEE(param0, param1, param2) {
+  this.buf = param0;
+  this.start = param1;
+  this.end = param2;
+}
 const _M0FP49moonmanim4core3cmd3web7install = (callback) => { globalThis.MoonManim = Object.freeze({ render: callback }); };
 const _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger = { method_0: _M0IPB13StringBuilderPB6Logger13write__string, method_1: _M0IP016_24default__implPB6Logger16write__substringGRPB13StringBuilderE, method_2: _M0IPB13StringBuilderPB6Logger11write__view, method_3: _M0IPB13StringBuilderPB6Logger11write__char, method_4: _M0IP016_24default__implPB6Logger28write__string__interpolationGRPB13StringBuilderE, method_5: _M0IP016_24default__implPB6Logger5writeGRPB13StringBuilderE };
+const _M0FP089moonmanim_2fcore_2fcmd_2fweb_2fBrowserSink_24as_24_40moonmanim_2fcore_2frender_2eRenderer = { method_0: _M0IP49moonmanim4core3cmd3web11BrowserSinkP39moonmanim4core6render8Renderer6render };
 const _M0FPB18double__max__value = $i64_reinterpret_f64(9218868437227405311n);
 const _M0FPB18double__min__value = $i64_reinterpret_f64(18442240474082181119n);
-const _M0MPB4Iter4nextN6constrS269GRP39moonmanim4core7mobject8DrawItemE = 0;
-const _M0MPB4Iter4nextN6constrS270GRP39moonmanim4core7mobject8DrawItemE = 0;
-const _M0MPB4Iter3newN6constrS303GRP39moonmanim4core7mobject8DrawItemE = 0;
+const _M0MPB4Iter4nextN6constrS387GRP39moonmanim4core7mobject8DrawItemE = 0;
+const _M0MPB4Iter4nextN6constrS388GRP39moonmanim4core7mobject8DrawItemE = 0;
+const _M0MPB4Iter3newN6constrS445GRP39moonmanim4core7mobject8DrawItemE = 0;
 const _M0FPC16double14not__a__number = $i64_reinterpret_f64(9221120237041090561n);
 const _M0FPC16double8infinity = $i64_reinterpret_f64(9218868437227405312n);
-const _M0MP39moonmanim4core4math4Vec34zeroN6recordS954 = new _M0TP39moonmanim4core4math4Vec3(0, 0, 0);
-const _M0MP39moonmanim4core4math7Affine28identityN6recordS971 = new _M0TP39moonmanim4core4math7Affine2(1, 0, 0, 1, 0, 0);
-const _M0MP39moonmanim4core7mobject5Color4blueN6recordS1207 = new _M0TP39moonmanim4core7mobject5Color(0.345, 0.769, 0.867);
-const _M0MP39moonmanim4core7mobject5Color5blackN6recordS1208 = new _M0TP39moonmanim4core7mobject5Color(0, 0, 0);
+const _M0MP39moonmanim4core4math4Vec34zeroN6recordS1252 = new _M0TP39moonmanim4core4math4Vec3(0, 0, 0);
+const _M0MP39moonmanim4core4math7Affine28identityN6recordS1269 = new _M0TP39moonmanim4core4math7Affine2(1, 0, 0, 1, 0, 0);
+const _M0MP39moonmanim4core7mobject5Color4blueN6recordS1510 = new _M0TP39moonmanim4core7mobject5Color(0.345, 0.769, 0.867);
+const _M0MP39moonmanim4core7mobject5Color4pinkN6recordS1511 = new _M0TP39moonmanim4core7mobject5Color(0.82, 0.278, 0.741);
+const _M0MP39moonmanim4core7mobject5Color5blackN6recordS1512 = new _M0TP39moonmanim4core7mobject5Color(0, 0, 0);
+const _M0MP39moonmanim4core8timeline9FrameRate5fps60N6recordS1720 = new _M0TP39moonmanim4core8timeline9FrameRate(60, 1);
 const _M0FPB4seed = _M0FPB12random__seed();
-const _M0FP49moonmanim4core3cmd3web5frameN6constrS1370 = new _M0DTPC16option6OptionGdE4Some(-6);
-const _M0FP49moonmanim4core3cmd3web5frameN6constrS1371 = new _M0DTPC16option6OptionGdE4Some(6);
-const _M0FP49moonmanim4core3cmd3web5frameN6constrS1372 = new _M0DTPC16option6OptionGdE4Some(-4);
-const _M0FP49moonmanim4core3cmd3web5frameN6constrS1373 = new _M0DTPC16option6OptionGdE4Some(4);
-const _M0FP49moonmanim4core3cmd3web5frameN6constrS1374 = 960;
-const _M0FP49moonmanim4core3cmd3web5frameN6constrS1375 = 600;
-const _M0FP49moonmanim4core3cmd3web5frameN6constrS1376 = new _M0DTPC16option6OptionGdE4Some(8);
+const _M0FP49moonmanim4core3cmd3web14tangent__frameN6constrS1890 = 400;
+const _M0FP49moonmanim4core3cmd3web14tangent__frameN6constrS1891 = 960;
+const _M0FP49moonmanim4core3cmd3web14tangent__frameN6constrS1892 = 600;
+const _M0FP49moonmanim4core3cmd3web14tangent__frameN6constrS1893 = new _M0DTPC16option6OptionGdE4Some(8);
+const _M0FP49moonmanim4core3cmd3web5frameN6constrS1943 = new _M0DTPC16option6OptionGdE4Some(-6);
+const _M0FP49moonmanim4core3cmd3web5frameN6constrS1944 = new _M0DTPC16option6OptionGdE4Some(6);
+const _M0FP49moonmanim4core3cmd3web5frameN6constrS1945 = new _M0DTPC16option6OptionGdE4Some(-4);
+const _M0FP49moonmanim4core3cmd3web5frameN6constrS1946 = new _M0DTPC16option6OptionGdE4Some(4);
+const _M0FP49moonmanim4core3cmd3web5frameN6constrS1947 = 960;
+const _M0FP49moonmanim4core3cmd3web5frameN6constrS1948 = 600;
+const _M0FP49moonmanim4core3cmd3web5frameN6constrS1949 = new _M0DTPC16option6OptionGdE4Some(8);
 function _M0FPB13consume4__acc(acc, input) {
   const _p = (acc >>> 0) + ((Math.imul(input, -1028477379) | 0) >>> 0) | 0;
   return Math.imul(_p << 17 | (_p >>> 15 | 0), 668265263) | 0;
@@ -556,12 +773,62 @@ function _M0MPC15array10FixedArray12unsafe__blitGRPB17UnsafeMaybeUninitGRP39moon
     }
   }
 }
+function _M0MPC15array10FixedArray12unsafe__blitGRPB17UnsafeMaybeUninitGiEE(dst, dst_offset, src, src_offset, len) {
+  if (dst === src && dst_offset < src_offset) {
+    let _tmp = 0;
+    while (true) {
+      const i = _tmp;
+      if (i < len) {
+        const _tmp$2 = dst_offset + i | 0;
+        const _tmp$3 = src_offset + i | 0;
+        if (_tmp$2 >>> 0 < dst.length) {
+          dst[_tmp$2] = _tmp$3 >>> 0 < src.length ? src[_tmp$3] : $oob();
+        } else {
+          $oob();
+        }
+        _tmp = i + 1 | 0;
+        continue;
+      } else {
+        return;
+      }
+    }
+  } else {
+    let _tmp = len - 1 | 0;
+    let _tmp$2 = len > 0;
+    while (true) {
+      const i = _tmp;
+      const _more = _tmp$2;
+      if (_more) {
+        const _tmp$3 = dst_offset + i | 0;
+        const _tmp$4 = src_offset + i | 0;
+        if (_tmp$3 >>> 0 < dst.length) {
+          dst[_tmp$3] = _tmp$4 >>> 0 < src.length ? src[_tmp$4] : $oob();
+        } else {
+          $oob();
+        }
+        _tmp = i - 1 | 0;
+        _tmp$2 = i > 0;
+        continue;
+      } else {
+        return;
+      }
+    }
+  }
+}
 function _M0MPB18UninitializedArray12unsafe__blitGRP39moonmanim4core7mobject8DrawItemE(dst, dst_offset, src, src_offset, len) {
   _M0MPC15array10FixedArray12unsafe__blitGRPB17UnsafeMaybeUninitGRP39moonmanim4core7mobject4SlotEE(dst, dst_offset, src, src_offset, len);
+}
+function _M0MPB18UninitializedArray12unsafe__blitGiE(dst, dst_offset, src, src_offset, len) {
+  _M0MPC15array10FixedArray12unsafe__blitGRPB17UnsafeMaybeUninitGiEE(dst, dst_offset, src, src_offset, len);
 }
 function _M0MPB18UninitializedArray23unsafe__make__and__blitGRP39moonmanim4core7mobject8DrawItemE(src, allocate_len, src_offset, dst_offset, blit_len) {
   const dst = new Array(allocate_len);
   _M0MPB18UninitializedArray12unsafe__blitGRP39moonmanim4core7mobject8DrawItemE(dst, dst_offset, src, src_offset, blit_len);
+  return dst;
+}
+function _M0MPB18UninitializedArray23unsafe__make__and__blitGiE(src, allocate_len, src_offset, dst_offset, blit_len) {
+  const dst = new Array(allocate_len);
+  _M0MPB18UninitializedArray12unsafe__blitGiE(dst, dst_offset, src, src_offset, blit_len);
   return dst;
 }
 function _M0MPB13StringBuilder13write__objectGsE(self, obj) {
@@ -610,6 +877,43 @@ function _M0MPB18UninitializedArray23make__and__blit_2einnerGRP39moonmanim4core7
     return $panic(_string_builder.val);
   }
 }
+function _M0MPB18UninitializedArray23make__and__blit_2einnerGiE(src, allocate_len, len, src_offset, dst_offset) {
+  let _tmp;
+  if (allocate_len >= 0) {
+    let _tmp$2;
+    if (len >= 0) {
+      let _tmp$3;
+      const _p = src.length;
+      if (src_offset >= 0 && src_offset <= (_p - len | 0)) {
+        _tmp$3 = dst_offset >= 0 && dst_offset <= (allocate_len - len | 0);
+      } else {
+        _tmp$3 = false;
+      }
+      _tmp$2 = _tmp$3;
+    } else {
+      _tmp$2 = false;
+    }
+    _tmp = _tmp$2;
+  } else {
+    _tmp = false;
+  }
+  if (_tmp) {
+    return _M0MPB18UninitializedArray23unsafe__make__and__blitGiE(src, allocate_len, src_offset, dst_offset, len);
+  } else {
+    const _string_builder = _M0MPB13StringBuilder21StringBuilder_2einner(89);
+    _M0IPB13StringBuilderPB6Logger13write__string(_string_builder, "bounds check failed: allocate_len = ");
+    _M0MPB13StringBuilder13write__objectGiE(_string_builder, allocate_len);
+    _M0IPB13StringBuilderPB6Logger13write__string(_string_builder, ", src_offset = ");
+    _M0MPB13StringBuilder13write__objectGiE(_string_builder, src_offset);
+    _M0IPB13StringBuilderPB6Logger13write__string(_string_builder, ", dst_offset = ");
+    _M0MPB13StringBuilder13write__objectGiE(_string_builder, dst_offset);
+    _M0IPB13StringBuilderPB6Logger13write__string(_string_builder, ", len = ");
+    _M0MPB13StringBuilder13write__objectGiE(_string_builder, len);
+    _M0IPB13StringBuilderPB6Logger13write__string(_string_builder, ", src.length = ");
+    _M0MPB13StringBuilder13write__objectGiE(_string_builder, src.length);
+    return $panic(_string_builder.val);
+  }
+}
 function _M0MPB13StringBuilder21StringBuilder_2einner(size_hint) {
   return size_hint >= 0 ? new _M0TPB13StringBuilder("") : $panic("size_hint must be non-negative");
 }
@@ -619,7 +923,7 @@ function _M0IPB13StringBuilderPB6Logger11write__char(self, ch) {
 function _M0IPB13StringBuilderPB6Logger13write__string(self, str) {
   self.val = `${self.val}${str}`;
 }
-function _M0MPC14byte4Byte7to__hexN14to__hex__digitS236(i) {
+function _M0MPC14byte4Byte7to__hexN14to__hex__digitS352(i) {
   if (i < 10) {
     const _p = (i + 48 | 0) & 255;
     return _p;
@@ -631,10 +935,13 @@ function _M0MPC14byte4Byte7to__hexN14to__hex__digitS236(i) {
 }
 function _M0MPC14byte4Byte7to__hex(b) {
   const _self = _M0MPB13StringBuilder21StringBuilder_2einner(8);
-  _M0IPB13StringBuilderPB6Logger11write__char(_self, _M0MPC14byte4Byte7to__hexN14to__hex__digitS236((b / 16 | 0) & 255));
-  _M0IPB13StringBuilderPB6Logger11write__char(_self, _M0MPC14byte4Byte7to__hexN14to__hex__digitS236((b % 16 | 0) & 255));
+  _M0IPB13StringBuilderPB6Logger11write__char(_self, _M0MPC14byte4Byte7to__hexN14to__hex__digitS352((b / 16 | 0) & 255));
+  _M0IPB13StringBuilderPB6Logger11write__char(_self, _M0MPC14byte4Byte7to__hexN14to__hex__digitS352((b % 16 | 0) & 255));
   const _p = _self;
   return _p.val;
+}
+function _M0IP016_24default__implPB2Eq10not__equalGRP39moonmanim4core7mobject8ObjectIdE(x, y) {
+  return !(x.owner === y.owner && (x.slot === y.slot && BigInt.asUintN(64, x.generation) === BigInt.asUintN(64, y.generation)));
 }
 function _M0IP016_24default__implPB2Eq10not__equalGRP39moonmanim4core4math4Vec3E(x, y) {
   return !(x.x === y.x && x.y === y.y && x.z === y.z);
@@ -728,13 +1035,13 @@ function _M0MPB4Iter4nextGRP39moonmanim4core7mobject8DrawItemE(self) {
   const result = _func();
   const _bind = self.size_hint;
   if (result === undefined) {
-    self.size_hint = _M0MPB4Iter4nextN6constrS270GRP39moonmanim4core7mobject8DrawItemE;
+    self.size_hint = _M0MPB4Iter4nextN6constrS388GRP39moonmanim4core7mobject8DrawItemE;
   } else {
     if (_bind === undefined) {
     } else {
       const _Some = _bind;
       const _n = _Some;
-      self.size_hint = _n > 0 ? _n - 1 | 0 : _M0MPB4Iter4nextN6constrS269GRP39moonmanim4core7mobject8DrawItemE;
+      self.size_hint = _n > 0 ? _n - 1 | 0 : _M0MPB4Iter4nextN6constrS387GRP39moonmanim4core7mobject8DrawItemE;
     }
   }
   return result;
@@ -749,7 +1056,7 @@ function _M0MPB4Iter3newGRP39moonmanim4core7mobject8DrawItemE(f, size_hint) {
   } else {
     const _Some = size_hint;
     const _n = _Some;
-    size_hint$2 = _n > 0 ? _n : _M0MPB4Iter3newN6constrS303GRP39moonmanim4core7mobject8DrawItemE;
+    size_hint$2 = _n > 0 ? _n : _M0MPB4Iter3newN6constrS445GRP39moonmanim4core7mobject8DrawItemE;
   }
   return new _M0TPB4IterGRP39moonmanim4core7mobject8DrawItemE(f, size_hint$2);
 }
@@ -846,6 +1153,9 @@ function _M0FPB23array__growth__capacity(current, len, required) {
 function _M0MPC15array5Array8capacityGRP39moonmanim4core7mobject8DrawItemE(self) {
   return self.buf.length;
 }
+function _M0MPC15array5Array8capacityGiE(self) {
+  return self.buf.length;
+}
 function _M0MPC15array5Array14resize__bufferGRP39moonmanim4core7mobject8DrawItemE(self, new_capacity) {
   const old_buf = self.buf;
   self.buf = [];
@@ -854,14 +1164,35 @@ function _M0MPC15array5Array14resize__bufferGRP39moonmanim4core7mobject8DrawItem
   const new_buf = _M0MPB18UninitializedArray23make__and__blit_2einnerGRP39moonmanim4core7mobject8DrawItemE(old_buf, new_capacity, copy_len, 0, 0);
   self.buf = new_buf;
 }
+function _M0MPC15array5Array14resize__bufferGiE(self, new_capacity) {
+  const old_buf = self.buf;
+  self.buf = [];
+  const len = self.len;
+  const copy_len = len < new_capacity ? len : new_capacity;
+  const new_buf = _M0MPB18UninitializedArray23make__and__blit_2einnerGiE(old_buf, new_capacity, copy_len, 0, 0);
+  self.buf = new_buf;
+}
 function _M0MPC15array5Array7reallocGRP39moonmanim4core7mobject8DrawItemE(self, required) {
   const old_cap = _M0MPC15array5Array8capacityGRP39moonmanim4core7mobject8DrawItemE(self);
   const new_cap = _M0FPB23array__growth__capacity(old_cap, self.len, required);
   _M0MPC15array5Array14resize__bufferGRP39moonmanim4core7mobject8DrawItemE(self, new_cap);
 }
+function _M0MPC15array5Array7reallocGiE(self, required) {
+  const old_cap = _M0MPC15array5Array8capacityGiE(self);
+  const new_cap = _M0FPB23array__growth__capacity(old_cap, self.len, required);
+  _M0MPC15array5Array14resize__bufferGiE(self, new_cap);
+}
 function _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(self, value) {
   if (self.len === self.buf.length) {
     _M0MPC15array5Array7reallocGRP39moonmanim4core7mobject8DrawItemE(self, self.len + 1 | 0);
+  }
+  const length = self.len;
+  self.buf[length] = value;
+  self.len = length + 1 | 0;
+}
+function _M0MPC15array5Array4pushGiE(self, value) {
+  if (self.len === self.buf.length) {
+    _M0MPC15array5Array7reallocGiE(self, self.len + 1 | 0);
   }
   const length = self.len;
   self.buf[length] = value;
@@ -919,6 +1250,134 @@ function _M0MPC15array13ReadOnlyArray9is__emptyGRP39moonmanim4core8geometry7Cont
 }
 function _M0MPC15array13ReadOnlyArray4iterGRP39moonmanim4core7mobject8DrawItemE(self) {
   return _M0MPC15array10FixedArray4iterGRP39moonmanim4core7mobject8DrawItemE(self);
+}
+function _M0MPC15array13ReadOnlyArray3mapGRP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core5scene11ObjectInputEHRP39moonmanim4core6errors11EngineError(self, f) {
+  const _p = self;
+  let _bind;
+  let _p$2;
+  _L: {
+    _L$2: {
+      let _p$3;
+      _L$3: {
+        _L$4: {
+          if (_p.length === 0) {
+            _p$2 = [];
+            break _L$2;
+          }
+          const _p$4 = _p.length;
+          const _bind$2 = f(_p[0]);
+          let _tmp;
+          if (_bind$2.$tag === 1) {
+            const _ok = _bind$2;
+            _tmp = _ok._0;
+          } else {
+            const _err = _bind$2;
+            _p$3 = _err._0;
+            break _L$4;
+          }
+          const _p$5 = $make_array_len_and_init(_p$4, _tmp);
+          let _tmp$2 = 1;
+          while (true) {
+            const _p$6 = _tmp$2;
+            if (_p$6 < _p$4) {
+              const _bind$3 = f(_p[_p$6]);
+              let _tmp$3;
+              if (_bind$3.$tag === 1) {
+                const _ok = _bind$3;
+                _tmp$3 = _ok._0;
+              } else {
+                const _err = _bind$3;
+                _p$3 = _err._0;
+                break _L$4;
+              }
+              _p$5[_p$6] = _tmp$3;
+              _tmp$2 = _p$6 + 1 | 0;
+              continue;
+            } else {
+              break;
+            }
+          }
+          _bind = new _M0DTPC16result6ResultGARP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE2Ok(_p$5);
+          break _L$3;
+        }
+        _bind = new _M0DTPC16result6ResultGARP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE3Err(_p$3);
+      }
+      break _L;
+    }
+    _bind = new _M0DTPC16result6ResultGARP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE2Ok(_p$2);
+  }
+  let _tmp;
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _tmp = _ok._0;
+  } else {
+    return _bind;
+  }
+  return new _M0DTPC16result6ResultGNRP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE2Ok(_tmp);
+}
+function _M0MPC15array13ReadOnlyArray3mapGRP39moonmanim4core5scene12ValueTrackerURP39moonmanim4core5scene12ValueTrackerdEEHRP39moonmanim4core6errors11EngineError(self, f) {
+  const _p = self;
+  let _bind;
+  let _p$2;
+  _L: {
+    _L$2: {
+      let _p$3;
+      _L$3: {
+        _L$4: {
+          if (_p.length === 0) {
+            _p$2 = [];
+            break _L$2;
+          }
+          const _p$4 = _p.length;
+          const _bind$2 = f(_p[0]);
+          let _tmp;
+          if (_bind$2.$tag === 1) {
+            const _ok = _bind$2;
+            _tmp = _ok._0;
+          } else {
+            const _err = _bind$2;
+            _p$3 = _err._0;
+            break _L$4;
+          }
+          const _p$5 = $make_array_len_and_init(_p$4, _tmp);
+          let _tmp$2 = 1;
+          while (true) {
+            const _p$6 = _tmp$2;
+            if (_p$6 < _p$4) {
+              const _bind$3 = f(_p[_p$6]);
+              let _tmp$3;
+              if (_bind$3.$tag === 1) {
+                const _ok = _bind$3;
+                _tmp$3 = _ok._0;
+              } else {
+                const _err = _bind$3;
+                _p$3 = _err._0;
+                break _L$4;
+              }
+              _p$5[_p$6] = _tmp$3;
+              _tmp$2 = _p$6 + 1 | 0;
+              continue;
+            } else {
+              break;
+            }
+          }
+          _bind = new _M0DTPC16result6ResultGAURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE2Ok(_p$5);
+          break _L$3;
+        }
+        _bind = new _M0DTPC16result6ResultGAURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE3Err(_p$3);
+      }
+      break _L;
+    }
+    _bind = new _M0DTPC16result6ResultGAURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE2Ok(_p$2);
+  }
+  let _tmp;
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _tmp = _ok._0;
+  } else {
+    return _bind;
+  }
+  return new _M0DTPC16result6ResultGNURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE2Ok(_tmp);
 }
 function _M0MPC15array13ReadOnlyArray4mapiGRP39moonmanim4core8geometry5CubicRP39moonmanim4core8geometry5CubicE(self, f) {
   const _p = self;
@@ -1021,6 +1480,20 @@ function _M0MPC15array13ReadOnlyArray3allGRP39moonmanim4core8geometry7ContourE(s
 }
 function _M0MPC15array13ReadOnlyArray3allGRP39moonmanim4core8geometry5CubicE(self, f) {
   return _M0MPC15array10FixedArray3allGRP39moonmanim4core8geometry5CubicE(self, f);
+}
+function _M0MPC15array5Array20unsafe__make__uninitGiE(len) {
+  return new _M0TPB5ArrayGiE(new Array(len), len);
+}
+function _M0MPC15array5Array20unsafe__make__uninitGRPB5ArrayGiEE(len) {
+  return new _M0TPB5ArrayGRPB5ArrayGiEE(new Array(len), len);
+}
+function _M0MPC16option6Option6unwrapGdE(self) {
+  if (self.$tag === 0) {
+    return $panic();
+  } else {
+    const _Some = self;
+    return _Some._0;
+  }
 }
 function _M0FPB21calc__grow__threshold(capacity) {
   return (Math.imul(capacity / 16 | 0, 13) | 0) + ((Math.imul(capacity % 16 | 0, 13) | 0) / 16 | 0) | 0;
@@ -1385,7 +1858,7 @@ function _M0FPB23fixed__bubble__sort__byGRP39moonmanim4core7mobject8DrawItemE(ar
     }
   }
 }
-function _M0FPB24fixed__choose__pivot__byN7sort__2S746GRP39moonmanim4core7mobject8DrawItemE(_env, a, b) {
+function _M0FPB24fixed__choose__pivot__byN7sort__2S1024GRP39moonmanim4core7mobject8DrawItemE(_env, a, b) {
   const swaps = _env._2;
   const cmp = _env._1;
   const arr = _env._0;
@@ -1397,10 +1870,10 @@ function _M0FPB24fixed__choose__pivot__byN7sort__2S746GRP39moonmanim4core7mobjec
     return;
   }
 }
-function _M0FPB24fixed__choose__pivot__byN7sort__3S747GRP39moonmanim4core7mobject8DrawItemE(_env, a, b, c) {
-  _M0FPB24fixed__choose__pivot__byN7sort__2S746GRP39moonmanim4core7mobject8DrawItemE(_env, a, b);
-  _M0FPB24fixed__choose__pivot__byN7sort__2S746GRP39moonmanim4core7mobject8DrawItemE(_env, b, c);
-  _M0FPB24fixed__choose__pivot__byN7sort__2S746GRP39moonmanim4core7mobject8DrawItemE(_env, a, b);
+function _M0FPB24fixed__choose__pivot__byN7sort__3S1025GRP39moonmanim4core7mobject8DrawItemE(_env, a, b, c) {
+  _M0FPB24fixed__choose__pivot__byN7sort__2S1024GRP39moonmanim4core7mobject8DrawItemE(_env, a, b);
+  _M0FPB24fixed__choose__pivot__byN7sort__2S1024GRP39moonmanim4core7mobject8DrawItemE(_env, b, c);
+  _M0FPB24fixed__choose__pivot__byN7sort__2S1024GRP39moonmanim4core7mobject8DrawItemE(_env, a, b);
 }
 function _M0FPB24fixed__choose__pivot__byGRP39moonmanim4core7mobject8DrawItemE(arr, cmp) {
   const len = arr.end - arr.start | 0;
@@ -1411,11 +1884,11 @@ function _M0FPB24fixed__choose__pivot__byGRP39moonmanim4core7mobject8DrawItemE(a
     const c = Math.imul(len / 4 | 0, 3) | 0;
     const _env = { _0: arr, _1: cmp, _2: swaps };
     if (len > 50) {
-      _M0FPB24fixed__choose__pivot__byN7sort__3S747GRP39moonmanim4core7mobject8DrawItemE(_env, a - 1 | 0, a, a + 1 | 0);
-      _M0FPB24fixed__choose__pivot__byN7sort__3S747GRP39moonmanim4core7mobject8DrawItemE(_env, b - 1 | 0, b, b + 1 | 0);
-      _M0FPB24fixed__choose__pivot__byN7sort__3S747GRP39moonmanim4core7mobject8DrawItemE(_env, c - 1 | 0, c, c + 1 | 0);
+      _M0FPB24fixed__choose__pivot__byN7sort__3S1025GRP39moonmanim4core7mobject8DrawItemE(_env, a - 1 | 0, a, a + 1 | 0);
+      _M0FPB24fixed__choose__pivot__byN7sort__3S1025GRP39moonmanim4core7mobject8DrawItemE(_env, b - 1 | 0, b, b + 1 | 0);
+      _M0FPB24fixed__choose__pivot__byN7sort__3S1025GRP39moonmanim4core7mobject8DrawItemE(_env, c - 1 | 0, c, c + 1 | 0);
     }
-    _M0FPB24fixed__choose__pivot__byN7sort__3S747GRP39moonmanim4core7mobject8DrawItemE(_env, a, b, c);
+    _M0FPB24fixed__choose__pivot__byN7sort__3S1025GRP39moonmanim4core7mobject8DrawItemE(_env, a, b, c);
   }
   if (swaps.val === 12) {
     _M0MPC15array12MutArrayView14rev__in__placeGRP39moonmanim4core7mobject8DrawItemE(arr);
@@ -1640,6 +2113,21 @@ function _M0MPC15array12MutArrayView8sort__byGRP39moonmanim4core7mobject8DrawIte
 function _M0MPC15array5Array8sort__byGRP39moonmanim4core7mobject8DrawItemE(self, cmp) {
   const _bind = self.len;
   _M0MPC15array12MutArrayView8sort__byGRP39moonmanim4core7mobject8DrawItemE(new _M0TPB12MutArrayViewGRP39moonmanim4core7mobject8DrawItemE(self.buf, 0, _bind), cmp);
+}
+function _M0MPC15array5Array4makeGiE(len, elem) {
+  const arr = _M0MPC15array5Array20unsafe__make__uninitGiE(len);
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < len) {
+      arr.buf[i] = elem;
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return arr;
 }
 function _M0MPC15array5Array3popGiE(self) {
   const len = self.len;
@@ -2073,7 +2561,7 @@ function _M0FP39moonmanim4core4math7clamp01(value) {
   return _M0MPC16double6Double3min(_M0MPC16double6Double3max(value, 0), 1);
 }
 function _M0MP39moonmanim4core4math7Affine211translation(x, y) {
-  const _bind = _M0MP39moonmanim4core4math7Affine28identityN6recordS971;
+  const _bind = _M0MP39moonmanim4core4math7Affine28identityN6recordS1269;
   return new _M0TP39moonmanim4core4math7Affine2(_bind.a, _bind.b, _bind.c, _bind.d, x, y);
 }
 function _M0MP39moonmanim4core4math7Affine27scaling(x, y) {
@@ -2208,7 +2696,7 @@ function _M0FP39moonmanim4core8geometry6square(size) {
   }
   return new _M0DTPC16result6ResultGRP39moonmanim4core8geometry4PathRP39moonmanim4core6errors11EngineErrorE2Ok(_M0MP39moonmanim4core8geometry4Path3new(new _M0TPB5ArrayGRP39moonmanim4core8geometry7ContourE([_tmp$2], 1)));
 }
-function _M0FP39moonmanim4core8geometry6circleN1pS1008(x, y) {
+function _M0FP39moonmanim4core8geometry6circleN1pS1306(x, y) {
   return _M0MP39moonmanim4core4math4Vec311new_2einner(x, y, 0);
 }
 function _M0FP39moonmanim4core8geometry6circle(radius) {
@@ -2216,7 +2704,18 @@ function _M0FP39moonmanim4core8geometry6circle(radius) {
     return new _M0DTPC16result6ResultGRP39moonmanim4core8geometry4PathRP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("circle radius must be finite and positive"));
   }
   const k = radius * 0.552284749830793564;
-  const _bind = _M0MP39moonmanim4core8geometry7Contour11new_2einner(new _M0TPB5ArrayGRP39moonmanim4core8geometry5CubicE([new _M0TP39moonmanim4core8geometry5Cubic(_M0FP39moonmanim4core8geometry6circleN1pS1008(radius, 0), _M0FP39moonmanim4core8geometry6circleN1pS1008(radius, k), _M0FP39moonmanim4core8geometry6circleN1pS1008(k, radius), _M0FP39moonmanim4core8geometry6circleN1pS1008(0, radius)), new _M0TP39moonmanim4core8geometry5Cubic(_M0FP39moonmanim4core8geometry6circleN1pS1008(0, radius), _M0FP39moonmanim4core8geometry6circleN1pS1008(-k, radius), _M0FP39moonmanim4core8geometry6circleN1pS1008(-radius, k), _M0FP39moonmanim4core8geometry6circleN1pS1008(-radius, 0)), new _M0TP39moonmanim4core8geometry5Cubic(_M0FP39moonmanim4core8geometry6circleN1pS1008(-radius, 0), _M0FP39moonmanim4core8geometry6circleN1pS1008(-radius, -k), _M0FP39moonmanim4core8geometry6circleN1pS1008(-k, -radius), _M0FP39moonmanim4core8geometry6circleN1pS1008(0, -radius)), new _M0TP39moonmanim4core8geometry5Cubic(_M0FP39moonmanim4core8geometry6circleN1pS1008(0, -radius), _M0FP39moonmanim4core8geometry6circleN1pS1008(k, -radius), _M0FP39moonmanim4core8geometry6circleN1pS1008(radius, -k), _M0FP39moonmanim4core8geometry6circleN1pS1008(radius, 0))], 4), true);
+  const _bind = _M0MP39moonmanim4core8geometry7Contour11new_2einner(new _M0TPB5ArrayGRP39moonmanim4core8geometry5CubicE([new _M0TP39moonmanim4core8geometry5Cubic(_M0FP39moonmanim4core8geometry6circleN1pS1306(radius, 0), _M0FP39moonmanim4core8geometry6circleN1pS1306(radius, k), _M0FP39moonmanim4core8geometry6circleN1pS1306(k, radius), _M0FP39moonmanim4core8geometry6circleN1pS1306(0, radius)), new _M0TP39moonmanim4core8geometry5Cubic(_M0FP39moonmanim4core8geometry6circleN1pS1306(0, radius), _M0FP39moonmanim4core8geometry6circleN1pS1306(-k, radius), _M0FP39moonmanim4core8geometry6circleN1pS1306(-radius, k), _M0FP39moonmanim4core8geometry6circleN1pS1306(-radius, 0)), new _M0TP39moonmanim4core8geometry5Cubic(_M0FP39moonmanim4core8geometry6circleN1pS1306(-radius, 0), _M0FP39moonmanim4core8geometry6circleN1pS1306(-radius, -k), _M0FP39moonmanim4core8geometry6circleN1pS1306(-k, -radius), _M0FP39moonmanim4core8geometry6circleN1pS1306(0, -radius)), new _M0TP39moonmanim4core8geometry5Cubic(_M0FP39moonmanim4core8geometry6circleN1pS1306(0, -radius), _M0FP39moonmanim4core8geometry6circleN1pS1306(k, -radius), _M0FP39moonmanim4core8geometry6circleN1pS1306(radius, -k), _M0FP39moonmanim4core8geometry6circleN1pS1306(radius, 0))], 4), true);
+  let _tmp;
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _tmp = _ok._0;
+  } else {
+    return _bind;
+  }
+  return new _M0DTPC16result6ResultGRP39moonmanim4core8geometry4PathRP39moonmanim4core6errors11EngineErrorE2Ok(_M0MP39moonmanim4core8geometry4Path3new(new _M0TPB5ArrayGRP39moonmanim4core8geometry7ContourE([_tmp], 1)));
+}
+function _M0FP39moonmanim4core8geometry4line(start, end) {
+  const _bind = _M0MP39moonmanim4core8geometry7Contour11new_2einner(new _M0TPB5ArrayGRP39moonmanim4core8geometry5CubicE([_M0MP39moonmanim4core8geometry5Cubic4line(start, end)], 1), false);
   let _tmp;
   if (_bind.$tag === 1) {
     const _ok = _bind;
@@ -2575,7 +3074,7 @@ function _M0MP39moonmanim4core8geometry4Path7measure(self, tolerance$46$opt, max
   }
   let metric_transform;
   if (metric_transform$46$opt === undefined) {
-    metric_transform = _M0MP39moonmanim4core4math7Affine28identityN6recordS971;
+    metric_transform = _M0MP39moonmanim4core4math7Affine28identityN6recordS1269;
   } else {
     const _Some = metric_transform$46$opt;
     metric_transform = _Some;
@@ -2780,6 +3279,19 @@ function _M0MP39moonmanim4core8geometry11PathMeasure7partial(self, start, end) {
   }
   return new _M0DTPC16result6ResultGRP39moonmanim4core8geometry4PathRP39moonmanim4core6errors11EngineErrorE2Ok(_M0MP39moonmanim4core8geometry4Path3new(contours));
 }
+function _M0MP39moonmanim4core8geometry5Cubic10subsegment(self, start, end) {
+  const _bind = _M0FP39moonmanim4core8geometry18validate__interval(start, end);
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _ok._0;
+  } else {
+    return _bind;
+  }
+  if (!_M0MP39moonmanim4core8geometry5Cubic10is__finite(self)) {
+    return new _M0DTPC16result6ResultGRP39moonmanim4core8geometry5CubicRP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("curve coordinates must be finite"));
+  }
+  return new _M0DTPC16result6ResultGRP39moonmanim4core8geometry5CubicRP39moonmanim4core6errors11EngineErrorE2Ok(_M0FP39moonmanim4core8geometry14cubic__portion(self, start, end));
+}
 function _M0FP39moonmanim4core7mobject14unit__interval(value) {
   return _M0FP39moonmanim4core4math6finite(value) && (value >= 0 && value <= 1);
 }
@@ -2790,7 +3302,7 @@ function _M0MP39moonmanim4core7mobject5Color3rgb(r, g, b) {
   return new _M0DTPC16result6ResultGRP39moonmanim4core7mobject5ColorRP39moonmanim4core6errors11EngineErrorE2Ok(new _M0TP39moonmanim4core7mobject5Color(r, g, b));
 }
 function _M0MP39moonmanim4core7mobject5Style7default() {
-  return new _M0TP39moonmanim4core7mobject5Style(_M0MP39moonmanim4core7mobject5Color4blueN6recordS1207, _M0MP39moonmanim4core7mobject5Color4blueN6recordS1207, 3, 1, 0, 1, 0);
+  return new _M0TP39moonmanim4core7mobject5Style(_M0MP39moonmanim4core7mobject5Color4blueN6recordS1510, _M0MP39moonmanim4core7mobject5Color4blueN6recordS1510, 3, 1, 0, 1, 0);
 }
 function _M0MP39moonmanim4core7mobject5Style8validate(self) {
   if (!_M0FP39moonmanim4core4math6finite(self.stroke_width) || (self.stroke_width < 0 || (!_M0FP39moonmanim4core7mobject14unit__interval(self.stroke_opacity) || (!_M0FP39moonmanim4core7mobject14unit__interval(self.fill_opacity) || !_M0FP39moonmanim4core7mobject14unit__interval(self.opacity))))) {
@@ -2800,7 +3312,7 @@ function _M0MP39moonmanim4core7mobject5Style8validate(self) {
   }
 }
 function _M0MP39moonmanim4core7mobject11ObjectState13shape_2einner(path, style) {
-  return new _M0TP39moonmanim4core7mobject11ObjectState(path, _M0MP39moonmanim4core4math7Affine28identityN6recordS971, style, 0);
+  return new _M0TP39moonmanim4core7mobject11ObjectState(path, _M0MP39moonmanim4core4math7Affine28identityN6recordS1269, style, 0);
 }
 function _M0MP39moonmanim4core7mobject11ObjectState8validate(self) {
   const _bind = _M0MP39moonmanim4core7mobject5Style8validate(self.style);
@@ -2883,6 +3395,63 @@ function _M0MP39moonmanim4core7mobject5Store3add(self, state) {
     $panic();
   }
   return new _M0DTPC16result6ResultGRP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core6errors11EngineErrorE2Ok(new _M0TP39moonmanim4core7mobject8ObjectId(_tmp, index, _bind$3.buf[index].generation));
+}
+function _M0MP39moonmanim4core7mobject5Store12is__ancestor(self, ancestor, node) {
+  const _bind = _M0MP39moonmanim4core7mobject5Store5entry(self, ancestor);
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _ok._0;
+  } else {
+    return _bind;
+  }
+  let current = node;
+  while (true) {
+    const _bind$2 = current;
+    if (_bind$2 === undefined) {
+      break;
+    } else {
+      const _Some = _bind$2;
+      const _id = _Some;
+      const _bind$3 = _M0MP39moonmanim4core7mobject5Store5entry(self, _id);
+      let entry;
+      if (_bind$3.$tag === 1) {
+        const _ok = _bind$3;
+        entry = _ok._0;
+      } else {
+        return _bind$3;
+      }
+      if (_id.owner === ancestor.owner && (_id.slot === ancestor.slot && BigInt.asUintN(64, _id.generation) === BigInt.asUintN(64, ancestor.generation))) {
+        return new _M0DTPC16result6ResultGbRP39moonmanim4core6errors11EngineErrorE2Ok(true);
+      }
+      current = entry.parent;
+      continue;
+    }
+  }
+  return new _M0DTPC16result6ResultGbRP39moonmanim4core6errors11EngineErrorE2Ok(false);
+}
+function _M0MP39moonmanim4core7mobject5Store3set(self, id, state) {
+  const _bind = _M0MP39moonmanim4core7mobject5Store5entry(self, id);
+  let entry;
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    entry = _ok._0;
+  } else {
+    return _bind;
+  }
+  const _bind$2 = _M0MP39moonmanim4core7mobject11ObjectState8validate(state);
+  if (_bind$2.$tag === 1) {
+    const _ok = _bind$2;
+    _ok._0;
+  } else {
+    return _bind$2;
+  }
+  const _bind$3 = self.slots;
+  const _bind$4 = id.slot;
+  if (_bind$4 < 0 || _bind$4 >= _bind$3.len) {
+    $panic();
+  }
+  _bind$3.buf[_bind$4].entry = new _M0TP39moonmanim4core7mobject5Entry(state, entry.parent, entry.order);
+  return new _M0DTPC16result6ResultGuRP39moonmanim4core6errors11EngineErrorE2Ok(undefined);
 }
 function _M0MP39moonmanim4core7mobject5Store9drawables(self) {
   const items = new _M0TPB5ArrayGRP39moonmanim4core7mobject8DrawItemE([], 0);
@@ -3007,7 +3576,7 @@ function _M0MP39moonmanim4core11coordinates11NumberPlane3new(x_min$46$opt, x_max
   }
   let transform;
   if (transform$46$opt === undefined) {
-    transform = _M0MP39moonmanim4core4math7Affine28identityN6recordS971;
+    transform = _M0MP39moonmanim4core4math7Affine28identityN6recordS1269;
   } else {
     const _Some = transform$46$opt;
     transform = _Some;
@@ -3095,6 +3664,243 @@ function _M0MP39moonmanim4core11coordinates11NumberPlane4axes(self) {
     _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(contours, _tmp);
   }
   return new _M0DTPC16result6ResultGRP39moonmanim4core8geometry4PathRP39moonmanim4core6errors11EngineErrorE2Ok(_M0MP39moonmanim4core8geometry4Path3new(contours));
+}
+function _M0MP39moonmanim4core11coordinates11NumberPlane12plot_2einner(self, function_, samples, breaks) {
+  let _tmp;
+  if (samples < 2) {
+    _tmp = true;
+  } else {
+    let _tmp$2;
+    if (samples > 65536) {
+      _tmp$2 = true;
+    } else {
+      let _tmp$3;
+      let _p;
+      _L: {
+        _L$2: {
+          const _p$2 = breaks.len;
+          const _p$3 = breaks.buf;
+          let _tmp$4 = 0;
+          while (true) {
+            const _p$4 = _tmp$4;
+            if (_p$4 < _p$2) {
+              const _p$5 = _p$3[_p$4];
+              if (!_M0FP39moonmanim4core4math6finite(_p$5)) {
+                _p = true;
+                break _L$2;
+              }
+              _tmp$4 = _p$4 + 1 | 0;
+              continue;
+            } else {
+              break;
+            }
+          }
+          _tmp$3 = false;
+          break _L;
+        }
+        _tmp$3 = _p;
+      }
+      _tmp$2 = _tmp$3;
+    }
+    _tmp = _tmp$2;
+  }
+  if (_tmp) {
+    return new _M0DTPC16result6ResultGRP39moonmanim4core8geometry4PathRP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("plot requires 2..65536 samples and finite breaks"));
+  }
+  const contours = new _M0TPB5ArrayGRP39moonmanim4core8geometry7ContourE([], 0);
+  let segments = new _M0TPB5ArrayGRP39moonmanim4core8geometry5CubicE([], 0);
+  let previous = undefined;
+  const previous_x = new _M0TPB8MutLocalGdE(self.x_min);
+  let _tmp$2 = 0;
+  while (true) {
+    const i = _tmp$2;
+    if (i < samples) {
+      const x = self.x_min + (self.x_max - self.x_min) * (i + 0) / ((samples - 1 | 0) + 0);
+      let crosses;
+      let _tmp$3;
+      let _p;
+      _L: {
+        _L$2: {
+          const _p$2 = breaks.len;
+          const _p$3 = breaks.buf;
+          let _tmp$4 = 0;
+          while (true) {
+            const _p$4 = _tmp$4;
+            if (_p$4 < _p$2) {
+              const _p$5 = _p$3[_p$4];
+              if (_p$5 > previous_x.val && _p$5 <= x) {
+                _p = true;
+                break _L$2;
+              }
+              _tmp$4 = _p$4 + 1 | 0;
+              continue;
+            } else {
+              break;
+            }
+          }
+          _tmp$3 = false;
+          break _L;
+        }
+        _tmp$3 = _p;
+      }
+      if (_tmp$3) {
+        crosses = true;
+      } else {
+        let _tmp$4;
+        let _p$2;
+        _L$2: {
+          _L$3: {
+            const _p$3 = breaks.len;
+            const _p$4 = breaks.buf;
+            let _tmp$5 = 0;
+            while (true) {
+              const _p$5 = _tmp$5;
+              if (_p$5 < _p$3) {
+                const _p$6 = _p$4[_p$5];
+                if (_p$6 === x) {
+                  _p$2 = true;
+                  break _L$3;
+                }
+                _tmp$5 = _p$5 + 1 | 0;
+                continue;
+              } else {
+                break;
+              }
+            }
+            _tmp$4 = false;
+            break _L$2;
+          }
+          _tmp$4 = _p$2;
+        }
+        crosses = _tmp$4;
+      }
+      const y = function_(x);
+      let point;
+      _L$2: {
+        _L$3: {
+          if (y.$tag === 1) {
+            const _Some = y;
+            const _y = _Some._0;
+            if (_M0FP39moonmanim4core4math6finite(_y) && (_y >= self.y_min && _y <= self.y_max)) {
+              point = _M0MP39moonmanim4core11coordinates11NumberPlane5point(self, x, _y);
+            } else {
+              break _L$3;
+            }
+          } else {
+            break _L$3;
+          }
+          break _L$2;
+        }
+        point = undefined;
+      }
+      _L$3: {
+        _L$4: {
+          if (crosses) {
+            break _L$4;
+          } else {
+            if (point === undefined) {
+              break _L$4;
+            }
+          }
+          break _L$3;
+        }
+        const _p$2 = segments;
+        if (!(_p$2.len === 0)) {
+          const _bind = _M0MP39moonmanim4core8geometry7Contour11new_2einner(segments, false);
+          let _tmp$4;
+          if (_bind.$tag === 1) {
+            const _ok = _bind;
+            _tmp$4 = _ok._0;
+          } else {
+            return _bind;
+          }
+          _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(contours, _tmp$4);
+          segments = new _M0TPB5ArrayGRP39moonmanim4core8geometry5CubicE([], 0);
+        }
+        previous = undefined;
+      }
+      const _bind = previous;
+      if (_bind === undefined) {
+      } else {
+        const _Some = _bind;
+        const _a = _Some;
+        if (point === undefined) {
+        } else {
+          const _Some$2 = point;
+          const _b = _Some$2;
+          _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(segments, _M0MP39moonmanim4core8geometry5Cubic4line(_a, _b));
+        }
+      }
+      let _tmp$4;
+      let _tmp$5;
+      let _p$2;
+      _L$4: {
+        _L$5: {
+          const _p$3 = breaks.len;
+          const _p$4 = breaks.buf;
+          let _tmp$6 = 0;
+          while (true) {
+            const _p$5 = _tmp$6;
+            if (_p$5 < _p$3) {
+              const _p$6 = _p$4[_p$5];
+              if (_p$6 === x) {
+                _p$2 = true;
+                break _L$5;
+              }
+              _tmp$6 = _p$5 + 1 | 0;
+              continue;
+            } else {
+              break;
+            }
+          }
+          _tmp$5 = false;
+          break _L$4;
+        }
+        _tmp$5 = _p$2;
+      }
+      if (_tmp$5) {
+        _tmp$4 = undefined;
+      } else {
+        _tmp$4 = point;
+      }
+      previous = _tmp$4;
+      previous_x.val = x;
+      _tmp$2 = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  const _p = segments;
+  if (!(_p.len === 0)) {
+    const _bind = _M0MP39moonmanim4core8geometry7Contour11new_2einner(segments, false);
+    let _tmp$3;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp$3 = _ok._0;
+    } else {
+      return _bind;
+    }
+    _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(contours, _tmp$3);
+  }
+  return new _M0DTPC16result6ResultGRP39moonmanim4core8geometry4PathRP39moonmanim4core6errors11EngineErrorE2Ok(_M0MP39moonmanim4core8geometry4Path3new(contours));
+}
+function _M0MP39moonmanim4core11coordinates11NumberPlane4plot(self, function_, samples$46$opt, breaks$46$opt) {
+  let samples;
+  if (samples$46$opt === undefined) {
+    samples = 240;
+  } else {
+    const _Some = samples$46$opt;
+    samples = _Some;
+  }
+  let breaks;
+  if (breaks$46$opt === undefined) {
+    breaks = new _M0TPB5ArrayGdE([], 0);
+  } else {
+    const _Some = breaks$46$opt;
+    breaks = _Some;
+  }
+  return _M0MP39moonmanim4core11coordinates11NumberPlane12plot_2einner(self, function_, samples, breaks);
 }
 function _M0FP39moonmanim4core6render3css(color) {
   const r = _M0MPC16double6Double7to__int(_M0MPC16double6Double5round(color.r * 255));
@@ -3263,21 +4069,826 @@ function _M0MP39moonmanim4core6render8Camera2D3new(pixel_width$46$opt, pixel_hei
   }
   let center;
   if (center$46$opt === undefined) {
-    center = _M0MP39moonmanim4core4math4Vec34zeroN6recordS954;
+    center = _M0MP39moonmanim4core4math4Vec34zeroN6recordS1252;
   } else {
     const _Some = center$46$opt;
     center = _Some;
   }
   let background;
   if (background$46$opt === undefined) {
-    background = _M0MP39moonmanim4core7mobject5Color5blackN6recordS1208;
+    background = _M0MP39moonmanim4core7mobject5Color5blackN6recordS1512;
   } else {
     const _Some = background$46$opt;
     background = _Some;
   }
   return _M0MP39moonmanim4core6render8Camera2D11new_2einner(pixel_width, pixel_height, frame_height, center, background);
 }
-function _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(x, y) {
+function _M0MP39moonmanim4core5scene13UpdateContext16world__transform(self, id) {
+  const _it = _M0MPC15array13ReadOnlyArray4iterGRP39moonmanim4core7mobject8DrawItemE(self.objects);
+  while (true) {
+    const _bind = _M0MPB4Iter4nextGRP39moonmanim4core7mobject8DrawItemE(_it);
+    if (_bind === undefined) {
+      break;
+    } else {
+      const _Some = _bind;
+      const _object = _Some;
+      const _p = _object.id;
+      if (_p.owner === id.owner && (_p.slot === id.slot && BigInt.asUintN(64, _p.generation) === BigInt.asUintN(64, id.generation))) {
+        return new _M0DTPC16result6ResultGRP39moonmanim4core4math7Affine2RP39moonmanim4core6errors11EngineErrorE2Ok(_object.world);
+      }
+      continue;
+    }
+  }
+  return new _M0DTPC16result6ResultGRP39moonmanim4core4math7Affine2RP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("updater read an undeclared object dependency"));
+}
+function _M0MP39moonmanim4core5scene13UpdateContext10get__value(self, tracker) {
+  const _it = _M0MPC15array13ReadOnlyArray4iterGRP39moonmanim4core7mobject8DrawItemE(self.values);
+  while (true) {
+    const _bind = _M0MPB4Iter4nextGRP39moonmanim4core7mobject8DrawItemE(_it);
+    if (_bind === undefined) {
+      break;
+    } else {
+      const _Some = _bind;
+      const _value = _Some;
+      const _p = _value._0;
+      if (_p.owner === tracker.owner && _p.slot === tracker.slot) {
+        return new _M0DTPC16result6ResultGdRP39moonmanim4core6errors11EngineErrorE2Ok(_value._1);
+      }
+      continue;
+    }
+  }
+  return new _M0DTPC16result6ResultGdRP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("updater read an undeclared tracker dependency"));
+}
+function _M0MP39moonmanim4core5scene5Scene12ensure__idle(self) {
+  if (self.busy) {
+    return new _M0DTPC16result6ResultGuRP39moonmanim4core6errors11EngineErrorE3Err(_M0DTPC15error5Error51moonmanim_2fcore_2ferrors_2eEngineError_2eSceneBusy__);
+  }
+  if (self.failed) {
+    return new _M0DTPC16result6ResultGuRP39moonmanim4core6errors11EngineErrorE3Err(_M0DTPC15error5Error53moonmanim_2fcore_2ferrors_2eEngineError_2eSceneFailed__);
+  } else {
+    return new _M0DTPC16result6ResultGuRP39moonmanim4core6errors11EngineErrorE2Ok(undefined);
+  }
+}
+function _M0MP39moonmanim4core5scene5Scene17contains__tracker(self, tracker) {
+  if (self.tracker_owner === tracker.owner) {
+    let _tmp;
+    if (tracker.slot >= 0) {
+      let _tmp$2;
+      if (tracker.slot < self.trackers.len) {
+        const _bind = self.trackers;
+        const _bind$2 = tracker.slot;
+        if (_bind$2 < 0 || _bind$2 >= _bind.len) {
+          $panic();
+        }
+        const _bind$3 = _bind.buf[_bind$2];
+        let _tmp$3;
+        if (_bind$3.$tag === 1) {
+          _tmp$3 = true;
+        } else {
+          _tmp$3 = false;
+        }
+        _tmp$2 = _tmp$3;
+      } else {
+        _tmp$2 = false;
+      }
+      _tmp = _tmp$2;
+    } else {
+      _tmp = false;
+    }
+    return _tmp;
+  } else {
+    return false;
+  }
+}
+function _M0MP39moonmanim4core5scene5Scene10get__value(self, tracker) {
+  if (!_M0MP39moonmanim4core5scene5Scene17contains__tracker(self, tracker)) {
+    return new _M0DTPC16result6ResultGdRP39moonmanim4core6errors11EngineErrorE3Err(_M0DTPC15error5Error55moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidHandle__);
+  }
+  const _bind = self.trackers;
+  const _bind$2 = tracker.slot;
+  if (_bind$2 < 0 || _bind$2 >= _bind.len) {
+    $panic();
+  }
+  return new _M0DTPC16result6ResultGdRP39moonmanim4core6errors11EngineErrorE2Ok(_M0MPC16option6Option6unwrapGdE(_bind.buf[_bind$2]));
+}
+function _M0MP39moonmanim4core5scene5Scene20depends__on__updater(self, reader, writer) {
+  let _tmp;
+  if (_M0IP016_24default__implPB2Eq10not__equalGRP39moonmanim4core7mobject8ObjectIdE(reader.target, writer.target)) {
+    const _bind = _M0MP39moonmanim4core7mobject5Store12is__ancestor(self.store, writer.target, reader.target);
+    let _tmp$2;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp$2 = _ok._0;
+    } else {
+      return _bind;
+    }
+    _tmp = _tmp$2;
+  } else {
+    _tmp = false;
+  }
+  if (_tmp) {
+    return new _M0DTPC16result6ResultGbRP39moonmanim4core6errors11EngineErrorE2Ok(true);
+  }
+  const _it = _M0MPC15array13ReadOnlyArray4iterGRP39moonmanim4core7mobject8DrawItemE(reader.dependencies);
+  while (true) {
+    const _bind = _M0MPB4Iter4nextGRP39moonmanim4core7mobject8DrawItemE(_it);
+    if (_bind === undefined) {
+      break;
+    } else {
+      const _Some = _bind;
+      const _dependency = _Some;
+      const _bind$2 = _M0MP39moonmanim4core7mobject5Store12is__ancestor(self.store, writer.target, _dependency);
+      let _tmp$2;
+      if (_bind$2.$tag === 1) {
+        const _ok = _bind$2;
+        _tmp$2 = _ok._0;
+      } else {
+        return _bind$2;
+      }
+      if (_tmp$2) {
+        return new _M0DTPC16result6ResultGbRP39moonmanim4core6errors11EngineErrorE2Ok(true);
+      }
+      continue;
+    }
+  }
+  return new _M0DTPC16result6ResultGbRP39moonmanim4core6errors11EngineErrorE2Ok(false);
+}
+function _M0MP39moonmanim4core5scene5Scene15order__updaters(self, entries) {
+  const ordered = new _M0TPB5ArrayGRP39moonmanim4core5scene7UpdaterE([], 0);
+  const incoming = _M0MPC15array5Array4makeGiE(entries.len, 0);
+  const _p = entries.len;
+  let edges;
+  if (_p <= 0) {
+    edges = new _M0TPB5ArrayGRPB5ArrayGiEE([], 0);
+  } else {
+    const _p$2 = _M0MPC15array5Array20unsafe__make__uninitGRPB5ArrayGiEE(_p);
+    let _tmp = 0;
+    while (true) {
+      const _p$3 = _tmp;
+      if (_p$3 < _p) {
+        const _p$4 = new _M0TPB5ArrayGiE([], 0);
+        _p$2.buf[_p$3] = _p$4;
+        _tmp = _p$3 + 1 | 0;
+        continue;
+      } else {
+        break;
+      }
+    }
+    edges = _p$2;
+  }
+  const _bind = entries.len;
+  let _tmp = 0;
+  while (true) {
+    const i = _tmp;
+    if (i < _bind) {
+      const _bind$2 = entries.len;
+      let _tmp$2 = 0;
+      while (true) {
+        const j = _tmp$2;
+        if (j < _bind$2) {
+          if (i < 0 || i >= entries.len) {
+            $panic();
+          }
+          const _tmp$3 = entries.buf[i];
+          if (j < 0 || j >= entries.len) {
+            $panic();
+          }
+          const _bind$3 = _M0MP39moonmanim4core5scene5Scene20depends__on__updater(self, _tmp$3, entries.buf[j]);
+          let _tmp$4;
+          if (_bind$3.$tag === 1) {
+            const _ok = _bind$3;
+            _tmp$4 = _ok._0;
+          } else {
+            return _bind$3;
+          }
+          if (_tmp$4) {
+            if (i < 0 || i >= incoming.len) {
+              $panic();
+            }
+            const _bind$4 = incoming.buf[i] + 1 | 0;
+            if (i < 0 || i >= incoming.len) {
+              $panic();
+            }
+            incoming.buf[i] = _bind$4;
+            if (j < 0 || j >= edges.len) {
+              $panic();
+            }
+            _M0MPC15array5Array4pushGiE(edges.buf[j], i);
+          }
+          _tmp$2 = j + 1 | 0;
+          continue;
+        } else {
+          break;
+        }
+      }
+      _tmp = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  while (true) {
+    if (ordered.len < entries.len) {
+      let found = false;
+      const _bind$2 = entries.len;
+      let _tmp$2 = 0;
+      while (true) {
+        const i = _tmp$2;
+        if (i < _bind$2) {
+          _L: {
+            if (i < 0 || i >= incoming.len) {
+              $panic();
+            }
+            if (incoming.buf[i] !== 0) {
+              break _L;
+            }
+            if (i < 0 || i >= entries.len) {
+              $panic();
+            }
+            _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(ordered, entries.buf[i]);
+            if (i < 0 || i >= incoming.len) {
+              $panic();
+            }
+            incoming.buf[i] = -1;
+            if (i < 0 || i >= edges.len) {
+              $panic();
+            }
+            const _bind$3 = edges.buf[i];
+            const _bind$4 = _bind$3.len;
+            const _bind$5 = _bind$3.buf;
+            let _tmp$3 = 0;
+            while (true) {
+              const _ = _tmp$3;
+              if (_ < _bind$4) {
+                const reader = _bind$5[_];
+                if (reader < 0 || reader >= incoming.len) {
+                  $panic();
+                }
+                const _bind$6 = incoming.buf[reader] - 1 | 0;
+                if (reader < 0 || reader >= incoming.len) {
+                  $panic();
+                }
+                incoming.buf[reader] = _bind$6;
+                _tmp$3 = _ + 1 | 0;
+                continue;
+              } else {
+                break;
+              }
+            }
+            found = true;
+            break;
+          }
+          _tmp$2 = i + 1 | 0;
+          continue;
+        } else {
+          break;
+        }
+      }
+      if (!found) {
+        return new _M0DTPC16result6ResultGRPB5ArrayGRP39moonmanim4core5scene7UpdaterERP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error58moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidHierarchy("updater dependencies contain a cycle"));
+      }
+      continue;
+    } else {
+      break;
+    }
+  }
+  return new _M0DTPC16result6ResultGRPB5ArrayGRP39moonmanim4core5scene7UpdaterERP39moonmanim4core6errors11EngineErrorE2Ok(ordered);
+}
+function _M0MP39moonmanim4core5scene5Scene20set__updater_2einner(self, target, callback, depends_on, trackers) {
+  const _bind = _M0MP39moonmanim4core5scene5Scene12ensure__idle(self);
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _ok._0;
+  } else {
+    return _bind;
+  }
+  const _p = self.store;
+  let _bind$2;
+  let _p$2;
+  _L: {
+    _L$2: {
+      const _bind$3 = _M0MP39moonmanim4core7mobject5Store5entry(_p, target);
+      let _tmp;
+      if (_bind$3.$tag === 1) {
+        const _ok = _bind$3;
+        _tmp = _ok._0;
+      } else {
+        const _err = _bind$3;
+        _p$2 = _err._0;
+        break _L$2;
+      }
+      _bind$2 = new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE2Ok(_tmp.state);
+      break _L;
+    }
+    _bind$2 = new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE3Err(_p$2);
+  }
+  if (_bind$2.$tag === 1) {
+    const _ok = _bind$2;
+    _ok._0;
+  } else {
+    return _bind$2;
+  }
+  const _bind$3 = depends_on.len;
+  const _bind$4 = depends_on.buf;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind$3) {
+      const dependency = _bind$4[_];
+      const _p$3 = self.store;
+      let _bind$5;
+      let _p$4;
+      _L$2: {
+        _L$3: {
+          const _bind$6 = _M0MP39moonmanim4core7mobject5Store5entry(_p$3, dependency);
+          let _tmp$2;
+          if (_bind$6.$tag === 1) {
+            const _ok = _bind$6;
+            _tmp$2 = _ok._0;
+          } else {
+            const _err = _bind$6;
+            _p$4 = _err._0;
+            break _L$3;
+          }
+          _bind$5 = new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE2Ok(_tmp$2.state);
+          break _L$2;
+        }
+        _bind$5 = new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE3Err(_p$4);
+      }
+      if (_bind$5.$tag === 1) {
+        const _ok = _bind$5;
+        _ok._0;
+      } else {
+        return _bind$5;
+      }
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  const _bind$5 = trackers.len;
+  const _bind$6 = trackers.buf;
+  let _tmp$2 = 0;
+  while (true) {
+    const _ = _tmp$2;
+    if (_ < _bind$5) {
+      const tracker = _bind$6[_];
+      const _bind$7 = _M0MP39moonmanim4core5scene5Scene10get__value(self, tracker);
+      if (_bind$7.$tag === 1) {
+        const _ok = _bind$7;
+        _ok._0;
+      } else {
+        return _bind$7;
+      }
+      _tmp$2 = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  const _p$3 = self.updaters;
+  const _p$4 = new _M0TPB5ArrayGRP39moonmanim4core5scene7UpdaterE([], 0);
+  const _p$5 = _p$3.len;
+  const _p$6 = _p$3.buf;
+  let candidate;
+  let _tmp$3 = 0;
+  while (true) {
+    const _p$7 = _tmp$3;
+    if (_p$7 < _p$5) {
+      const _p$8 = _p$6[_p$7];
+      if (_M0IP016_24default__implPB2Eq10not__equalGRP39moonmanim4core7mobject8ObjectIdE(_p$8.target, target)) {
+        _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(_p$4, _p$8);
+      }
+      _tmp$3 = _p$7 + 1 | 0;
+      continue;
+    } else {
+      candidate = _p$4;
+      break;
+    }
+  }
+  _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(candidate, new _M0TP39moonmanim4core5scene7Updater(target, _M0MPC15array13ReadOnlyArray11from__arrayGRP39moonmanim4core7mobject8DrawItemE(new _M0TPB9ArrayViewGRP39moonmanim4core7mobject8ObjectIdE(depends_on.buf, 0, depends_on.len)), _M0MPC15array13ReadOnlyArray11from__arrayGRP39moonmanim4core7mobject8DrawItemE(new _M0TPB9ArrayViewGRP39moonmanim4core5scene12ValueTrackerE(trackers.buf, 0, trackers.len)), callback));
+  const _bind$7 = _M0MP39moonmanim4core5scene5Scene15order__updaters(self, candidate);
+  let _tmp$4;
+  if (_bind$7.$tag === 1) {
+    const _ok = _bind$7;
+    _tmp$4 = _ok._0;
+  } else {
+    return _bind$7;
+  }
+  self.updaters = _tmp$4;
+  return new _M0DTPC16result6ResultGuRP39moonmanim4core6errors11EngineErrorE2Ok(undefined);
+}
+function _M0MP39moonmanim4core5scene5Scene12set__updater(self, target, callback, depends_on$46$opt, trackers$46$opt) {
+  let depends_on;
+  if (depends_on$46$opt === undefined) {
+    depends_on = new _M0TPB5ArrayGRP39moonmanim4core7mobject8ObjectIdE([], 0);
+  } else {
+    const _Some = depends_on$46$opt;
+    depends_on = _Some;
+  }
+  let trackers;
+  if (trackers$46$opt === undefined) {
+    trackers = new _M0TPB5ArrayGRP39moonmanim4core5scene12ValueTrackerE([], 0);
+  } else {
+    const _Some = trackers$46$opt;
+    trackers = _Some;
+  }
+  return _M0MP39moonmanim4core5scene5Scene20set__updater_2einner(self, target, callback, depends_on, trackers);
+}
+function _M0MP39moonmanim4core5scene5Scene13staged__state(self, id, staged) {
+  const _bind = staged.len;
+  const _bind$2 = staged.buf;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind) {
+      const entry = _bind$2[_];
+      const _p = entry._0;
+      if (_p.owner === id.owner && (_p.slot === id.slot && BigInt.asUintN(64, _p.generation) === BigInt.asUintN(64, id.generation))) {
+        return new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE2Ok(entry._1);
+      }
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  const _p = self.store;
+  let _p$2;
+  _L: {
+    const _bind$3 = _M0MP39moonmanim4core7mobject5Store5entry(_p, id);
+    let _tmp$2;
+    if (_bind$3.$tag === 1) {
+      const _ok = _bind$3;
+      _tmp$2 = _ok._0;
+    } else {
+      const _err = _bind$3;
+      _p$2 = _err._0;
+      break _L;
+    }
+    return new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE2Ok(_tmp$2.state);
+  }
+  return new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE3Err(_p$2);
+}
+function _M0MP39moonmanim4core5scene5Scene13staged__world(self, id, staged) {
+  const _bind = _M0MP39moonmanim4core5scene5Scene13staged__state(self, id, staged);
+  let _tmp;
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _tmp = _ok._0;
+  } else {
+    return _bind;
+  }
+  let transform = _tmp.transform;
+  const _p = self.store;
+  let _bind$2;
+  let _p$2;
+  _L: {
+    _L$2: {
+      const _bind$3 = _M0MP39moonmanim4core7mobject5Store5entry(_p, id);
+      let _tmp$2;
+      if (_bind$3.$tag === 1) {
+        const _ok = _bind$3;
+        _tmp$2 = _ok._0;
+      } else {
+        const _err = _bind$3;
+        _p$2 = _err._0;
+        break _L$2;
+      }
+      _bind$2 = new _M0DTPC16result6ResultGORP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core6errors11EngineErrorE2Ok(_tmp$2.parent);
+      break _L;
+    }
+    _bind$2 = new _M0DTPC16result6ResultGORP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core6errors11EngineErrorE3Err(_p$2);
+  }
+  let parent;
+  if (_bind$2.$tag === 1) {
+    const _ok = _bind$2;
+    parent = _ok._0;
+  } else {
+    return _bind$2;
+  }
+  while (true) {
+    const _bind$3 = parent;
+    if (_bind$3 === undefined) {
+      break;
+    } else {
+      const _Some = _bind$3;
+      const _ancestor = _Some;
+      const _bind$4 = _M0MP39moonmanim4core5scene5Scene13staged__state(self, _ancestor, staged);
+      let _tmp$2;
+      if (_bind$4.$tag === 1) {
+        const _ok = _bind$4;
+        _tmp$2 = _ok._0;
+      } else {
+        return _bind$4;
+      }
+      transform = _M0MP39moonmanim4core4math7Affine27compose(_tmp$2.transform, transform);
+      const _p$3 = self.store;
+      let _bind$5;
+      let _p$4;
+      _L$2: {
+        _L$3: {
+          const _bind$6 = _M0MP39moonmanim4core7mobject5Store5entry(_p$3, _ancestor);
+          let _tmp$3;
+          if (_bind$6.$tag === 1) {
+            const _ok = _bind$6;
+            _tmp$3 = _ok._0;
+          } else {
+            const _err = _bind$6;
+            _p$4 = _err._0;
+            break _L$3;
+          }
+          _bind$5 = new _M0DTPC16result6ResultGORP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core6errors11EngineErrorE2Ok(_tmp$3.parent);
+          break _L$2;
+        }
+        _bind$5 = new _M0DTPC16result6ResultGORP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core6errors11EngineErrorE3Err(_p$4);
+      }
+      let _tmp$3;
+      if (_bind$5.$tag === 1) {
+        const _ok = _bind$5;
+        _tmp$3 = _ok._0;
+      } else {
+        return _bind$5;
+      }
+      parent = _tmp$3;
+      continue;
+    }
+  }
+  if (!_M0MP39moonmanim4core4math7Affine210is__finite(transform)) {
+    return new _M0DTPC16result6ResultGRP39moonmanim4core4math7Affine2RP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("composed updater transform must be finite"));
+  }
+  return new _M0DTPC16result6ResultGRP39moonmanim4core4math7Affine2RP39moonmanim4core6errors11EngineErrorE2Ok(transform);
+}
+function _M0MP39moonmanim4core5scene5Scene4time(self) {
+  const _p = self.rate;
+  const _p$2 = self.frame_index;
+  return $f64_convert_i64(BigInt.asIntN(64, _p$2)) * (_p.denominator + 0) / (_p.numerator + 0);
+}
+function _M0MP39moonmanim4core5scene5Scene13run__updaters(self, active, dt) {
+  const staged = new _M0TPB5ArrayGURP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core7mobject11ObjectStateEE([], 0);
+  const _bind = active.len;
+  const _bind$2 = active.buf;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind) {
+      const updater = _bind$2[_];
+      const _bind$3 = _M0MPC15array13ReadOnlyArray3mapGRP39moonmanim4core7mobject8ObjectIdRP39moonmanim4core5scene11ObjectInputEHRP39moonmanim4core6errors11EngineError(updater.dependencies, (id) => {
+        const _bind$4 = _M0MP39moonmanim4core5scene5Scene13staged__state(self, id, staged);
+        let _tmp$2;
+        if (_bind$4.$tag === 1) {
+          const _ok = _bind$4;
+          _tmp$2 = _ok._0;
+        } else {
+          return _bind$4;
+        }
+        const _tmp$3 = _tmp$2;
+        const _bind$5 = _M0MP39moonmanim4core5scene5Scene13staged__world(self, id, staged);
+        let _tmp$4;
+        if (_bind$5.$tag === 1) {
+          const _ok = _bind$5;
+          _tmp$4 = _ok._0;
+        } else {
+          return _bind$5;
+        }
+        return new _M0DTPC16result6ResultGRP39moonmanim4core5scene11ObjectInputRP39moonmanim4core6errors11EngineErrorE2Ok(new _M0TP39moonmanim4core5scene11ObjectInput(id, _tmp$3, _tmp$4));
+      });
+      let objects;
+      if (_bind$3.$tag === 1) {
+        const _ok = _bind$3;
+        objects = _ok._0;
+      } else {
+        return _bind$3;
+      }
+      const _bind$4 = _M0MPC15array13ReadOnlyArray3mapGRP39moonmanim4core5scene12ValueTrackerURP39moonmanim4core5scene12ValueTrackerdEEHRP39moonmanim4core6errors11EngineError(updater.trackers, (tracker) => {
+        const _bind$5 = _M0MP39moonmanim4core5scene5Scene10get__value(self, tracker);
+        let _tmp$2;
+        if (_bind$5.$tag === 1) {
+          const _ok = _bind$5;
+          _tmp$2 = _ok._0;
+        } else {
+          return _bind$5;
+        }
+        return new _M0DTPC16result6ResultGURP39moonmanim4core5scene12ValueTrackerdERP39moonmanim4core6errors11EngineErrorE2Ok({ _0: tracker, _1: _tmp$2 });
+      });
+      let values;
+      if (_bind$4.$tag === 1) {
+        const _ok = _bind$4;
+        values = _ok._0;
+      } else {
+        return _bind$4;
+      }
+      const context = new _M0TP39moonmanim4core5scene13UpdateContext(_M0MP39moonmanim4core5scene5Scene4time(self), dt, objects, values);
+      const _func = updater.callback;
+      const _p = self.store;
+      const _p$2 = updater.target;
+      let _bind$5;
+      let _p$3;
+      _L: {
+        _L$2: {
+          const _bind$6 = _M0MP39moonmanim4core7mobject5Store5entry(_p, _p$2);
+          let _tmp$2;
+          if (_bind$6.$tag === 1) {
+            const _ok = _bind$6;
+            _tmp$2 = _ok._0;
+          } else {
+            const _err = _bind$6;
+            _p$3 = _err._0;
+            break _L$2;
+          }
+          _bind$5 = new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE2Ok(_tmp$2.state);
+          break _L;
+        }
+        _bind$5 = new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE3Err(_p$3);
+      }
+      let _tmp$2;
+      if (_bind$5.$tag === 1) {
+        const _ok = _bind$5;
+        _tmp$2 = _ok._0;
+      } else {
+        return _bind$5;
+      }
+      const _bind$6 = _func(context, _tmp$2);
+      let state;
+      if (_bind$6.$tag === 1) {
+        const _ok = _bind$6;
+        state = _ok._0;
+      } else {
+        return _bind$6;
+      }
+      const _bind$7 = _M0MP39moonmanim4core7mobject11ObjectState8validate(state);
+      if (_bind$7.$tag === 1) {
+        const _ok = _bind$7;
+        _ok._0;
+      } else {
+        return _bind$7;
+      }
+      _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(staged, { _0: updater.target, _1: state });
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  const _bind$3 = staged.len;
+  const _bind$4 = staged.buf;
+  let _tmp$2 = 0;
+  while (true) {
+    const _ = _tmp$2;
+    if (_ < _bind$3) {
+      const entry = _bind$4[_];
+      const _bind$5 = _M0MP39moonmanim4core7mobject5Store3set(self.store, entry._0, entry._1);
+      if (_bind$5.$tag === 1) {
+        const _ok = _bind$5;
+        _ok._0;
+      } else {
+        return _bind$5;
+      }
+      _tmp$2 = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return new _M0DTPC16result6ResultGuRPC15error5ErrorE2Ok(undefined);
+}
+function _M0MP39moonmanim4core5scene5Scene9end__play(self) {
+  self.busy = false;
+}
+function _M0MP39moonmanim4core5scene5Scene12mark__failed(self) {
+  self.failed = true;
+}
+function _M0MP39moonmanim4core5scene5Scene6updateN8_2adeferS1848(self) {
+  _M0MP39moonmanim4core5scene5Scene9end__play(self);
+}
+function _M0MP39moonmanim4core5scene5Scene6update(self) {
+  const _bind = _M0MP39moonmanim4core5scene5Scene12ensure__idle(self);
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _ok._0;
+  } else {
+    return _bind;
+  }
+  self.busy = true;
+  let _err;
+  _L: {
+    let _defer_result;
+    let _err$2;
+    _L$2: {
+      _L$3: {
+        const _bind$2 = _M0MP39moonmanim4core5scene5Scene13run__updaters(self, self.updaters, 0);
+        if (_bind$2.$tag === 1) {
+          const _ok = _bind$2;
+          _ok._0;
+        } else {
+          const _err$3 = _bind$2;
+          _err$2 = _err$3._0;
+          break _L$3;
+        }
+        break _L$2;
+      }
+      _M0MP39moonmanim4core5scene5Scene12mark__failed(self);
+      _err = _err$2;
+      break _L;
+    }
+    _M0MP39moonmanim4core5scene5Scene6updateN8_2adeferS1848(self);
+    return new _M0DTPC16result6ResultGuRPC15error5ErrorE2Ok(_defer_result);
+  }
+  _M0MP39moonmanim4core5scene5Scene6updateN8_2adeferS1848(self);
+  return new _M0DTPC16result6ResultGuRPC15error5ErrorE3Err(_err);
+}
+function _M0FP39moonmanim4core5scene15validate__value(value) {
+  if (!_M0FP39moonmanim4core4math6finite(value)) {
+    return new _M0DTPC16result6ResultGuRP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("tracker value must be finite"));
+  } else {
+    return new _M0DTPC16result6ResultGuRP39moonmanim4core6errors11EngineErrorE2Ok(undefined);
+  }
+}
+function _M0MP39moonmanim4core5scene5Scene12add__tracker(self, value) {
+  const _bind = _M0MP39moonmanim4core5scene5Scene12ensure__idle(self);
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _ok._0;
+  } else {
+    return _bind;
+  }
+  const _bind$2 = _M0FP39moonmanim4core5scene15validate__value(value);
+  if (_bind$2.$tag === 1) {
+    const _ok = _bind$2;
+    _ok._0;
+  } else {
+    return _bind$2;
+  }
+  const slot = self.trackers.len;
+  _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(self.trackers, new _M0DTPC16option6OptionGdE4Some(value));
+  return new _M0DTPC16result6ResultGRP39moonmanim4core5scene12ValueTrackerRP39moonmanim4core6errors11EngineErrorE2Ok(new _M0TP39moonmanim4core5scene12ValueTracker(self.tracker_owner, slot));
+}
+function _M0MP39moonmanim4core5scene5Scene11new_2einner(renderer, frame_rate) {
+  return new _M0TP39moonmanim4core5scene5Scene(_M0MP39moonmanim4core7mobject5Store3new(), renderer, frame_rate, 0n, false, false, new _M0TPB5ArrayGuE([undefined], 1), new _M0TPB5ArrayGOdE([], 0), new _M0TPB5ArrayGRP39moonmanim4core5scene7UpdaterE([], 0));
+}
+function _M0MP39moonmanim4core5scene5Scene3new(renderer, frame_rate$46$opt) {
+  let frame_rate;
+  if (frame_rate$46$opt === undefined) {
+    frame_rate = _M0MP39moonmanim4core8timeline9FrameRate5fps60N6recordS1720;
+  } else {
+    const _Some = frame_rate$46$opt;
+    frame_rate = _Some;
+  }
+  return _M0MP39moonmanim4core5scene5Scene11new_2einner(renderer, frame_rate);
+}
+function _M0MP39moonmanim4core5scene5Scene3add(self, state) {
+  const _bind = _M0MP39moonmanim4core5scene5Scene12ensure__idle(self);
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _ok._0;
+  } else {
+    return _bind;
+  }
+  return _M0MP39moonmanim4core7mobject5Store3add(self.store, state);
+}
+function _M0MP39moonmanim4core5scene5Scene3get(self, id) {
+  const _p = self.store;
+  let _p$2;
+  _L: {
+    const _bind = _M0MP39moonmanim4core7mobject5Store5entry(_p, id);
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      const _err = _bind;
+      _p$2 = _err._0;
+      break _L;
+    }
+    return new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE2Ok(_tmp.state);
+  }
+  return new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRP39moonmanim4core6errors11EngineErrorE3Err(_p$2);
+}
+function _M0MP39moonmanim4core5scene5Scene3set(self, id, state) {
+  const _bind = _M0MP39moonmanim4core5scene5Scene12ensure__idle(self);
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _ok._0;
+  } else {
+    return _bind;
+  }
+  return _M0MP39moonmanim4core7mobject5Store3set(self.store, id, state);
+}
+function _M0MP39moonmanim4core5scene5Scene8snapshot(self) {
+  const _tmp = self.frame_index;
+  const _tmp$2 = _M0MP39moonmanim4core5scene5Scene4time(self);
+  const _bind = _M0MP39moonmanim4core7mobject5Store9drawables(self.store);
+  let _tmp$3;
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    _tmp$3 = _ok._0;
+  } else {
+    return _bind;
+  }
+  return new _M0DTPC16result6ResultGRP39moonmanim4core6render5FrameRP39moonmanim4core6errors11EngineErrorE2Ok(new _M0TP39moonmanim4core6render5Frame(_tmp, _tmp$2, _tmp$3));
+}
+function _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(x, y) {
   return _M0MP39moonmanim4core4math4Vec311new_2einner(x, y, 0);
 }
 function _M0MP39moonmanim4core8teaching10Pythagoras3new(a, b) {
@@ -3286,7 +4897,7 @@ function _M0MP39moonmanim4core8teaching10Pythagoras3new(a, b) {
   if (!_M0FP39moonmanim4core4math6finite(a) || (!_M0FP39moonmanim4core4math6finite(b) || (a <= 0 || (b <= 0 || (!_M0FP39moonmanim4core4math6finite(side) || !_M0FP39moonmanim4core4math6finite(c)))))) {
     return new _M0DTPC16result6ResultGRP39moonmanim4core8teaching10PythagorasRP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("Pythagoras tiling requires finite positive representable side lengths"));
   }
-  const _bind = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(0, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(b, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(0, a)], 3));
+  const _bind = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(0, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(b, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(0, a)], 3));
   let _tmp;
   if (_bind.$tag === 1) {
     const _ok = _bind;
@@ -3295,7 +4906,7 @@ function _M0MP39moonmanim4core8teaching10Pythagoras3new(a, b) {
     return _bind;
   }
   const _tmp$2 = _tmp;
-  const _bind$2 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(b, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(side, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(side, b)], 3));
+  const _bind$2 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(b, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(side, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(side, b)], 3));
   let _tmp$3;
   if (_bind$2.$tag === 1) {
     const _ok = _bind$2;
@@ -3304,7 +4915,7 @@ function _M0MP39moonmanim4core8teaching10Pythagoras3new(a, b) {
     return _bind$2;
   }
   const _tmp$4 = _tmp$3;
-  const _bind$3 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(side, b), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(side, side), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(a, side)], 3));
+  const _bind$3 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(side, b), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(side, side), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(a, side)], 3));
   let _tmp$5;
   if (_bind$3.$tag === 1) {
     const _ok = _bind$3;
@@ -3313,7 +4924,7 @@ function _M0MP39moonmanim4core8teaching10Pythagoras3new(a, b) {
     return _bind$3;
   }
   const _tmp$6 = _tmp$5;
-  const _bind$4 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(a, side), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(0, side), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(0, a)], 3));
+  const _bind$4 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(a, side), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(0, side), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(0, a)], 3));
   let _tmp$7;
   if (_bind$4.$tag === 1) {
     const _ok = _bind$4;
@@ -3323,9 +4934,9 @@ function _M0MP39moonmanim4core8teaching10Pythagoras3new(a, b) {
   }
   const _bind$5 = [_tmp$2, _tmp$4, _tmp$6, _tmp$7];
   const _tmp$8 = _M0MPC15array13ReadOnlyArray11from__arrayGRP39moonmanim4core7mobject8DrawItemE(new _M0TPB9ArrayViewGRP39moonmanim4core8geometry4PathE(_bind$5, 0, 4));
-  const _bind$6 = [_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(a, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(-b, a), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(0, -b), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(0, 0)];
+  const _bind$6 = [_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(a, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(-b, a), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(0, -b), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(0, 0)];
   const _tmp$9 = _M0MPC15array13ReadOnlyArray11from__arrayGRP39moonmanim4core7mobject8DrawItemE(new _M0TPB9ArrayViewGRP39moonmanim4core4math4Vec3E(_bind$6, 0, 4));
-  const _bind$7 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(b, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(side, b), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(a, side), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(0, a)], 4));
+  const _bind$7 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(b, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(side, b), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(a, side), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(0, a)], 4));
   let _tmp$10;
   if (_bind$7.$tag === 1) {
     const _ok = _bind$7;
@@ -3334,7 +4945,7 @@ function _M0MP39moonmanim4core8teaching10Pythagoras3new(a, b) {
     return _bind$7;
   }
   const _tmp$11 = _tmp$10;
-  const _bind$8 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(0, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(a, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(a, a), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(0, a)], 4));
+  const _bind$8 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(0, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(a, 0), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(a, a), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(0, a)], 4));
   let _tmp$12;
   if (_bind$8.$tag === 1) {
     const _ok = _bind$8;
@@ -3343,7 +4954,7 @@ function _M0MP39moonmanim4core8teaching10Pythagoras3new(a, b) {
     return _bind$8;
   }
   const _tmp$13 = _tmp$12;
-  const _bind$9 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(a, a), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(side, a), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(side, side), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1360(a, side)], 4));
+  const _bind$9 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(a, a), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(side, a), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(side, side), _M0MP39moonmanim4core8teaching10Pythagoras3newN1pS1876(a, side)], 4));
   let _tmp$14;
   if (_bind$9.$tag === 1) {
     const _ok = _bind$9;
@@ -3353,7 +4964,414 @@ function _M0MP39moonmanim4core8teaching10Pythagoras3new(a, b) {
   }
   return new _M0DTPC16result6ResultGRP39moonmanim4core8teaching10PythagorasRP39moonmanim4core6errors11EngineErrorE2Ok(new _M0TP39moonmanim4core8teaching10Pythagoras(a, b, c, side, _tmp$8, _tmp$9, _tmp$11, _tmp$13, _tmp$14));
 }
-function _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, path, color, fill, opacity, width, transform) {
+function _M0FP49moonmanim4core3cmd3web22dynamic__shape_2einner(path, color, width, opacity, fill) {
+  const _tmp = _M0MP39moonmanim4core7mobject5Style7default();
+  return _M0MP39moonmanim4core7mobject11ObjectState13shape_2einner(path, new _M0TP39moonmanim4core7mobject5Style(color, color, width, _tmp.stroke_opacity, fill, opacity, _tmp.fill_rule));
+}
+function _M0FP49moonmanim4core3cmd3web14tangent__frame(t, x, initial_gap) {
+  if (x < -3 || (x > 3 || (initial_gap < 0 || initial_gap > 2))) {
+    return new _M0DTPC16result6ResultGsRP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("invalid tangent position or gap"));
+  }
+  const scene = _M0MP39moonmanim4core5scene5Scene3new({ self: undefined, method_table: _M0FP089moonmanim_2fcore_2fcmd_2fweb_2fBrowserSink_24as_24_40moonmanim_2fcore_2frender_2eRenderer }, undefined);
+  const _bind = _M0MP39moonmanim4core7mobject5Color3rgb(0.49, 0.62, 1);
+  let blue;
+  if (_bind.$tag === 1) {
+    const _ok = _bind;
+    blue = _ok._0;
+  } else {
+    return _bind;
+  }
+  const _bind$2 = _M0MP39moonmanim4core7mobject5Color3rgb(0.36, 0.79, 0.74);
+  let teal;
+  if (_bind$2.$tag === 1) {
+    const _ok = _bind$2;
+    teal = _ok._0;
+  } else {
+    return _bind$2;
+  }
+  const _bind$3 = _M0MP39moonmanim4core7mobject5Color3rgb(0.93, 0.7, 0.46);
+  let amber;
+  if (_bind$3.$tag === 1) {
+    const _ok = _bind$3;
+    amber = _ok._0;
+  } else {
+    return _bind$3;
+  }
+  const pink = _M0MP39moonmanim4core7mobject5Color4pinkN6recordS1511;
+  const _bind$4 = _M0MP39moonmanim4core11coordinates11NumberPlane11new_2einner(-5.5, 5.5, -1, 7, _M0MP39moonmanim4core4math7Affine27compose(_M0MP39moonmanim4core4math7Affine211translation(-0.4, -2.3), _M0MP39moonmanim4core4math7Affine27scaling(0.8, 0.8)));
+  let plane;
+  if (_bind$4.$tag === 1) {
+    const _ok = _bind$4;
+    plane = _ok._0;
+  } else {
+    return _bind$4;
+  }
+  const _bind$5 = _M0MP39moonmanim4core11coordinates11NumberPlane12grid_2einner(plane, 1);
+  let _tmp;
+  if (_bind$5.$tag === 1) {
+    const _ok = _bind$5;
+    _tmp = _ok._0;
+  } else {
+    return _bind$5;
+  }
+  const _bind$6 = _M0MP39moonmanim4core5scene5Scene3add(scene, _M0FP49moonmanim4core3cmd3web22dynamic__shape_2einner(_tmp, blue, 0.8, 0.16, 0));
+  if (_bind$6.$tag === 1) {
+    const _ok = _bind$6;
+    _ok._0;
+  } else {
+    return _bind$6;
+  }
+  const _bind$7 = _M0MP39moonmanim4core11coordinates11NumberPlane4axes(plane);
+  let _tmp$2;
+  if (_bind$7.$tag === 1) {
+    const _ok = _bind$7;
+    _tmp$2 = _ok._0;
+  } else {
+    return _bind$7;
+  }
+  const _bind$8 = _M0MP39moonmanim4core5scene5Scene3add(scene, _M0FP49moonmanim4core3cmd3web22dynamic__shape_2einner(_tmp$2, blue, 1.3, 0.4, 0));
+  if (_bind$8.$tag === 1) {
+    const _ok = _bind$8;
+    _ok._0;
+  } else {
+    return _bind$8;
+  }
+  const _bind$9 = _M0MP39moonmanim4core11coordinates11NumberPlane4plot(plane, (x$2) => new _M0DTPC16option6OptionGdE4Some(x$2 * x$2 / 4), _M0FP49moonmanim4core3cmd3web14tangent__frameN6constrS1890, undefined);
+  let _tmp$3;
+  if (_bind$9.$tag === 1) {
+    const _ok = _bind$9;
+    _tmp$3 = _ok._0;
+  } else {
+    return _bind$9;
+  }
+  const _bind$10 = _M0MP39moonmanim4core5scene5Scene3add(scene, _M0FP49moonmanim4core3cmd3web22dynamic__shape_2einner(_tmp$3, blue, 3, 1, 0));
+  if (_bind$10.$tag === 1) {
+    const _ok = _bind$10;
+    _ok._0;
+  } else {
+    return _bind$10;
+  }
+  const _bind$11 = _M0MP39moonmanim4core5scene5Scene12add__tracker(scene, x);
+  let position;
+  if (_bind$11.$tag === 1) {
+    const _ok = _bind$11;
+    position = _ok._0;
+  } else {
+    return _bind$11;
+  }
+  const _bind$12 = _M0MP39moonmanim4core5scene5Scene12add__tracker(scene, initial_gap * (1 - t));
+  let gap;
+  if (_bind$12.$tag === 1) {
+    const _ok = _bind$12;
+    gap = _ok._0;
+  } else {
+    return _bind$12;
+  }
+  const _bind$13 = _M0FP39moonmanim4core8geometry6circle(0.09);
+  let _tmp$4;
+  if (_bind$13.$tag === 1) {
+    const _ok = _bind$13;
+    _tmp$4 = _ok._0;
+  } else {
+    return _bind$13;
+  }
+  const _bind$14 = _M0MP39moonmanim4core5scene5Scene3add(scene, _M0FP49moonmanim4core3cmd3web22dynamic__shape_2einner(_tmp$4, pink, 1, 1, 1));
+  let p;
+  if (_bind$14.$tag === 1) {
+    const _ok = _bind$14;
+    p = _ok._0;
+  } else {
+    return _bind$14;
+  }
+  const _bind$15 = _M0FP39moonmanim4core8geometry6circle(0.08);
+  let _tmp$5;
+  if (_bind$15.$tag === 1) {
+    const _ok = _bind$15;
+    _tmp$5 = _ok._0;
+  } else {
+    return _bind$15;
+  }
+  const _bind$16 = _M0MP39moonmanim4core5scene5Scene3add(scene, _M0FP49moonmanim4core3cmd3web22dynamic__shape_2einner(_tmp$5, teal, 1, 1, 1));
+  let q;
+  if (_bind$16.$tag === 1) {
+    const _ok = _bind$16;
+    q = _ok._0;
+  } else {
+    return _bind$16;
+  }
+  const _bind$17 = _M0FP39moonmanim4core8geometry4line(_M0MP39moonmanim4core4math4Vec34zeroN6recordS1252, _M0MP39moonmanim4core4math4Vec34zeroN6recordS1252);
+  let _tmp$6;
+  if (_bind$17.$tag === 1) {
+    const _ok = _bind$17;
+    _tmp$6 = _ok._0;
+  } else {
+    return _bind$17;
+  }
+  const _bind$18 = _M0MP39moonmanim4core5scene5Scene3add(scene, _M0FP49moonmanim4core3cmd3web22dynamic__shape_2einner(_tmp$6, amber, 3, 1, 0));
+  let line;
+  if (_bind$18.$tag === 1) {
+    const _ok = _bind$18;
+    line = _ok._0;
+  } else {
+    return _bind$18;
+  }
+  const _bind$19 = _M0FP39moonmanim4core8geometry4line(_M0MP39moonmanim4core4math4Vec34zeroN6recordS1252, _M0MP39moonmanim4core4math4Vec34zeroN6recordS1252);
+  let _tmp$7;
+  if (_bind$19.$tag === 1) {
+    const _ok = _bind$19;
+    _tmp$7 = _ok._0;
+  } else {
+    return _bind$19;
+  }
+  const _bind$20 = _M0MP39moonmanim4core5scene5Scene3add(scene, _M0FP49moonmanim4core3cmd3web22dynamic__shape_2einner(_tmp$7, pink, 1.2, 0.4, 0));
+  let guide;
+  if (_bind$20.$tag === 1) {
+    const _ok = _bind$20;
+    guide = _ok._0;
+  } else {
+    return _bind$20;
+  }
+  let _bind_buf = [line, guide];
+  let _bind_len = 2;
+  const _bind$21 = _bind_len;
+  const _bind$22 = _bind_buf;
+  let _tmp$8 = 0;
+  while (true) {
+    const _ = _tmp$8;
+    if (_ < _bind$21) {
+      const id = _bind$22[_];
+      const _bind$23 = _M0MP39moonmanim4core5scene5Scene3get(scene, id);
+      let _bind$24;
+      if (_bind$23.$tag === 1) {
+        const _ok = _bind$23;
+        _bind$24 = _ok._0;
+      } else {
+        return _bind$23;
+      }
+      const _bind$25 = _M0MP39moonmanim4core5scene5Scene3set(scene, id, new _M0TP39moonmanim4core7mobject11ObjectState(_bind$24.path, _bind$24.transform, _bind$24.style, -1));
+      if (_bind$25.$tag === 1) {
+        const _ok = _bind$25;
+        _ok._0;
+      } else {
+        return _bind$25;
+      }
+      _tmp$8 = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  const _bind$23 = _M0MP39moonmanim4core5scene5Scene20set__updater_2einner(scene, line, (context, state) => {
+    const _bind$24 = _M0MP39moonmanim4core5scene13UpdateContext10get__value(context, gap);
+    let h;
+    if (_bind$24.$tag === 1) {
+      const _ok = _bind$24;
+      h = _ok._0;
+    } else {
+      return _bind$24;
+    }
+    const _bind$25 = _M0MP39moonmanim4core5scene13UpdateContext10get__value(context, position);
+    let _tmp$9;
+    if (_bind$25.$tag === 1) {
+      const _ok = _bind$25;
+      _tmp$9 = _ok._0;
+    } else {
+      return _bind$25;
+    }
+    const slope = (2 * _tmp$9 + h) / 4;
+    const _bind$26 = _M0MP39moonmanim4core5scene13UpdateContext16world__transform(context, p);
+    let _tmp$10;
+    if (_bind$26.$tag === 1) {
+      const _ok = _bind$26;
+      _tmp$10 = _ok._0;
+    } else {
+      return _bind$26;
+    }
+    const point = _M0MP39moonmanim4core4math7Affine25apply(_tmp$10, _M0MP39moonmanim4core4math4Vec34zeroN6recordS1252);
+    const vector = _M0MP39moonmanim4core4math4Vec311new_2einner(1, slope, 0);
+    const _bind$27 = _M0MP39moonmanim4core4math4Vec310normalized(vector);
+    let direction;
+    if (_bind$27.$tag === 1) {
+      const _ok = _bind$27;
+      direction = _ok._0;
+    } else {
+      return _bind$27;
+    }
+    const reach = _M0MPC16double6Double3max(h * 0.8 * _M0MP39moonmanim4core4math4Vec36length(vector) + 0.3, 1.7);
+    const _bind$28 = _M0FP39moonmanim4core8geometry4line(_M0MP39moonmanim4core4math4Vec33sub(point, _M0MP39moonmanim4core4math4Vec35scale(direction, 1.7)), _M0MP39moonmanim4core4math4Vec33add(point, _M0MP39moonmanim4core4math4Vec35scale(direction, reach)));
+    let _tmp$11;
+    if (_bind$28.$tag === 1) {
+      const _ok = _bind$28;
+      _tmp$11 = _ok._0;
+    } else {
+      return _bind$28;
+    }
+    return new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRPC15error5ErrorE2Ok(new _M0TP39moonmanim4core7mobject11ObjectState(_tmp$11, state.transform, state.style, state.z_index));
+  }, new _M0TPB5ArrayGRP39moonmanim4core7mobject8ObjectIdE([p], 1), new _M0TPB5ArrayGRP39moonmanim4core5scene12ValueTrackerE([position, gap], 2));
+  if (_bind$23.$tag === 1) {
+    const _ok = _bind$23;
+    _ok._0;
+  } else {
+    return _bind$23;
+  }
+  const _bind$24 = _M0MP39moonmanim4core5scene5Scene20set__updater_2einner(scene, guide, (context, state) => {
+    const _bind$25 = _M0MP39moonmanim4core5scene13UpdateContext16world__transform(context, p);
+    let _tmp$9;
+    if (_bind$25.$tag === 1) {
+      const _ok = _bind$25;
+      _tmp$9 = _ok._0;
+    } else {
+      return _bind$25;
+    }
+    const point = _M0MP39moonmanim4core4math7Affine25apply(_tmp$9, _M0MP39moonmanim4core4math4Vec34zeroN6recordS1252);
+    const _bind$26 = _M0MP39moonmanim4core5scene13UpdateContext10get__value(context, position);
+    let _tmp$10;
+    if (_bind$26.$tag === 1) {
+      const _ok = _bind$26;
+      _tmp$10 = _ok._0;
+    } else {
+      return _bind$26;
+    }
+    const _bind$27 = _M0FP39moonmanim4core8geometry4line(_M0MP39moonmanim4core11coordinates11NumberPlane5point(plane, _tmp$10, 0), point);
+    let _tmp$11;
+    if (_bind$27.$tag === 1) {
+      const _ok = _bind$27;
+      _tmp$11 = _ok._0;
+    } else {
+      return _bind$27;
+    }
+    return new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRPC15error5ErrorE2Ok(new _M0TP39moonmanim4core7mobject11ObjectState(_tmp$11, state.transform, state.style, state.z_index));
+  }, new _M0TPB5ArrayGRP39moonmanim4core7mobject8ObjectIdE([p], 1), new _M0TPB5ArrayGRP39moonmanim4core5scene12ValueTrackerE([position], 1));
+  if (_bind$24.$tag === 1) {
+    const _ok = _bind$24;
+    _ok._0;
+  } else {
+    return _bind$24;
+  }
+  const _bind$25 = _M0MP39moonmanim4core5scene5Scene12set__updater(scene, q, (context, state) => {
+    const _bind$26 = _M0MP39moonmanim4core5scene13UpdateContext10get__value(context, gap);
+    let h;
+    if (_bind$26.$tag === 1) {
+      const _ok = _bind$26;
+      h = _ok._0;
+    } else {
+      return _bind$26;
+    }
+    const _bind$27 = _M0MP39moonmanim4core5scene13UpdateContext10get__value(context, position);
+    let _tmp$9;
+    if (_bind$27.$tag === 1) {
+      const _ok = _bind$27;
+      _tmp$9 = _ok._0;
+    } else {
+      return _bind$27;
+    }
+    const a = _tmp$9 + h;
+    const point = _M0MP39moonmanim4core11coordinates11NumberPlane5point(plane, a, a * a / 4);
+    const _tmp$10 = state.path;
+    const _tmp$11 = _M0MP39moonmanim4core4math7Affine211translation(point.x, point.y);
+    const _tmp$12 = state.style;
+    return new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRPC15error5ErrorE2Ok(new _M0TP39moonmanim4core7mobject11ObjectState(_tmp$10, _tmp$11, new _M0TP39moonmanim4core7mobject5Style(_tmp$12.stroke, _tmp$12.fill, _tmp$12.stroke_width, _tmp$12.stroke_opacity, _tmp$12.fill_opacity, _M0MPC16double6Double3min(h / 0.25, 1), _tmp$12.fill_rule), state.z_index));
+  }, undefined, new _M0TPB5ArrayGRP39moonmanim4core5scene12ValueTrackerE([position, gap], 2));
+  if (_bind$25.$tag === 1) {
+    const _ok = _bind$25;
+    _ok._0;
+  } else {
+    return _bind$25;
+  }
+  const _bind$26 = _M0MP39moonmanim4core5scene5Scene12set__updater(scene, p, (context, state) => {
+    const _bind$27 = _M0MP39moonmanim4core5scene13UpdateContext10get__value(context, position);
+    let a;
+    if (_bind$27.$tag === 1) {
+      const _ok = _bind$27;
+      a = _ok._0;
+    } else {
+      return _bind$27;
+    }
+    const point = _M0MP39moonmanim4core11coordinates11NumberPlane5point(plane, a, a * a / 4);
+    return new _M0DTPC16result6ResultGRP39moonmanim4core7mobject11ObjectStateRPC15error5ErrorE2Ok(new _M0TP39moonmanim4core7mobject11ObjectState(state.path, _M0MP39moonmanim4core4math7Affine211translation(point.x, point.y), state.style, state.z_index));
+  }, undefined, new _M0TPB5ArrayGRP39moonmanim4core5scene12ValueTrackerE([position], 1));
+  if (_bind$26.$tag === 1) {
+    const _ok = _bind$26;
+    _ok._0;
+  } else {
+    return _bind$26;
+  }
+  const _bind$27 = _M0MP39moonmanim4core5scene5Scene6update(scene);
+  if (_bind$27.$tag === 1) {
+    const _ok = _bind$27;
+    _ok._0;
+  } else {
+    return _bind$27;
+  }
+  const _bind$28 = _M0MP39moonmanim4core7mobject5Color3rgb(0.055, 0.071, 0.106);
+  let _tmp$9;
+  if (_bind$28.$tag === 1) {
+    const _ok = _bind$28;
+    _tmp$9 = _ok._0;
+  } else {
+    return _bind$28;
+  }
+  const _bind$29 = _M0MP39moonmanim4core6render8Camera2D3new(_M0FP49moonmanim4core3cmd3web14tangent__frameN6constrS1891, _M0FP49moonmanim4core3cmd3web14tangent__frameN6constrS1892, _M0FP49moonmanim4core3cmd3web14tangent__frameN6constrS1893, undefined, _tmp$9);
+  let camera;
+  if (_bind$29.$tag === 1) {
+    const _ok = _bind$29;
+    camera = _ok._0;
+  } else {
+    return _bind$29;
+  }
+  const _bind$30 = _M0MP39moonmanim4core5scene5Scene8snapshot(scene);
+  let _tmp$10;
+  if (_bind$30.$tag === 1) {
+    const _ok = _bind$30;
+    _tmp$10 = _ok._0;
+  } else {
+    return _bind$30;
+  }
+  const _bind$31 = _M0FP39moonmanim4core6render10svg__frame(camera, _tmp$10);
+  let _p;
+  if (_bind$31.$tag === 1) {
+    const _ok = _bind$31;
+    _p = _ok._0;
+  } else {
+    return _bind$31;
+  }
+  const _tmp$11 = { _0: "svg", _1: new _M0DTPC14json4Json6String(_p) };
+  const _p$2 = undefined;
+  const _tmp$12 = { _0: "x", _1: new _M0DTPC14json4Json6Number(x, _p$2) };
+  const _p$3 = x * x / 4;
+  const _p$4 = undefined;
+  const _tmp$13 = { _0: "y", _1: new _M0DTPC14json4Json6Number(_p$3, _p$4) };
+  const _bind$32 = _M0MP39moonmanim4core5scene5Scene10get__value(scene, gap);
+  let _p$5;
+  if (_bind$32.$tag === 1) {
+    const _ok = _bind$32;
+    _p$5 = _ok._0;
+  } else {
+    return _bind$32;
+  }
+  const _p$6 = undefined;
+  const _tmp$14 = { _0: "gap", _1: new _M0DTPC14json4Json6Number(_p$5, _p$6) };
+  const _tmp$15 = 2 * x;
+  const _bind$33 = _M0MP39moonmanim4core5scene5Scene10get__value(scene, gap);
+  let _tmp$16;
+  if (_bind$33.$tag === 1) {
+    const _ok = _bind$33;
+    _tmp$16 = _ok._0;
+  } else {
+    return _bind$33;
+  }
+  const _p$7 = (_tmp$15 + _tmp$16) / 4;
+  const _p$8 = undefined;
+  const _tmp$17 = { _0: "slope", _1: new _M0DTPC14json4Json6Number(_p$7, _p$8) };
+  const _p$9 = x / 2;
+  const _p$10 = undefined;
+  const _bind$34 = [_tmp$12, _tmp$13, _tmp$14, _tmp$17, { _0: "derivative", _1: new _M0DTPC14json4Json6Number(_p$9, _p$10) }];
+  const _p$11 = _M0MPB3Map3MapGsRPC14json4JsonE(new _M0TPB9ArrayViewGUsRPC14json4JsonEE(_bind$34, 0, 5), undefined);
+  const _bind$35 = [_tmp$11, { _0: "values", _1: new _M0DTPC14json4Json6Object(_p$11) }];
+  const _p$12 = _M0MPB3Map3MapGsRPC14json4JsonE(new _M0TPB9ArrayViewGUsRPC14json4JsonEE(_bind$35, 0, 2), undefined);
+  return new _M0DTPC16result6ResultGsRPC15error5ErrorE2Ok(_M0MPC14json4Json17stringify_2einner(new _M0DTPC14json4Json6Object(_p$12), false, 0, undefined));
+}
+function _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, path, color, fill, opacity, width, transform) {
   const _tmp = _M0MP39moonmanim4core7mobject5Style7default();
   const _bind = _M0MP39moonmanim4core7mobject11ObjectState13shape_2einner(path, new _M0TP39moonmanim4core7mobject5Style(color, color, width, _tmp.stroke_opacity, fill, opacity, _tmp.fill_rule));
   const _bind$2 = _M0MP39moonmanim4core7mobject5Store3add(store, new _M0TP39moonmanim4core7mobject11ObjectState(_bind.path, transform, _bind.style, _bind.z_index));
@@ -3365,7 +5383,28 @@ function _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, path, color, fill,
   }
   return new _M0DTPC16result6ResultGuRP39moonmanim4core6errors11EngineErrorE2Ok(undefined);
 }
+function _M0FP49moonmanim4core3cmd3web5frameN5pointS1942(_env, u) {
+  const second = _env._2;
+  const phase = _env._1;
+  const first = _env._0;
+  return _M0MP39moonmanim4core4math4Vec311new_2einner(3.6 * _M0FPC14math3sin(first * u + phase), 2.6 * _M0FPC14math3sin(second * u), 0);
+}
 function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, third) {
+  if (!_M0FP39moonmanim4core4math6finite(progress) || (!_M0FP39moonmanim4core4math6finite(first) || (!_M0FP39moonmanim4core4math6finite(second) || !_M0FP39moonmanim4core4math6finite(third)))) {
+    return new _M0DTPC16result6ResultGsRP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("browser parameters must be finite"));
+  }
+  const t = _M0FP39moonmanim4core4math7clamp01(progress);
+  if (mode === "tangent") {
+    const _bind = _M0FP49moonmanim4core3cmd3web14tangent__frame(t, first, second);
+    let _tmp;
+    if (_bind.$tag === 1) {
+      const _ok = _bind;
+      _tmp = _ok._0;
+    } else {
+      return _bind;
+    }
+    return new _M0DTPC16result6ResultGsRPC15error5ErrorE2Ok(_tmp);
+  }
   const store = _M0MP39moonmanim4core7mobject5Store3new();
   const _bind = _M0MP39moonmanim4core7mobject5Color3rgb(0.49, 0.62, 1);
   let blue;
@@ -3407,8 +5446,7 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
   } else {
     return _bind$5;
   }
-  const t = _M0FP39moonmanim4core4math7clamp01(progress);
-  const _bind$6 = _M0MP39moonmanim4core11coordinates11NumberPlane3new(_M0FP49moonmanim4core3cmd3web5frameN6constrS1370, _M0FP49moonmanim4core3cmd3web5frameN6constrS1371, _M0FP49moonmanim4core3cmd3web5frameN6constrS1372, _M0FP49moonmanim4core3cmd3web5frameN6constrS1373, undefined);
+  const _bind$6 = _M0MP39moonmanim4core11coordinates11NumberPlane3new(_M0FP49moonmanim4core3cmd3web5frameN6constrS1943, _M0FP49moonmanim4core3cmd3web5frameN6constrS1944, _M0FP49moonmanim4core3cmd3web5frameN6constrS1945, _M0FP49moonmanim4core3cmd3web5frameN6constrS1946, undefined);
   let plane;
   if (_bind$6.$tag === 1) {
     const _ok = _bind$6;
@@ -3416,7 +5454,7 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
   } else {
     return _bind$6;
   }
-  const identity = _M0MP39moonmanim4core4math7Affine28identityN6recordS971;
+  const identity = _M0MP39moonmanim4core4math7Affine28identityN6recordS1269;
   const _bind$7 = _M0MP39moonmanim4core11coordinates11NumberPlane12grid_2einner(plane, 1);
   let _tmp;
   if (_bind$7.$tag === 1) {
@@ -3425,7 +5463,7 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
   } else {
     return _bind$7;
   }
-  const _bind$8 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp, muted, 0, 0.14, 1, identity);
+  const _bind$8 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp, muted, 0, 0.14, 1, identity);
   if (_bind$8.$tag === 1) {
     const _ok = _bind$8;
     _ok._0;
@@ -3440,7 +5478,7 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
   } else {
     return _bind$9;
   }
-  const _bind$10 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$2, muted, 0, 0.35, 1, identity);
+  const _bind$10 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$2, muted, 0, 0.35, 1, identity);
   if (_bind$10.$tag === 1) {
     const _ok = _bind$10;
     _ok._0;
@@ -3465,14 +5503,14 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
       } else {
         return _bind$16;
       }
-      const _bind$17 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$3, blue, 0, 0.34, 1.1, matrix);
+      const _bind$17 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$3, blue, 0, 0.34, 1.1, matrix);
       if (_bind$17.$tag === 1) {
         const _ok = _bind$17;
         _ok._0;
       } else {
         return _bind$17;
       }
-      const _bind$18 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core4math4Vec34zeroN6recordS954, _M0MP39moonmanim4core4math4Vec311new_2einner(1, 0, 0), _M0MP39moonmanim4core4math4Vec311new_2einner(1, 1, 0), _M0MP39moonmanim4core4math4Vec311new_2einner(0, 1, 0)], 4));
+      const _bind$18 = _M0FP39moonmanim4core8geometry7polygon(new _M0TPB5ArrayGRP39moonmanim4core4math4Vec3E([_M0MP39moonmanim4core4math4Vec34zeroN6recordS1252, _M0MP39moonmanim4core4math4Vec311new_2einner(1, 0, 0), _M0MP39moonmanim4core4math4Vec311new_2einner(1, 1, 0), _M0MP39moonmanim4core4math4Vec311new_2einner(0, 1, 0)], 4));
       let unit;
       if (_bind$18.$tag === 1) {
         const _ok = _bind$18;
@@ -3480,21 +5518,21 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
       } else {
         return _bind$18;
       }
-      const _bind$19 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, unit, white, 0.03, 0.25, 1.5, identity);
+      const _bind$19 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, unit, white, 0.03, 0.25, 1.5, identity);
       if (_bind$19.$tag === 1) {
         const _ok = _bind$19;
         _ok._0;
       } else {
         return _bind$19;
       }
-      const _bind$20 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, unit, blue, 0.2, 1, 2.5, matrix);
+      const _bind$20 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, unit, blue, 0.2, 1, 2.5, matrix);
       if (_bind$20.$tag === 1) {
         const _ok = _bind$20;
         _ok._0;
       } else {
         return _bind$20;
       }
-      const _bind$21 = _M0FP39moonmanim4core8geometry13arrow_2einner(_M0MP39moonmanim4core4math4Vec34zeroN6recordS954, _M0MP39moonmanim4core4math4Vec311new_2einner(1, 0, 0), 0.18);
+      const _bind$21 = _M0FP39moonmanim4core8geometry13arrow_2einner(_M0MP39moonmanim4core4math4Vec34zeroN6recordS1252, _M0MP39moonmanim4core4math4Vec311new_2einner(1, 0, 0), 0.18);
       let _tmp$4;
       if (_bind$21.$tag === 1) {
         const _ok = _bind$21;
@@ -3502,14 +5540,14 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
       } else {
         return _bind$21;
       }
-      const _bind$22 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$4, teal, 0, 1, 3.5, matrix);
+      const _bind$22 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$4, teal, 0, 1, 3.5, matrix);
       if (_bind$22.$tag === 1) {
         const _ok = _bind$22;
         _ok._0;
       } else {
         return _bind$22;
       }
-      const _bind$23 = _M0FP39moonmanim4core8geometry13arrow_2einner(_M0MP39moonmanim4core4math4Vec34zeroN6recordS954, _M0MP39moonmanim4core4math4Vec311new_2einner(0, 1, 0), 0.18);
+      const _bind$23 = _M0FP39moonmanim4core8geometry13arrow_2einner(_M0MP39moonmanim4core4math4Vec34zeroN6recordS1252, _M0MP39moonmanim4core4math4Vec311new_2einner(0, 1, 0), 0.18);
       let _tmp$5;
       if (_bind$23.$tag === 1) {
         const _ok = _bind$23;
@@ -3517,7 +5555,7 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
       } else {
         return _bind$23;
       }
-      const _bind$24 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$5, amber, 0, 1, 3.5, matrix);
+      const _bind$24 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$5, amber, 0, 1, 3.5, matrix);
       if (_bind$24.$tag === 1) {
         const _ok = _bind$24;
         _ok._0;
@@ -3569,14 +5607,14 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
         return _bind$31;
       }
       const polygon = _M0MP39moonmanim4core8geometry4Path3new(new _M0TPB5ArrayGRP39moonmanim4core8geometry7ContourE([_tmp$7], 1));
-      const _bind$32 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, polygon, muted, 0, 0.55, 1.5, identity);
+      const _bind$32 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, polygon, muted, 0, 0.55, 1.5, identity);
       if (_bind$32.$tag === 1) {
         const _ok = _bind$32;
         _ok._0;
       } else {
         return _bind$32;
       }
-      const _bind$33 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, path, white, 0, 0.18, 3, identity);
+      const _bind$33 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, path, white, 0, 0.18, 3, identity);
       if (_bind$33.$tag === 1) {
         const _ok = _bind$33;
         _ok._0;
@@ -3591,7 +5629,7 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
       } else {
         return _bind$34;
       }
-      const _bind$35 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$8, teal, 0, 1, 4, identity);
+      const _bind$35 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$8, teal, 0, 1, 4, identity);
       if (_bind$35.$tag === 1) {
         const _ok = _bind$35;
         _ok._0;
@@ -3615,7 +5653,7 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
           } else {
             return _bind$38;
           }
-          const _bind$39 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$10, blue, 1, 1, 1, _M0MP39moonmanim4core4math7Affine211translation(point.x, point.y));
+          const _bind$39 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$10, blue, 1, 1, 1, _M0MP39moonmanim4core4math7Affine211translation(point.x, point.y));
           if (_bind$39.$tag === 1) {
             const _ok = _bind$39;
             _ok._0;
@@ -3648,7 +5686,7 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
         } else {
           return _bind$40;
         }
-        const _bind$41 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$10, teal, 1, 1, 1, _M0MP39moonmanim4core4math7Affine211translation(_point.x, _point.y));
+        const _bind$41 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$10, teal, 1, 1, 1, _M0MP39moonmanim4core4math7Affine211translation(_point.x, _point.y));
         if (_bind$41.$tag === 1) {
           const _ok = _bind$41;
           _ok._0;
@@ -3684,28 +5722,28 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
       } else {
         return _bind$41;
       }
-      const _bind$42 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$10, white, 0, 0.6, 1.5, _M0MP39moonmanim4core4math7Affine27scaling(scale, scale));
+      const _bind$42 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$10, white, 0, 0.6, 1.5, _M0MP39moonmanim4core4math7Affine27scaling(scale, scale));
       if (_bind$42.$tag === 1) {
         const _ok = _bind$42;
         _ok._0;
       } else {
         return _bind$42;
       }
-      const _bind$43 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, tiling.c_square, blue, 0.18, (1 - eased) * (1 - eased), 2.5, placement);
+      const _bind$43 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, tiling.c_square, blue, 0.18, (1 - eased) * (1 - eased), 2.5, placement);
       if (_bind$43.$tag === 1) {
         const _ok = _bind$43;
         _ok._0;
       } else {
         return _bind$43;
       }
-      const _bind$44 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, tiling.a_square, teal, 0.22, eased * eased, 2.5, placement);
+      const _bind$44 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, tiling.a_square, teal, 0.22, eased * eased, 2.5, placement);
       if (_bind$44.$tag === 1) {
         const _ok = _bind$44;
         _ok._0;
       } else {
         return _bind$44;
       }
-      const _bind$45 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, tiling.b_square, blue, 0.22, eased * eased, 2.5, placement);
+      const _bind$45 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, tiling.b_square, blue, 0.22, eased * eased, 2.5, placement);
       if (_bind$45.$tag === 1) {
         const _ok = _bind$45;
         _ok._0;
@@ -3725,7 +5763,7 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
           if (i < 0 || i >= colors_len) {
             $panic();
           }
-          const _bind$46 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$12, colors_buf[i], 0.2, 0.95, 2, _M0MP39moonmanim4core4math7Affine27compose(placement, _M0MP39moonmanim4core4math7Affine211translation(offset.x, offset.y)));
+          const _bind$46 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$12, colors_buf[i], 0.2, 0.95, 2, _M0MP39moonmanim4core4math7Affine27compose(placement, _M0MP39moonmanim4core4math7Affine211translation(offset.x, offset.y)));
           if (_bind$46.$tag === 1) {
             const _ok = _bind$46;
             _ok._0;
@@ -3749,145 +5787,283 @@ function _M0FP49moonmanim4core3cmd3web5frame(mode, progress, first, second, thir
       _M0MPB3Map3setGsRPC14json4JsonE(values, "c2", new _M0DTPC14json4Json6Number(_p$15, _p$16));
       break;
     }
-    case "morph": {
-      const rotation = _M0MP39moonmanim4core4math7Affine28rotation(third);
-      const _bind$46 = _M0FP39moonmanim4core8geometry6square(3.4);
-      let _tmp$12;
+    case "lissajous": {
+      if (first < 1 || (first > 6 || (first !== _M0MPC16double6Double5floor(first) || (second < 1 || (second > 6 || (second !== _M0MPC16double6Double5floor(second) || (third < -180 || third > 180))))))) {
+        return new _M0DTPC16result6ResultGsRP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("invalid oscillator frequency or phase"));
+      }
+      const phase = third * 3.14159265358979312 / 180;
+      const _env = { _0: first, _1: phase, _2: second };
+      const segments = new _M0TPB5ArrayGRP39moonmanim4core8geometry5CubicE([], 0);
+      const visible = new _M0TPB5ArrayGRP39moonmanim4core8geometry5CubicE([], 0);
+      const stop = t * (720 + 0);
+      let previous = _M0FP49moonmanim4core3cmd3web5frameN5pointS1942(_env, 0);
+      let _tmp$12 = 0;
+      while (true) {
+        const i = _tmp$12;
+        if (i < 720) {
+          const next = _M0FP49moonmanim4core3cmd3web5frameN5pointS1942(_env, ((i + 1 | 0) + 0) / (720 + 0) * 6.28318530717958623);
+          const segment = _M0MP39moonmanim4core8geometry5Cubic4line(previous, next);
+          _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(segments, segment);
+          if ((i + 1 | 0) + 0 <= stop) {
+            _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(visible, segment);
+          } else {
+            if (i + 0 < stop) {
+              const _bind$46 = _M0MP39moonmanim4core8geometry5Cubic10subsegment(segment, 0, stop - (i + 0));
+              let _tmp$13;
+              if (_bind$46.$tag === 1) {
+                const _ok = _bind$46;
+                _tmp$13 = _ok._0;
+              } else {
+                return _bind$46;
+              }
+              _M0MPC15array5Array4pushGRP39moonmanim4core7mobject8DrawItemE(visible, _tmp$13);
+            }
+          }
+          previous = next;
+          _tmp$12 = i + 1 | 0;
+          continue;
+        } else {
+          break;
+        }
+      }
+      const _bind$46 = _M0MP39moonmanim4core8geometry7Contour11new_2einner(segments, false);
+      let _tmp$13;
       if (_bind$46.$tag === 1) {
         const _ok = _bind$46;
-        _tmp$12 = _ok._0;
+        _tmp$13 = _ok._0;
       } else {
         return _bind$46;
       }
-      const _tmp$13 = _tmp$12;
-      const _bind$47 = _M0FP39moonmanim4core8geometry6circle(1.95);
-      let _tmp$14;
+      const _bind$47 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _M0MP39moonmanim4core8geometry4Path3new(new _M0TPB5ArrayGRP39moonmanim4core8geometry7ContourE([_tmp$13], 1)), blue, 0, 0.2, 1.5, identity);
       if (_bind$47.$tag === 1) {
         const _ok = _bind$47;
-        _tmp$14 = _ok._0;
+        _ok._0;
       } else {
         return _bind$47;
       }
-      const _bind$48 = _M0MP39moonmanim4core8geometry9PathMorph3new(_tmp$13, _tmp$14);
-      let morph;
+      if (!(visible.len === 0)) {
+        const _bind$48 = _M0MP39moonmanim4core8geometry7Contour11new_2einner(visible, false);
+        let _tmp$14;
+        if (_bind$48.$tag === 1) {
+          const _ok = _bind$48;
+          _tmp$14 = _ok._0;
+        } else {
+          return _bind$48;
+        }
+        const _bind$49 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _M0MP39moonmanim4core8geometry4Path3new(new _M0TPB5ArrayGRP39moonmanim4core8geometry7ContourE([_tmp$14], 1)), teal, 0, 1, 3, identity);
+        if (_bind$49.$tag === 1) {
+          const _ok = _bind$49;
+          _ok._0;
+        } else {
+          return _bind$49;
+        }
+      }
+      const current = _M0FP49moonmanim4core3cmd3web5frameN5pointS1942(_env, t * 6.28318530717958623);
+      const _bind$48 = _M0FP39moonmanim4core8geometry4line(_M0MP39moonmanim4core4math4Vec311new_2einner(current.x, 0, 0), current);
+      let _tmp$14;
       if (_bind$48.$tag === 1) {
         const _ok = _bind$48;
-        morph = _ok._0;
+        _tmp$14 = _ok._0;
       } else {
         return _bind$48;
       }
-      const _bind$49 = _M0FP39moonmanim4core8geometry6circle(2.8);
-      let _tmp$15;
+      const _bind$49 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$14, amber, 0, 0.45, 1.2, identity);
       if (_bind$49.$tag === 1) {
         const _ok = _bind$49;
-        _tmp$15 = _ok._0;
+        _ok._0;
       } else {
         return _bind$49;
       }
-      const _bind$50 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$15, muted, 0, 0.35, 1, identity);
+      const _bind$50 = _M0FP39moonmanim4core8geometry4line(_M0MP39moonmanim4core4math4Vec311new_2einner(0, current.y, 0), current);
+      let _tmp$15;
       if (_bind$50.$tag === 1) {
         const _ok = _bind$50;
-        _ok._0;
+        _tmp$15 = _ok._0;
       } else {
         return _bind$50;
       }
-      const _bind$51 = _M0FP39moonmanim4core8geometry6circle(1.1);
-      let _tmp$16;
+      const _bind$51 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$15, blue, 0, 0.45, 1.2, identity);
       if (_bind$51.$tag === 1) {
         const _ok = _bind$51;
-        _tmp$16 = _ok._0;
+        _ok._0;
       } else {
         return _bind$51;
       }
-      const _bind$52 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$16, muted, 0, 0.26, 1, identity);
+      const _bind$52 = _M0FP39moonmanim4core8geometry6circle(0.095);
+      let _tmp$16;
       if (_bind$52.$tag === 1) {
         const _ok = _bind$52;
-        _ok._0;
+        _tmp$16 = _ok._0;
       } else {
         return _bind$52;
       }
-      const _bind$53 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _M0MP39moonmanim4core8geometry9PathMorph6sample(morph, t), blue, 0.12, 1, 2, rotation);
+      const _bind$53 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$16, amber, 1, 1, 1.5, _M0MP39moonmanim4core4math7Affine211translation(current.x, current.y));
       if (_bind$53.$tag === 1) {
         const _ok = _bind$53;
         _ok._0;
       } else {
         return _bind$53;
       }
-      const _bind$54 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _M0MP39moonmanim4core8geometry9PathMorph6sample(morph, 1 - t), teal, 0.06, 0.9, 1.8, _M0MP39moonmanim4core4math7Affine27compose(_M0MP39moonmanim4core4math7Affine28rotation(-third), _M0MP39moonmanim4core4math7Affine27scaling(0.65, 0.65)));
+      const _p$17 = current.x;
+      const _p$18 = undefined;
+      _M0MPB3Map3setGsRPC14json4JsonE(values, "x", new _M0DTPC14json4Json6Number(_p$17, _p$18));
+      const _p$19 = current.y;
+      const _p$20 = undefined;
+      _M0MPB3Map3setGsRPC14json4JsonE(values, "y", new _M0DTPC14json4Json6Number(_p$19, _p$20));
+      const _p$21 = undefined;
+      _M0MPB3Map3setGsRPC14json4JsonE(values, "frequency_x", new _M0DTPC14json4Json6Number(first, _p$21));
+      const _p$22 = undefined;
+      _M0MPB3Map3setGsRPC14json4JsonE(values, "frequency_y", new _M0DTPC14json4Json6Number(second, _p$22));
+      const _p$23 = undefined;
+      _M0MPB3Map3setGsRPC14json4JsonE(values, "phase", new _M0DTPC14json4Json6Number(third, _p$23));
+      const _p$24 = undefined;
+      _M0MPB3Map3setGsRPC14json4JsonE(values, "cycle", new _M0DTPC14json4Json6Number(t, _p$24));
+      break;
+    }
+    case "morph": {
+      const rotation = _M0MP39moonmanim4core4math7Affine28rotation(third);
+      const _bind$54 = _M0FP39moonmanim4core8geometry6square(3.4);
+      let _tmp$17;
       if (_bind$54.$tag === 1) {
         const _ok = _bind$54;
-        _ok._0;
+        _tmp$17 = _ok._0;
       } else {
         return _bind$54;
       }
-      let _tmp$17 = 0;
+      const _tmp$18 = _tmp$17;
+      const _bind$55 = _M0FP39moonmanim4core8geometry6circle(1.95);
+      let _tmp$19;
+      if (_bind$55.$tag === 1) {
+        const _ok = _bind$55;
+        _tmp$19 = _ok._0;
+      } else {
+        return _bind$55;
+      }
+      const _bind$56 = _M0MP39moonmanim4core8geometry9PathMorph3new(_tmp$18, _tmp$19);
+      let morph;
+      if (_bind$56.$tag === 1) {
+        const _ok = _bind$56;
+        morph = _ok._0;
+      } else {
+        return _bind$56;
+      }
+      const _bind$57 = _M0FP39moonmanim4core8geometry6circle(2.8);
+      let _tmp$20;
+      if (_bind$57.$tag === 1) {
+        const _ok = _bind$57;
+        _tmp$20 = _ok._0;
+      } else {
+        return _bind$57;
+      }
+      const _bind$58 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$20, muted, 0, 0.35, 1, identity);
+      if (_bind$58.$tag === 1) {
+        const _ok = _bind$58;
+        _ok._0;
+      } else {
+        return _bind$58;
+      }
+      const _bind$59 = _M0FP39moonmanim4core8geometry6circle(1.1);
+      let _tmp$21;
+      if (_bind$59.$tag === 1) {
+        const _ok = _bind$59;
+        _tmp$21 = _ok._0;
+      } else {
+        return _bind$59;
+      }
+      const _bind$60 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$21, muted, 0, 0.26, 1, identity);
+      if (_bind$60.$tag === 1) {
+        const _ok = _bind$60;
+        _ok._0;
+      } else {
+        return _bind$60;
+      }
+      const _bind$61 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _M0MP39moonmanim4core8geometry9PathMorph6sample(morph, t), blue, 0.12, 1, 2, rotation);
+      if (_bind$61.$tag === 1) {
+        const _ok = _bind$61;
+        _ok._0;
+      } else {
+        return _bind$61;
+      }
+      const _bind$62 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _M0MP39moonmanim4core8geometry9PathMorph6sample(morph, 1 - t), teal, 0.06, 0.9, 1.8, _M0MP39moonmanim4core4math7Affine27compose(_M0MP39moonmanim4core4math7Affine28rotation(-third), _M0MP39moonmanim4core4math7Affine27scaling(0.65, 0.65)));
+      if (_bind$62.$tag === 1) {
+        const _ok = _bind$62;
+        _ok._0;
+      } else {
+        return _bind$62;
+      }
+      let _tmp$22 = 0;
       while (true) {
-        const i = _tmp$17;
+        const i = _tmp$22;
         if (i < 4) {
           const angle = third + (i + 0) * 1.57079632679489656;
           const point = _M0MP39moonmanim4core4math7Affine25apply(_M0MP39moonmanim4core4math7Affine28rotation(angle), _M0MP39moonmanim4core4math4Vec311new_2einner(2.8, 0, 0));
-          const _bind$55 = _M0FP39moonmanim4core8geometry6circle(0.055);
-          let _tmp$18;
-          if (_bind$55.$tag === 1) {
-            const _ok = _bind$55;
-            _tmp$18 = _ok._0;
+          const _bind$63 = _M0FP39moonmanim4core8geometry6circle(0.055);
+          let _tmp$23;
+          if (_bind$63.$tag === 1) {
+            const _ok = _bind$63;
+            _tmp$23 = _ok._0;
           } else {
-            return _bind$55;
+            return _bind$63;
           }
-          const _bind$56 = _M0FP49moonmanim4core3cmd3web5frameN3addS1369(store, _tmp$18, teal, 1, 1, 1, _M0MP39moonmanim4core4math7Affine211translation(point.x, point.y));
-          if (_bind$56.$tag === 1) {
-            const _ok = _bind$56;
+          const _bind$64 = _M0FP49moonmanim4core3cmd3web5frameN3addS1941(store, _tmp$23, teal, 1, 1, 1, _M0MP39moonmanim4core4math7Affine211translation(point.x, point.y));
+          if (_bind$64.$tag === 1) {
+            const _ok = _bind$64;
             _ok._0;
           } else {
-            return _bind$56;
+            return _bind$64;
           }
-          _tmp$17 = i + 1 | 0;
+          _tmp$22 = i + 1 | 0;
           continue;
         } else {
           break;
         }
       }
+      const _p$25 = undefined;
+      _M0MPB3Map3setGsRPC14json4JsonE(values, "alpha", new _M0DTPC14json4Json6Number(t, _p$25));
+      const _p$26 = third * 180 / 3.14159265358979312;
+      const _p$27 = undefined;
+      _M0MPB3Map3setGsRPC14json4JsonE(values, "rotation", new _M0DTPC14json4Json6Number(_p$26, _p$27));
       break;
     }
     default: {
-      $panic("unknown browser scene");
+      return new _M0DTPC16result6ResultGsRP39moonmanim4core6errors11EngineErrorE3Err(new _M0DTPC15error5Error57moonmanim_2fcore_2ferrors_2eEngineError_2eInvalidArgument("unknown browser scene"));
     }
   }
-  const _bind$55 = _M0MP39moonmanim4core7mobject5Color3rgb(0.055, 0.071, 0.106);
-  let _tmp$18;
-  if (_bind$55.$tag === 1) {
-    const _ok = _bind$55;
-    _tmp$18 = _ok._0;
+  const _bind$63 = _M0MP39moonmanim4core7mobject5Color3rgb(0.055, 0.071, 0.106);
+  let _tmp$23;
+  if (_bind$63.$tag === 1) {
+    const _ok = _bind$63;
+    _tmp$23 = _ok._0;
   } else {
-    return _bind$55;
+    return _bind$63;
   }
-  const _bind$56 = _M0MP39moonmanim4core6render8Camera2D3new(_M0FP49moonmanim4core3cmd3web5frameN6constrS1374, _M0FP49moonmanim4core3cmd3web5frameN6constrS1375, _M0FP49moonmanim4core3cmd3web5frameN6constrS1376, undefined, _tmp$18);
+  const _bind$64 = _M0MP39moonmanim4core6render8Camera2D3new(_M0FP49moonmanim4core3cmd3web5frameN6constrS1947, _M0FP49moonmanim4core3cmd3web5frameN6constrS1948, _M0FP49moonmanim4core3cmd3web5frameN6constrS1949, undefined, _tmp$23);
   let camera;
-  if (_bind$56.$tag === 1) {
-    const _ok = _bind$56;
+  if (_bind$64.$tag === 1) {
+    const _ok = _bind$64;
     camera = _ok._0;
   } else {
-    return _bind$56;
+    return _bind$64;
   }
-  const _bind$57 = _M0MP39moonmanim4core7mobject5Store9drawables(store);
-  let _tmp$19;
-  if (_bind$57.$tag === 1) {
-    const _ok = _bind$57;
-    _tmp$19 = _ok._0;
+  const _bind$65 = _M0MP39moonmanim4core7mobject5Store9drawables(store);
+  let _tmp$24;
+  if (_bind$65.$tag === 1) {
+    const _ok = _bind$65;
+    _tmp$24 = _ok._0;
   } else {
-    return _bind$57;
+    return _bind$65;
   }
-  const _bind$58 = _M0FP39moonmanim4core6render10svg__frame(camera, new _M0TP39moonmanim4core6render5Frame(0n, t, _tmp$19));
+  const _bind$66 = _M0FP39moonmanim4core6render10svg__frame(camera, new _M0TP39moonmanim4core6render5Frame(0n, t, _tmp$24));
   let svg;
-  if (_bind$58.$tag === 1) {
-    const _ok = _bind$58;
+  if (_bind$66.$tag === 1) {
+    const _ok = _bind$66;
     svg = _ok._0;
   } else {
-    return _bind$58;
+    return _bind$66;
   }
-  const _bind$59 = [{ _0: "svg", _1: new _M0DTPC14json4Json6String(svg) }, { _0: "values", _1: new _M0DTPC14json4Json6Object(values) }];
-  const _p$17 = _M0MPB3Map3MapGsRPC14json4JsonE(new _M0TPB9ArrayViewGUsRPC14json4JsonEE(_bind$59, 0, 2), undefined);
-  return new _M0DTPC16result6ResultGsRPC15error5ErrorE2Ok(_M0MPC14json4Json17stringify_2einner(new _M0DTPC14json4Json6Object(_p$17), false, 0, undefined));
+  const _bind$67 = [{ _0: "svg", _1: new _M0DTPC14json4Json6String(svg) }, { _0: "values", _1: new _M0DTPC14json4Json6Object(values) }];
+  const _p$28 = _M0MPB3Map3MapGsRPC14json4JsonE(new _M0TPB9ArrayViewGUsRPC14json4JsonEE(_bind$67, 0, 2), undefined);
+  return new _M0DTPC16result6ResultGsRPC15error5ErrorE2Ok(_M0MPC14json4Json17stringify_2einner(new _M0DTPC14json4Json6Object(_p$28), false, 0, undefined));
 }
 function _M0FP49moonmanim4core3cmd3web6render(mode, progress, first, second, third) {
   let _try_err;
@@ -3903,6 +6079,9 @@ function _M0FP49moonmanim4core3cmd3web6render(mode, progress, first, second, thi
     }
   }
   return "{\"error\":\"Invalid scene parameters\"}";
+}
+function _M0IP49moonmanim4core3cmd3web11BrowserSinkP39moonmanim4core6render8Renderer6render(_self, _frame) {
+  return new _M0DTPC16result6ResultGuRPC15error5ErrorE2Ok(undefined);
 }
 (() => {
   _M0FP49moonmanim4core3cmd3web7install(_M0FP49moonmanim4core3cmd3web6render);

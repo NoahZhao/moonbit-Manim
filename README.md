@@ -6,7 +6,7 @@
 
 ## 项目展示网站
 
-[访问 MoonManim 展示站](https://noahzhao.github.io/moonbit-Manim/)，体验由 MoonBit 实时计算的矩阵变换、贝塞尔曲线与勾股定理实验，观看六段数学动画。支持调整参数、拖动进度、导出 SVG，并适配手机屏幕。
+[访问 MoonManim 展示站](https://noahzhao.github.io/moonbit-Manim/)，探索六个交互项目：矩阵变换、贝塞尔曲线、勾股定理、割线与切线、利萨如曲线及几何变形，观看七段数学动画。支持项目直达链接、调整参数、拖动进度、导出 SVG，并适配手机屏幕。
 
 本地预览：`npm run site:serve`，打开 http://127.0.0.1:4173/moonbit-Manim/。网站源码位于 `site/`；首次部署需要在仓库 Settings → Pages 中选择 GitHub Actions，详见 [网站维护与部署说明](docs/website.zh-CN.md)。
 

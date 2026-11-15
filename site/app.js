@@ -42,6 +42,38 @@
       presets: [['2 : 3', [2, 3, 0]], ['等腰三角形', [2, 2, 0]], ['3 : 4', [3, 4, 0]]],
       legend: '<span><i class="legend-swatch"></i>面积 a²</span><span><i class="legend-swatch blue"></i>面积 b² / c²</span><span>四个三角形 · 面积不变</span>',
     },
+    tangent: {
+      caption: 'FROM SECANT TO TANGENT', title: '割线极限与瞬时变化率',
+      description: '在抛物线 y = x²/4 上选定一个点。播放或拖动进度，让两点间距 h 逐渐趋于零，观察割线如何成为切线。',
+      defaults: [-1.5, 2, 0], progress: 0.25,
+      source: 'src/cmd/web/dynamics.mbt',
+      parameters: [
+        { label: '观察位置 x', min: -3, max: 3, step: 0.05, unit: '' },
+        { label: '初始间距 h', min: 0, max: 2, step: 0.05, unit: '' },
+      ],
+      presets: [['下降', [-2, 1.5, 0]], ['最低点', [0, 2, 0]], ['上升', [2, 1.5, 0]], ['直接看切线', [-1.5, 0, 0]]],
+      legend: '<span><i class="legend-swatch pink"></i>观察点 P</span><span><i class="legend-swatch"></i>靠近的点 Q</span><span><i class="legend-swatch coral"></i>割线 → 切线</span>',
+    },
+    lissajous: {
+      caption: 'LISSAJOUS / COUPLED OSCILLATIONS', title: '两个振动，一条利萨如曲线',
+      description: '将水平与竖直的简谐振动合成一条轨迹。改变整数频率比和相位差，探索圆、八字与多瓣图案之间的联系。',
+      defaults: [3, 2, 90], progress: 0.8, loop: true,
+      parameters: [
+        { label: '水平频率 a', min: 1, max: 6, step: 1, unit: '' },
+        { label: '竖直频率 b', min: 1, max: 6, step: 1, unit: '' },
+        { label: '相位差 δ', min: -180, max: 180, step: 5, unit: '°' },
+      ],
+      presets: [['椭圆', [1, 1, 90]], ['八字', [1, 2, 0]], ['3 : 2', [3, 2, 90]], ['5 : 4', [5, 4, 90]]],
+      legend: '<span><i class="legend-swatch"></i>合成轨迹</span><span><i class="legend-swatch coral"></i>当前振动位置</span><span><i class="legend-swatch blue"></i>完整周期</span>',
+    },
+    morph: {
+      caption: 'CONTINUOUS VECTOR MORPHING', title: '从正方形到圆的连续变形',
+      description: '先对齐两个轮廓的贝塞尔分段，再插值控制点。拖动进度改变形状，调节角度观察两层轮廓的反向旋转。',
+      defaults: [0, 0, 0.3], progress: 0.35,
+      parameters: [{ label: '旋转角度', min: -180, max: 180, step: 1, unit: '°', index: 2, radians: true }],
+      presets: [['对齐', [0, 0, 0]], ['旋转 45°', [0, 0, Math.PI / 4]], ['旋转 90°', [0, 0, Math.PI / 2]]],
+      legend: '<span><i class="legend-swatch blue"></i>正方形 → 圆</span><span><i class="legend-swatch"></i>圆 → 正方形</span>',
+    },
   };
   const state = { scene: 'matrix', parameters: [...scenes.matrix.defaults], progress: 1, playing: false };
   let lastFrame = null;
@@ -70,7 +102,7 @@
     $('#play-toggle').textContent = playing ? 'Ⅱ' : '▶';
     $('#play-toggle').setAttribute('aria-pressed', String(playing));
     $('#play-toggle').setAttribute('aria-label', playing ? '暂停实验动画' : '播放实验动画');
-    if (playing) animationTime = state.scene === 'bezier'
+    if (playing) animationTime = state.scene === 'bezier' || scenes[state.scene].loop
       ? state.progress * 6
       : Math.acos(1 - 2 * state.progress) / Math.PI * 4;
   }
@@ -83,7 +115,8 @@
 
   function syncParameters() {
     scenes[state.scene].parameters.forEach((parameter, index) => {
-      const value = state.parameters[index];
+      let value = state.parameters[parameter.index ?? index];
+      if (parameter.radians) value *= 180 / Math.PI;
       $(`#parameter-${index}`).value = String(value);
       $(`#value-${index}`).textContent = format(value, parameter.unit === '°' ? 0 : 2) + parameter.unit;
     });
@@ -106,7 +139,10 @@
     $('#scene-caption').textContent = scene.caption;
     $('#stage-legend').innerHTML = scene.legend;
     $('#lab-panel').setAttribute('aria-labelledby', `tab-${name}`);
-    $('#scene-source').href = sourceBase + 'src/cmd/web/main.mbt';
+    $('#scene-source').href = sourceBase + (scene.source || 'src/cmd/web/main.mbt');
+    const url = new URL(window.location.href);
+    url.searchParams.set('scene', name);
+    window.history.replaceState(null, '', url);
     $$('.lab-tab').forEach((tab) => {
       const selected = tab.dataset.scene === name;
       tab.classList.toggle('active', selected);
@@ -119,7 +155,7 @@
       wrapper.className = 'parameter';
       wrapper.innerHTML = `<label for="parameter-${index}">${parameter.label}<output id="value-${index}" for="parameter-${index}"></output></label><input id="parameter-${index}" type="range" min="${parameter.min}" max="${parameter.max}" step="${parameter.step}" value="${state.parameters[index]}"><div class="parameter-scale"><span>${parameter.min}${parameter.unit}</span><span>${parameter.max}${parameter.unit}</span></div>`;
       wrapper.querySelector('input').addEventListener('input', (event) => {
-        state.parameters[index] = Number(event.target.value);
+        state.parameters[parameter.index ?? index] = Number(event.target.value) * (parameter.radians ? Math.PI / 180 : 1);
         syncParameters();
         drawLab();
       });
@@ -181,11 +217,21 @@
         controlPoints();
         $('#math-readout').innerHTML = `<div class="equation">B(t) <span style="color:#a7afbd">∿</span></div><div class="metric"><small>已绘弧长 / 总弧长</small><strong>${format(values.drawn)} <span style="font-size:11px;color:#939dad">/ ${format(values.length)}</span></strong></div>`;
         $('#insight').textContent = '进度表示弧长比例，而非贝塞尔参数 t。匀速描绘的计算，由引擎的 PathMeasure 完成。';
-      } else {
+      } else if (state.scene === 'pythagoras') {
         $('#math-readout').innerHTML = `<div class="equation">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></div><div class="metric"><small>${format(values.a2)} + ${format(values.b2)}</small><strong>${format(values.c2)}</strong></div>`;
         $('#insight').textContent = state.progress < 0.05 ? '当前留白是 c²。点击播放，或拖动时间线，观察三角形如何重新排列。' : state.progress > 0.95 ? '现在留白变成了 a² 与 b²。减去同样的四个三角形，剩下的面积始终相等。' : '三角形只做平移，大小始终不变。两个端点的留白面积相等，重排过程便于观察位置变化。';
+      } else if (state.scene === 'tangent') {
+        $('#math-readout').innerHTML = `<div class="equation">f′(x) = x/2<div class="readout-detail">h = ${format(values.gap, 3)}</div></div><div class="metric"><small>割线斜率 / 导数</small><strong>${format(values.slope)} <span class="readout-secondary">/ ${format(values.derivative)}</span></strong></div>`;
+        $('#insight').textContent = values.gap < 0.001 ? `两点重合时取解析极限，切线斜率是 ${format(values.derivative)}。移动 x，比较曲线不同位置的变化率。` : `割线斜率与导数相差 ${format(values.slope - values.derivative, 3)}。当 h 趋于 0，这个差值也趋于 0。`;
+      } else if (state.scene === 'lissajous') {
+        $('#math-readout').innerHTML = `<div class="equation equation-small">x = 3.6 sin(at + δ)<br>y = 2.6 sin(bt)</div><div class="metric"><small>频率比 a : b</small><strong>${values.frequency_x} : ${values.frequency_y}</strong></div>`;
+        $('#insight').textContent = `当前位置 (${format(values.x)}, ${format(values.y)})。整数频率让两个振动在同一周期后回到起点；相位差改变图案的对称性。`;
+      } else if (state.scene === 'morph') {
+        $('#math-readout').innerHTML = `<div class="equation">P(α) = (1−α)P₀ + αP₁</div><div class="metric"><small>轮廓插值 α</small><strong>${format(values.alpha)}</strong></div>`;
+        $('#insight').textContent = state.progress < 0.001 ? 'α = 0：外层精确保留原始正方形，内层保留原始圆。' : state.progress > 0.999 ? 'α = 1：两层轮廓交换形状，保留各自的精确端点。' : '插值发生在三次贝塞尔控制点之间。形状连续变化，但过程不保证面积保持。';
       }
       $('#engine-error').hidden = true;
+      $('#engine-status').textContent = 'ENGINE READY / MoonBit → JavaScript → SVG';
     } catch (error) {
       setPlaying(false);
       $('#engine-error').hidden = false;
@@ -205,6 +251,16 @@
       if (next !== undefined) { event.preventDefault(); tabs[next].focus(); selectScene(tabs[next].dataset.scene); }
     });
   });
+  $$('[data-open-scene]').forEach((link) => link.addEventListener('click', (event) => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    selectScene(link.dataset.openScene);
+    const url = new URL(window.location.href);
+    url.hash = 'playground';
+    window.history.replaceState(null, '', url);
+    $('#playground').scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth' });
+    $(`#tab-${link.dataset.openScene}`).focus({ preventScroll: true });
+  }));
   $('#play-toggle').addEventListener('click', () => setPlaying(!state.playing));
   progress.addEventListener('input', () => { setPlaying(false); state.progress = Number(progress.value) / 100; drawLab(); });
   $('#reset').addEventListener('click', () => selectScene(state.scene));
@@ -314,7 +370,7 @@
         previousDraw = time;
         if (!heroPaused && heroVisible) drawHero((1 - Math.cos(heroTime * 0.65)) / 2, heroTime * 0.15);
         if (state.playing && labVisible) {
-          state.progress = state.scene === 'bezier'
+          state.progress = state.scene === 'bezier' || scenes[state.scene].loop
             ? (animationTime / 6) % 1
             : (1 - Math.cos(animationTime * Math.PI / 4)) / 2;
           drawLab();

@@ -2,7 +2,16 @@
 
 网站源码位于 `site/`，目标地址为 https://noahzhao.github.io/moonbit-Manim/。
 
-网站包含三个直接调用 MoonBit 核心的交互实验（矩阵、贝塞尔曲线、勾股定理），以及六段引擎生成的视频。支持播放、暂停、进度拖动、参数预设、曲线控制点拖动、SVG 导出和手机布局。系统启用“减少动态效果”时，首页动画默认暂停。
+网站包含六个直接调用 MoonBit 核心的交互项目，以及七段引擎生成的视频。项目卡片可直接进入相应实验，也支持通过 `?scene=tangent#playground` 一类链接分享指定项目。支持播放、暂停、进度拖动、参数预设、曲线控制点拖动、SVG 导出和手机布局。系统启用“减少动态效果”时，首页动画默认暂停。
+
+| 项目 | 可探索的内容 | 地址参数 |
+| --- | --- | --- |
+| 线性变换 | 剪切、缩放、旋转、镜像与行列式 | `scene=matrix` |
+| 贝塞尔曲线 | 拖动控制点与等弧长描绘 | `scene=bezier` |
+| 勾股定理 | 三角形重排与面积不变量 | `scene=pythagoras` |
+| 割线与切线 | 两点间距趋零、差商与导数 | `scene=tangent` |
+| 利萨如曲线 | 整数频率比、相位差与周期轨迹 | `scene=lissajous` |
+| 几何变形 | 正方形与圆的轮廓插值和旋转 | `scene=morph` |
 
 主页按项目目标、计算流程、交互实验、成果案例和复现文档组织，采用科研项目的图注与编号方式。项目指标（编译目标、核心测试数量等）与根目录 README 对应，核心能力更新后应同步调整。社交分享图的源文件为 `site/assets/social.svg`，运行 `site:media` 时生成对应 PNG。
 
@@ -41,11 +50,13 @@ npm run site:build
 npm run site:check
 ```
 
-`site:build` 使用本机 MoonBit 工具链编译 JavaScript，并更新 `site/assets/engine.js` 及许可证文件。`site:check` 直接调用编译后的引擎，验证矩阵的面积系数、曲线弧长、勾股面积关系以及网站资源路径。
+`site:build` 使用本机 MoonBit 工具链编译 JavaScript，并更新 `site/assets/engine.js`、六个项目的 SVG 封面及许可证文件。`site:check` 直接调用编译后的引擎，验证矩阵的面积系数、曲线弧长、勾股面积关系、割线极限、振动轨迹、变形端点，以及项目入口、视频数量和资源路径。
 
 **编译后的 `site/assets/engine.js` 需要一并提交。** GitHub Pages 工作流直接发布静态文件，不安装 MoonBit，也不会自动编译 `src/` 中的变更。已验证的工具链版本见根目录 README。
 
 浏览器只提供输入控件和播放时间，几何、路径弧长、三角形构造、矩阵变换和 SVG 投影都复用 MoonBit 核心。视频中的完整教学场景与网页中的参数实验有各自的入口，源码链接已分别提供。
+
+切线项目的入口是 `src/cmd/web/dynamics.mbt`，每次构造纯场景，通过 ValueTracker 和 Updater 计算一个快照，因此拖动进度不需要模拟前面的帧。利萨如项目在 `src/cmd/web/main.mbt` 中以每周期 720 条线段采样参数曲线，进度对应振动相位比例，不代表等弧长运动；频率限制为 1–6 的整数。
 
 ### 更新视频和封面
 
@@ -55,10 +66,11 @@ npm run site:check
 npm ci
 npm run lessons
 npm run demos
+npm run dynamics
 npm run site:media
 npm run site:check
 ```
 
-`site:media` 将选中的六段视频复制到 `site/assets/demos/`，提取 WebP 封面并生成社交分享图。构建脚本支持通过 `MOONMANIM_FFMPEG` 指定 FFmpeg。网页只在用户播放时加载视频，且同一时间只播放一个视频。
+`site:media` 将选中的七段视频（包含 12 秒的割线到切线教学案例）复制到 `site/assets/demos/`，提取 WebP 封面并生成社交分享图。构建脚本支持通过 `MOONMANIM_FFMPEG` 指定 FFmpeg。网页只在用户播放时加载视频，且同一时间只播放一个视频。
 
 源视频仍保存在被 Git 忽略的 `output/` 中；网站使用的精选副本需要提交。站点随附 MIT 许可证，以及 MathJax 公式资产的 Apache-2.0 许可证和来源说明。

@@ -7,13 +7,22 @@ fn frame(
   second : Double,
   third : Double,
 ) -> String raise {
+  if !@math.finite(progress) ||
+    !@math.finite(first) ||
+    !@math.finite(second) ||
+    !@math.finite(third) {
+    raise @errors.InvalidArgument("browser parameters must be finite")
+  }
+  let t = @math.clamp01(progress)
+  if mode == "tangent" {
+    return tangent_frame(t, first, second)
+  }
   let store = @mobject.Store::new()
   let blue = @mobject.Color::rgb(0.49, 0.62, 1.0)
   let teal = @mobject.Color::rgb(0.36, 0.79, 0.74)
   let amber = @mobject.Color::rgb(0.93, 0.70, 0.46)
   let muted = @mobject.Color::rgb(0.42, 0.47, 0.57)
   let white = @mobject.Color::rgb(0.90, 0.93, 0.98)
-  let t = @math.clamp01(progress)
   let plane = @coordinates.NumberPlane::new(
     x_min=-6.0,
     x_max=6.0,
@@ -171,6 +180,92 @@ fn frame(
       values["b2"] = @json.Json::number(second * second)
       values["c2"] = @json.Json::number(tiling.c * tiling.c)
     }
+    "lissajous" => {
+      if first < 1.0 ||
+        first > 6.0 ||
+        first != first.floor() ||
+        second < 1.0 ||
+        second > 6.0 ||
+        second != second.floor() ||
+        third < -180.0 ||
+        third > 180.0 {
+        raise @errors.InvalidArgument("invalid oscillator frequency or phase")
+      }
+      let phase = third * 3.141592653589793 / 180.0
+      let point = (u : Double) => {
+        @math.Vec3::new(
+          3.6 * @scalar.sin(first * u + phase),
+          2.6 * @scalar.sin(second * u),
+        )
+      }
+      let segments : Array[@geometry.Cubic] = []
+      let visible : Array[@geometry.Cubic] = []
+      let samples = 720
+      let stop = t * samples.to_double()
+      let mut previous = point(0.0)
+      for i in 0..<samples {
+        let next = point(
+          (i + 1).to_double() / samples.to_double() * 6.283185307179586,
+        )
+        let segment = @geometry.Cubic::line(previous, next)
+        segments.push(segment)
+        if (i + 1).to_double() <= stop {
+          visible.push(segment)
+        } else if i.to_double() < stop {
+          visible.push(segment.subsegment(0.0, stop - i.to_double()))
+        }
+        previous = next
+      }
+      add(
+        @geometry.Path::new([@geometry.Contour::new(segments)]),
+        blue,
+        0.0,
+        0.2,
+        1.5,
+        identity,
+      )
+      if !visible.is_empty() {
+        add(
+          @geometry.Path::new([@geometry.Contour::new(visible)]),
+          teal,
+          0.0,
+          1.0,
+          3.0,
+          identity,
+        )
+      }
+      let current = point(t * 6.283185307179586)
+      add(
+        @geometry.line(@math.Vec3::new(current.x, 0.0), current),
+        amber,
+        0.0,
+        0.45,
+        1.2,
+        identity,
+      )
+      add(
+        @geometry.line(@math.Vec3::new(0.0, current.y), current),
+        blue,
+        0.0,
+        0.45,
+        1.2,
+        identity,
+      )
+      add(
+        @geometry.circle(0.095),
+        amber,
+        1.0,
+        1.0,
+        1.5,
+        @math.Affine2::translation(current.x, current.y),
+      )
+      values["x"] = @json.Json::number(current.x)
+      values["y"] = @json.Json::number(current.y)
+      values["frequency_x"] = @json.Json::number(first)
+      values["frequency_y"] = @json.Json::number(second)
+      values["phase"] = @json.Json::number(third)
+      values["cycle"] = @json.Json::number(t)
+    }
     "morph" => {
       let rotation = @math.Affine2::rotation(third)
       let morph = @geometry.PathMorph::new(
@@ -204,8 +299,10 @@ fn frame(
           @math.Affine2::translation(point.x, point.y),
         )
       }
+      values["alpha"] = @json.Json::number(t)
+      values["rotation"] = @json.Json::number(third * 180.0 / 3.141592653589793)
     }
-    _ => abort("unknown browser scene")
+    _ => raise @errors.InvalidArgument("unknown browser scene")
   }
   let camera = @render.Camera2D::new(
     pixel_width=960,
