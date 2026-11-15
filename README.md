@@ -4,6 +4,12 @@
 
 当前已具备二维几何与动画核心、坐标平面与函数绘图、语义公式项动画，以及完整数学教学案例。数学、对象、时间、场景和逐帧 SVG 均由 MoonBit 实现，运行核心不需要 Python、浏览器或第三方 Mooncakes 依赖。公式由构建时 MathJax 排版为路径；离线视频由 Node/sharp 与 FFmpeg 导出。
 
+## 项目展示网站
+
+[访问 MoonManim 展示站](https://noahzhao.github.io/moonbit-Manim/)，体验由 MoonBit 实时计算的矩阵变换、贝塞尔曲线与勾股定理实验，观看六段数学动画。支持调整参数、拖动进度、导出 SVG，并适配手机屏幕。
+
+本地预览：`npm run site:serve`，打开 http://127.0.0.1:4173/moonbit-Manim/。网站源码位于 `site/`；首次部署需要在仓库 Settings → Pages 中选择 GitHub Actions，详见 [网站维护与部署说明](docs/website.zh-CN.md)。
+
 ## 快速运行
 
 本项目使用当前 MoonBit 文本格式的 moon.mod / moon.pkg。已验证工具链：
@@ -59,7 +65,9 @@ src/
   cmd/create/              按弧长描绘与解析边界示例
   cmd/videos/              三个完整视频场景与 JSONL 帧流
   cmd/lessons/             配方法、矩阵变换、勾股定理教学场景
+  cmd/web/                 浏览器交互实验与 JavaScript 桥接
 assets/tex/                TeX 片段、路径资产和上游许可
+site/                      GitHub Pages 展示站、浏览器运行时与精选视频
 scripts/compile-tex.cjs     构建时 TeX → 三次贝塞尔资产
 scripts/render-videos.cjs   示例视频导出适配器
 docs/architecture.zh-CN.md  长期架构设计

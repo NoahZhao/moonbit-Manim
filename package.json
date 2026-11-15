@@ -7,7 +7,11 @@
     "tex": "node scripts/compile-tex.cjs",
     "lessons": "node scripts/render-videos.cjs --lessons",
     "lesson-stills": "node scripts/render-videos.cjs --lessons --stills",
-    "demos": "node scripts/render-videos.cjs"
+    "demos": "node scripts/render-videos.cjs",
+    "site:build": "node scripts/build-site.cjs",
+    "site:media": "node scripts/build-site.cjs --media",
+    "site:check": "node scripts/check-site.cjs",
+    "site:serve": "node scripts/serve-site.cjs"
   },
   "devDependencies": {
     "mathjax-full": "3.2.2",
