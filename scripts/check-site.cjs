@@ -112,6 +112,12 @@ for (const args of [['tangent', 0, 4, 1, 0], ['lissajous', 0, 1.5, 2, 0],
 
 // Relative assets must resolve both at / and at /moonbit-Manim/ on GitHub Pages.
 const html = fs.readFileSync(path.join(site, 'index.html'), 'utf8');
+const features = fs.readFileSync(path.join(site, 'features.html'), 'utf8');
+assert.ok(features.includes('能力支持'));
+assert.ok(features.includes('feature-table'));
+assert.equal((features.match(/data-feature=/g) || []).length, 20);
+assert.ok(fs.existsSync(path.join(site, 'features.css')));
+assert.ok(fs.existsSync(path.join(site, 'features.js')));
 let assets = 0;
 for (const match of html.matchAll(/(?:src|href|poster)="([^"]+)"/g)) {
   const url = match[1];
@@ -121,6 +127,13 @@ for (const match of html.matchAll(/(?:src|href|poster)="([^"]+)"/g)) {
   const local = parsed.pathname.slice('/moonbit-Manim/'.length) || 'index.html';
   assert.ok(fs.existsSync(path.join(site, local)), `Missing asset: ${url}`);
   assets++;
+}
+for (const match of features.matchAll(/(?:src|href|poster)="([^"]+)"/g)) {
+  const url = match[1];
+  if (/^https?:/.test(url) || url.startsWith('#')) continue;
+  const parsed = new URL(url, 'https://example.com/moonbit-Manim/features.html');
+  const local = parsed.pathname.slice('/moonbit-Manim/'.length) || 'index.html';
+  assert.ok(fs.existsSync(path.join(site, local)), `Missing features asset: ${url}`);
 }
 const projects = ['matrix', 'bezier', 'pythagoras', 'tangent', 'lissajous', 'morph'];
 assert.equal((html.match(/role="tab"/g) || []).length, projects.length);

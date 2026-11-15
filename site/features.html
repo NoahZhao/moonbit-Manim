@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8fb">
+  <meta name="description" content="MoonManim 能力矩阵：查看几何、动画、数学表达、跨端输出与教学工作流的实现状态。">
+  <meta property="og:title" content="MoonManim — 能力矩阵">
+  <meta property="og:description" content="按类别查看 MoonManim 已验证、实验中和计划中的引擎能力。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://noahzhao.github.io/moonbit-Manim/assets/social.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="features.css">
+  <title>MoonManim — 能力矩阵</title>
+</head>
+<body class="features-page">
+  <a class="skip-link" href="#main">跳转到内容</a>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="MoonManim 首页">
+        <svg class="brand-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M24 23A12 12 0 0 1 9 5a12 12 0 1 0 15 18Z" fill="currentColor"/><path d="m24 3 1.5 4.5L30 9l-4.5 1.5L24 15l-1.5-4.5L18 9l4.5-1.5Z" fill="currentColor"/></svg>
+        <span>MoonManim<span class="brand-dot">.</span></span><span class="brand-descriptor">MATHEMATICAL VISUALIZATION</span>
+      </a>
+      <nav aria-label="主导航">
+        <a href="index.html#projects">项目案例</a>
+        <a href="index.html#playground">交互实验</a>
+        <a class="nav-current" href="features.html" aria-current="page">能力矩阵</a>
+      </nav>
+      <a class="repo-link" href="https://github.com/NoahZhao/moonbit-Manim" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="features-hero container" aria-labelledby="features-title">
+      <div class="features-kicker"><span class="status-dot"></span> MOONMANIM ENGINE / CAPABILITY MAP</div>
+      <h1 id="features-title">能力支持</h1>
+      <p class="features-lede">从数学对象到可播放的视频帧，MoonManim 把每一步都保留为可以检查、复用和扩展的程序结构。</p>
+      <div class="features-hero-grid">
+        <div class="features-principle"><strong>先看结论，再看证据。</strong><span>每个能力都标记当前状态，并链接到源码、测试或在线演示。</span></div>
+        <div class="features-principle"><strong>一份场景，多种输出。</strong><span>同一套 MoonBit 场景可以驱动原生渲染、浏览器 SVG 和离线视频。</span></div>
+        <div class="features-principle"><strong>边界也公开。</strong><span>尚未覆盖的能力会明确显示为计划中，避免把路线图误读成已实现功能。</span></div>
+      </div>
+    </section>
+
+    <section class="features-summary container" aria-labelledby="summary-title">
+      <div class="features-section-heading"><div><span class="eyebrow">01 / AT A GLANCE</span><h2 id="summary-title">读者先需要知道的三件事。</h2></div><p>这是当前仓库的能力快照，不是抽象的产品宣言。</p></div>
+      <div class="feature-stats">
+        <div><strong>20</strong><span>项能力</span><small>按五个主题分类</small></div>
+        <div><strong>16</strong><span>已验证</span><small>有测试、演示或构建产物</small></div>
+        <div><strong>3</strong><span>实验中</span><small>接口或实现正在收敛</small></div>
+        <div><strong>1</strong><span>计划中</span><small>已记录设计方向</small></div>
+      </div>
+      <div class="status-legend" aria-label="能力状态说明"><span><i class="status-mark supported"></i>已验证</span><span><i class="status-mark experimental"></i>实验中</span><span><i class="status-mark planned"></i>计划中</span></div>
+    </section>
+
+    <section class="features-matrix-section container" aria-labelledby="matrix-title">
+      <div class="features-section-heading"><div><span class="eyebrow">02 / SUPPORT MATRIX</span><h2 id="matrix-title">按主题查看能力。</h2></div><p>点击一行查看它为什么存在，以及从哪里继续阅读。</p></div>
+      <div class="feature-filters" role="group" aria-label="筛选能力类别">
+        <button class="feature-filter active" type="button" data-category="all" aria-pressed="true">全部 <span>20</span></button>
+        <button class="feature-filter" type="button" data-category="geometry" aria-pressed="false">几何</button>
+        <button class="feature-filter" type="button" data-category="animation" aria-pressed="false">动画</button>
+        <button class="feature-filter" type="button" data-category="math" aria-pressed="false">数学表达</button>
+        <button class="feature-filter" type="button" data-category="runtime" aria-pressed="false">运行时与输出</button>
+        <button class="feature-filter" type="button" data-category="teaching" aria-pressed="false">教学工作流</button>
+      </div>
+      <div class="feature-table-wrap">
+        <table class="feature-table">
+          <caption class="sr-only">MoonManim 能力支持矩阵</caption>
+          <thead><tr><th scope="col">能力</th><th scope="col">状态</th><th scope="col">说明</th><th scope="col">证据</th></tr></thead>
+          <tbody>
+            <tr data-category="geometry" data-feature="bezier"><th scope="row"><span class="feature-index">G01</span>贝塞尔路径与轮廓</th><td><span class="support-pill supported">已验证</span></td><td>用三次贝塞尔段组成可变形、可测量的二维路径。</td><td><a href="index.html?scene=bezier#playground">交互实验 ↗</a></td></tr>
+            <tr data-category="geometry" data-feature="measure"><th scope="row"><span class="feature-index">G02</span>弧长测量与部分路径</th><td><span class="support-pill supported">已验证</span></td><td>按弧长截取路径，让描绘速度和几何距离分离。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/src/geometry/measure.mbt" target="_blank" rel="noopener noreferrer">measure.mbt ↗</a></td></tr>
+            <tr data-category="geometry" data-feature="coordinates"><th scope="row"><span class="feature-index">G03</span>坐标平面与函数采样</th><td><span class="support-pill supported">已验证</span></td><td>网格、坐标轴和采样曲线共享同一套世界坐标。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/src/coordinates/plane.mbt" target="_blank" rel="noopener noreferrer">plane.mbt ↗</a></td></tr>
+            <tr data-category="geometry" data-feature="morph"><th scope="row"><span class="feature-index">G04</span>轮廓结构变形</th><td><span class="support-pill supported">已验证</span></td><td>对齐路径分段并插值控制点，展示连续的形状变化。</td><td><a href="index.html?scene=morph#playground">交互实验 ↗</a></td></tr>
+
+            <tr data-category="animation" data-feature="easing"><th scope="row"><span class="feature-index">A01</span>确定性缓动</th><td><span class="support-pill supported">已验证</span></td><td>Linear 与 Smooth 在固定帧率下产生可复现的时间采样。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/src/animation/animation.mbt" target="_blank" rel="noopener noreferrer">animation.mbt ↗</a></td></tr>
+            <tr data-category="animation" data-feature="timeline"><th scope="row"><span class="feature-index">A02</span>场景时间线</th><td><span class="support-pill supported">已验证</span></td><td>Scene.play / wait 直接推进帧，并把动画状态交给渲染器。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/src/scene/scene.mbt" target="_blank" rel="noopener noreferrer">scene.mbt ↗</a></td></tr>
+            <tr data-category="animation" data-feature="updater"><th scope="row"><span class="feature-index">A03</span>依赖排序 Updater</th><td><span class="support-pill supported">已验证</span></td><td>ValueTracker 驱动动点、切线和辅助线，同帧保持依赖顺序。</td><td><a href="index.html?scene=tangent#playground">割线实验 ↗</a></td></tr>
+            <tr data-category="animation" data-feature="stagger"><th scope="row"><span class="feature-index">A04</span>并行与错峰编排</th><td><span class="support-pill supported">已验证</span></td><td>多个对象可以共享时钟或按 lag ratio 错峰开始。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/src/cmd/videos/scenes.mbt" target="_blank" rel="noopener noreferrer">视频场景 ↗</a></td></tr>
+
+            <tr data-category="math" data-feature="tex"><th scope="row"><span class="feature-index">M01</span>TeX → 矢量路径</th><td><span class="support-pill supported">已验证</span></td><td>构建时把公式排版为可渲染的路径资产，运行时不依赖 TeX。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/scripts/compile-tex.cjs" target="_blank" rel="noopener noreferrer">compile-tex.cjs ↗</a></td></tr>
+            <tr data-category="math" data-feature="semantic"><th scope="row"><span class="feature-index">M02</span>语义公式项</th><td><span class="support-pill supported">已验证</span></td><td>公式由可拆分的符号项组成，可以移动、变色和转场。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/src/text/formula.mbt" target="_blank" rel="noopener noreferrer">formula.mbt ↗</a></td></tr>
+            <tr data-category="math" data-feature="teaching"><th scope="row"><span class="feature-index">M03</span>教学场景与证明</th><td><span class="support-pill supported">已验证</span></td><td>把代数推导和几何对象放进同一时间线，支持检查点验证。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/src/cmd/lessons" target="_blank" rel="noopener noreferrer">教学场景 ↗</a></td></tr>
+            <tr data-category="math" data-feature="ir"><th scope="row"><span class="feature-index">M04</span>数学语义场景图</th><td><span class="support-pill experimental">实验中</span></td><td>把公式符号、几何对象和动画意图建立可查询关联。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/docs/project-proposal.zh-CN.md" target="_blank" rel="noopener noreferrer">设计提案 ↗</a></td></tr>
+
+            <tr data-category="runtime" data-feature="targets"><th scope="row"><span class="feature-index">R01</span>Native / JS / Wasm</th><td><span class="support-pill supported">已验证</span></td><td>MoonBit 核心面向原生、JavaScript、Wasm 与 Wasm-GC 构建。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/moon.mod" target="_blank" rel="noopener noreferrer">moon.mod ↗</a></td></tr>
+            <tr data-category="runtime" data-feature="svg"><th scope="row"><span class="feature-index">R02</span>SVG 矢量后端</th><td><span class="support-pill supported">已验证</span></td><td>渲染器接收冻结 Frame，输出可检查的 SVG，不持有浏览器状态。</td><td><a href="index.html#playground">浏览器实验 ↗</a></td></tr>
+            <tr data-category="runtime" data-feature="video"><th scope="row"><span class="feature-index">R03</span>流式视频导出</th><td><span class="support-pill supported">已验证</span></td><td>JSONL 帧流经 sharp 与 FFmpeg 逐帧编码，不缓存整段像素。</td><td><a href="index.html#showcase">视频案例 ↗</a></td></tr>
+            <tr data-category="runtime" data-feature="incremental"><th scope="row"><span class="feature-index">R04</span>Scene IR 与增量求值</th><td><span class="support-pill experimental">实验中</span></td><td>为可视化编辑、跨端执行和大型交互场景准备稳定中间表示。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/docs/project-proposal.zh-CN.md" target="_blank" rel="noopener noreferrer">设计提案 ↗</a></td></tr>
+
+            <tr data-category="teaching" data-feature="lesson-track"><th scope="row"><span class="feature-index">T01</span>课程章节时间线</th><td><span class="support-pill supported">已验证</span></td><td>章节、参数目标、视频和交互实验共享绝对时间。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/docs/lessons.zh-CN.md" target="_blank" rel="noopener noreferrer">课程指南 ↗</a></td></tr>
+            <tr data-category="teaching" data-feature="narration"><th scope="row"><span class="feature-index">T02</span>字幕与旁白轨道</th><td><span class="support-pill experimental">实验中</span></td><td>旁白、字幕和动画书签使用同一份 NarrationTrack 时间模型。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/src/narration/track.mbt" target="_blank" rel="noopener noreferrer">track.mbt ↗</a></td></tr>
+            <tr data-category="teaching" data-feature="cnn"><th scope="row"><span class="feature-index">T03</span>算法过程演示</th><td><span class="support-pill supported">已验证</span></td><td>用同一场景表现卷积核、感受野和特征图的逐步计算过程。</td><td><a href="index.html#showcase">CNN 视频 ↗</a></td></tr>
+            <tr data-category="teaching" data-feature="tts"><th scope="row"><span class="feature-index">T04</span>可替换 TTS Provider</th><td><span class="support-pill planned">计划中</span></td><td>将本地 TTS、云端语音和真人录音接入统一构建接口。</td><td><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/docs/project-proposal.zh-CN.md" target="_blank" rel="noopener noreferrer">路线图 ↗</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="feature-detail" id="feature-detail" aria-live="polite"><span class="feature-detail-index">选择一项能力</span><strong>点击表格中的一行</strong><p>这里会显示该能力的实现边界、源码入口和可复现证据。</p></div>
+    </section>
+
+    <section class="features-next container" aria-labelledby="next-title">
+      <div><span class="eyebrow">03 / NEXT STEPS</span><h2 id="next-title">从能力表，继续到真实场景。</h2><p>先看一个交互实验，再阅读对应的场景代码。每个入口都指向可以运行或检查的结果。</p></div>
+      <div class="features-next-links"><a href="index.html#playground" class="button button-dark">打开交互实验 <span aria-hidden="true">↗</span></a><a href="index.html#showcase" class="button button-outline">观看视频案例 <span aria-hidden="true">↗</span></a><a href="https://github.com/NoahZhao/moonbit-Manim/blob/main/docs/architecture.zh-CN.md" class="text-link" target="_blank" rel="noopener noreferrer">阅读架构文档 <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+
+  <footer class="footer container"><a class="brand footer-brand" href="index.html">MoonManim<span class="brand-dot">.</span></a><span>An open-source mathematical visualization project.</span><div><a href="LICENSE.txt">MIT License</a><a href="assets/licenses/NOTICE.md">第三方资产说明</a><a href="https://github.com/NoahZhao/moonbit-Manim/issues" target="_blank" rel="noopener noreferrer">反馈 ↗</a></div></footer>
+  <script src="features.js" defer></script>
+</body>
+</html>
