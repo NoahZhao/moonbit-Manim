@@ -1,0 +1,93 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/mobject"
+
+import {
+  "moonbitlang/core/debug",
+  "moonmanim/core/errors",
+  "moonmanim/core/geometry",
+  "moonmanim/core/math",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+#derive(Eq, @debug.Debug)
+pub struct Color {
+  r : Double
+  g : Double
+  b : Double
+}
+pub fn Color::black() -> Self
+pub fn Color::blue() -> Self
+pub fn Color::lerp(Self, Self, Double) -> Self
+pub fn Color::pink() -> Self
+pub fn Color::rgb(Double, Double, Double) -> Self raise @errors.EngineError
+
+#derive(Eq, @debug.Debug)
+pub(all) struct DrawItem {
+  id : ObjectId
+  path : @geometry.Path
+  transform : @math.Affine2
+  style : Style
+  z_index : Int32
+  order : Int64
+}
+
+#derive(Eq, @debug.Debug)
+pub(all) enum FillRule {
+  NonZero
+  EvenOdd
+}
+
+#derive(@debug.Debug)
+pub struct ObjectId {
+  // private fields
+}
+pub impl Eq for ObjectId
+
+#derive(Eq, @debug.Debug)
+pub(all) struct ObjectState {
+  path : @geometry.Path?
+  transform : @math.Affine2
+  style : Style
+  z_index : Int32
+}
+pub fn ObjectState::group() -> Self
+pub fn ObjectState::shape(@geometry.Path, style? : Style) -> Self
+pub fn ObjectState::validate(Self) -> Unit raise @errors.EngineError
+
+pub struct Store {
+  // private fields
+}
+pub fn Store::add(Self, ObjectState) -> ObjectId raise @errors.EngineError
+pub fn Store::contains(Self, ObjectId) -> Bool
+pub fn Store::drawables(Self) -> ReadOnlyArray[DrawItem] raise @errors.EngineError
+pub fn Store::get(Self, ObjectId) -> ObjectState raise @errors.EngineError
+pub fn Store::has_children(Self, ObjectId) -> Bool raise @errors.EngineError
+pub fn Store::length(Self) -> Int32
+pub fn Store::new() -> Self
+pub fn Store::related(Self, ObjectId, ObjectId) -> Bool raise @errors.EngineError
+pub fn Store::remove(Self, ObjectId) -> Unit raise @errors.EngineError
+pub fn Store::reparent(Self, ObjectId, ObjectId?) -> Unit raise @errors.EngineError
+pub fn Store::set(Self, ObjectId, ObjectState) -> Unit raise @errors.EngineError
+pub fn Store::world_transform(Self, ObjectId) -> @math.Affine2 raise @errors.EngineError
+
+#derive(Eq, @debug.Debug)
+pub(all) struct Style {
+  stroke : Color
+  fill : Color
+  stroke_width : Double
+  stroke_opacity : Double
+  fill_opacity : Double
+  opacity : Double
+  fill_rule : FillRule
+}
+pub fn Style::default() -> Self
+pub fn Style::lerp(Self, Self, Double) -> Self
+pub fn Style::validate(Self) -> Unit raise @errors.EngineError
+
+// Type aliases
+
+// Traits

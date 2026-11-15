@@ -1,0 +1,10 @@
+import {
+  "moonmanim/core/math",
+  "moonmanim/core/errors",
+  "moonbitlang/core/debug",
+}
+
+import {
+  "moonbitlang/core/test",
+  "moonbitlang/core/math" @scalar,
+} for "test"

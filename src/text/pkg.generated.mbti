@@ -1,0 +1,52 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/text"
+
+import {
+  "moonmanim/core/errors",
+  "moonmanim/core/geometry",
+  "moonmanim/core/math",
+  "moonmanim/core/mobject",
+  "moonmanim/core/scene",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub struct Formula {
+  root : @mobject.ObjectId
+  // private fields
+}
+pub fn Formula::new(@scene.Scene, MathTex, origin? : @math.Vec3) -> Self raise @errors.EngineError
+pub fn Formula::part(Self, String) -> @mobject.ObjectId raise @errors.EngineError
+pub fn Formula::transition(Self, MathTex, origin? : @math.Vec3, duration? : Double) -> Unit raise
+pub fn Formula::write(Self, duration? : Double, lag_ratio? : Double) -> Unit raise
+
+pub struct MathTex {
+  width : Double
+  // private fields
+}
+pub fn MathTex::new(Array[TexPart], font_size? : Double, gap? : Double) -> Self raise @errors.EngineError
+
+pub struct TexAsset {
+  // private fields
+}
+pub fn TexAsset::glyph(Self, String) -> TexGlyph raise @errors.EngineError
+pub fn TexAsset::parse(String) -> Self raise
+
+pub struct TexGlyph {
+  tex : String
+  advance : Double
+  path : @geometry.Path
+}
+
+pub(all) struct TexPart {
+  key : String
+  glyph : TexGlyph
+  color : @mobject.Color
+}
+
+// Type aliases
+
+// Traits

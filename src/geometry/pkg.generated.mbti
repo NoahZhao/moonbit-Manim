@@ -1,0 +1,88 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/geometry"
+
+import {
+  "moonbitlang/core/debug",
+  "moonmanim/core/errors",
+  "moonmanim/core/math",
+}
+
+// Values
+pub fn arrow(@math.Vec3, @math.Vec3, tip_length? : Double) -> Path raise @errors.EngineError
+
+pub fn circle(Double) -> Path raise @errors.EngineError
+
+pub fn line(@math.Vec3, @math.Vec3) -> Path raise @errors.EngineError
+
+pub fn polygon(Array[@math.Vec3]) -> Path raise @errors.EngineError
+
+pub fn rectangle(Double, Double) -> Path raise @errors.EngineError
+
+pub fn square(Double) -> Path raise @errors.EngineError
+
+// Errors
+
+// Types and methods
+#derive(Eq, @debug.Debug)
+pub struct Bounds3 {
+  min : @math.Vec3
+  max : @math.Vec3
+}
+pub fn Bounds3::center(Self) -> @math.Vec3
+pub fn Bounds3::contains(Self, @math.Vec3) -> Bool
+pub fn Bounds3::union(Self, Self) -> Self
+
+#derive(Eq, @debug.Debug)
+pub struct Contour {
+  closed : Bool
+  // private fields
+}
+pub fn Contour::new(Array[Cubic], closed? : Bool) -> Self raise @errors.EngineError
+pub fn Contour::segments(Self) -> ReadOnlyArray[Cubic]
+pub fn Contour::transformed(Self, @math.Affine2) -> Self
+
+#derive(Eq, @debug.Debug)
+pub(all) struct Cubic {
+  p0 : @math.Vec3
+  p1 : @math.Vec3
+  p2 : @math.Vec3
+  p3 : @math.Vec3
+}
+pub fn Cubic::bounds(Self) -> Bounds3 raise @errors.EngineError
+pub fn Cubic::is_finite(Self) -> Bool
+pub fn Cubic::lerp(Self, Self, Double) -> Self
+pub fn Cubic::line(@math.Vec3, @math.Vec3) -> Self
+pub fn Cubic::point(Self, Double) -> @math.Vec3
+pub fn Cubic::split(Self, Double) -> (Self, Self)
+pub fn Cubic::subsegment(Self, Double, Double) -> Self raise @errors.EngineError
+pub fn Cubic::transformed(Self, @math.Affine2) -> Self
+
+#derive(Eq, @debug.Debug)
+pub struct Path {
+  // private fields
+}
+pub fn Path::bounds(Self) -> Bounds3? raise @errors.EngineError
+pub fn Path::contours(Self) -> ReadOnlyArray[Contour]
+pub fn Path::is_finite(Self) -> Bool
+pub fn Path::measure(Self, tolerance? : Double, max_depth? : Int32, metric_transform? : @math.Affine2) -> PathMeasure raise @errors.EngineError
+pub fn Path::new(Array[Contour]) -> Self
+pub fn Path::segment_count(Self) -> Int32
+pub fn Path::transformed(Self, @math.Affine2) -> Self
+
+pub struct PathMeasure {
+  length : Double
+  uncertainty : Double
+  // private fields
+}
+pub fn PathMeasure::partial(Self, Double, Double) -> Path raise @errors.EngineError
+pub fn PathMeasure::point_at(Self, Double) -> @math.Vec3? raise @errors.EngineError
+
+pub struct PathMorph {
+  // private fields
+}
+pub fn PathMorph::new(Path, Path) -> Self raise @errors.EngineError
+pub fn PathMorph::sample(Self, Double) -> Path
+
+// Type aliases
+
+// Traits

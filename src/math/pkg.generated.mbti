@@ -1,0 +1,56 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/math"
+
+import {
+  "moonbitlang/core/debug",
+  "moonmanim/core/errors",
+}
+
+// Values
+pub fn clamp01(Double) -> Double
+
+pub fn finite(Double) -> Bool
+
+// Errors
+
+// Types and methods
+#derive(Eq, @debug.Debug)
+pub(all) struct Affine2 {
+  a : Double
+  b : Double
+  c : Double
+  d : Double
+  tx : Double
+  ty : Double
+}
+pub fn Affine2::apply(Self, Vec3) -> Vec3
+pub fn Affine2::compose(Self, Self) -> Self
+pub fn Affine2::identity() -> Self
+pub fn Affine2::inverse(Self) -> Self raise @errors.EngineError
+pub fn Affine2::is_finite(Self) -> Bool
+pub fn Affine2::rotation(Double) -> Self
+pub fn Affine2::scaling(Double, Double) -> Self
+pub fn Affine2::translation(Double, Double) -> Self
+
+#derive(Eq, @debug.Debug)
+pub(all) struct Vec3 {
+  x : Double
+  y : Double
+  z : Double
+}
+pub fn Vec3::add(Self, Self) -> Self
+pub fn Vec3::cross(Self, Self) -> Self
+pub fn Vec3::dot(Self, Self) -> Double
+pub fn Vec3::is_finite(Self) -> Bool
+pub fn Vec3::length(Self) -> Double
+pub fn Vec3::lerp(Self, Self, Double) -> Self
+pub fn Vec3::near(Self, Self, tolerance? : Double) -> Bool
+pub fn Vec3::new(Double, Double, z? : Double) -> Self
+pub fn Vec3::normalized(Self) -> Self raise @errors.EngineError
+pub fn Vec3::scale(Self, Double) -> Self
+pub fn Vec3::sub(Self, Self) -> Self
+pub fn Vec3::zero() -> Self
+
+// Type aliases
+
+// Traits

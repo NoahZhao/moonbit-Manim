@@ -1,0 +1,17 @@
+{
+  "name": "moonmanim-build-tools",
+  "private": true,
+  "license": "MIT",
+  "description": "Build-time TeX asset compilation and offline video export for the MoonBit engine",
+  "scripts": {
+    "tex": "node scripts/compile-tex.cjs",
+    "lessons": "node scripts/render-videos.cjs --lessons",
+    "lesson-stills": "node scripts/render-videos.cjs --lessons --stills",
+    "demos": "node scripts/render-videos.cjs"
+  },
+  "devDependencies": {
+    "mathjax-full": "3.2.2",
+    "sharp": "0.34.5",
+    "svgpath": "2.6.0"
+  }
+}

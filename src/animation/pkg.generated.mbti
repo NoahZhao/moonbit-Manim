@@ -1,0 +1,60 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/animation"
+
+import {
+  "moonbitlang/core/debug",
+  "moonmanim/core/errors",
+  "moonmanim/core/math",
+  "moonmanim/core/mobject",
+}
+
+// Values
+pub fn apply_affine(@mobject.ObjectId, @math.Affine2, easing? : Easing) -> Animation
+
+pub fn create(@mobject.ObjectId, easing? : Easing) -> Animation
+
+pub fn fade_in(@mobject.ObjectId, easing? : Easing) -> Animation
+
+pub fn fade_out(@mobject.ObjectId, easing? : Easing) -> Animation
+
+pub fn rotate(@mobject.ObjectId, Double, pivot? : @math.Vec3, easing? : Easing) -> Animation
+
+pub fn shift(@mobject.ObjectId, @math.Vec3, easing? : Easing) -> Animation
+
+pub fn transform(@mobject.ObjectId, @mobject.ObjectState, easing? : Easing) -> Animation
+
+pub fn write(@mobject.ObjectId, easing? : Easing) -> Animation
+
+// Errors
+
+// Types and methods
+pub(all) enum Animation {
+  Transform(@mobject.ObjectId, @mobject.ObjectState, Easing)
+  Shift(@mobject.ObjectId, @math.Vec3, Easing)
+  Rotate(@mobject.ObjectId, Double, @math.Vec3, Easing)
+  FadeIn(@mobject.ObjectId, Easing)
+  FadeOut(@mobject.ObjectId, Easing)
+  Create(@mobject.ObjectId, Easing)
+  Write(@mobject.ObjectId, Easing)
+  ApplyAffine(@mobject.ObjectId, @math.Affine2, Easing)
+}
+pub fn Animation::object_id(Self) -> @mobject.ObjectId
+pub fn Animation::prepare(Self, @mobject.Store) -> PreparedAnimation raise @errors.EngineError
+
+#derive(Eq, @debug.Debug)
+pub(all) enum Easing {
+  Linear
+  Smooth
+}
+pub fn Easing::sample(Self, Double) -> Double
+
+pub struct PreparedAnimation {
+  id : @mobject.ObjectId
+  remove_on_finish : Bool
+  // private fields
+}
+pub fn PreparedAnimation::sample(Self, Double) -> @mobject.ObjectState raise @errors.EngineError
+
+// Type aliases
+
+// Traits

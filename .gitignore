@@ -1,0 +1,6 @@
+/_build/
+/.mooncakes/
+/output/
+/node_modules/
+/manim-main/
+.DS_Store

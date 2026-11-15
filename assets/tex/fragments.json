@@ -1,0 +1,7 @@
+[
+  "x^2", "+", "6x", "=", "7", "9", "16", "(x+3)^2", "x+3", "\\pm4", "x", "1", "-7", "\\text{or}",
+  "y=x^2+6x-7", "x^2+6x=7", "a", "b", "c", "a^2", "b^2", "c^2", "2ab", "(a+b)^2", "4\\cdot\\frac{ab}{2}",
+  "\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}", "\\det A=1", "\\det B=\\frac{3}{2}",
+  "\\begin{pmatrix}1&1\\\\0&\\frac32\\end{pmatrix}", "A", "B", "\\vec e_1", "\\vec e_2", "A\\vec e_1", "A\\vec e_2", "\\text{Area}",
+  "\\frac{a^2+b^2}{c^2}", "\\sqrt{a^2+b^2}"
+]

@@ -1,0 +1,31 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/teaching"
+
+import {
+  "moonmanim/core/errors",
+  "moonmanim/core/geometry",
+  "moonmanim/core/math",
+}
+
+// Values
+pub fn tex_assets() -> String
+
+// Errors
+
+// Types and methods
+pub struct Pythagoras {
+  a : Double
+  b : Double
+  c : Double
+  side : Double
+  triangles : ReadOnlyArray[@geometry.Path]
+  offsets : ReadOnlyArray[@math.Vec3]
+  c_square : @geometry.Path
+  a_square : @geometry.Path
+  b_square : @geometry.Path
+}
+pub fn Pythagoras::new(Double, Double) -> Self raise @errors.EngineError
+
+// Type aliases
+
+// Traits

@@ -1,0 +1,46 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/render"
+
+import {
+  "moonbitlang/core/debug",
+  "moonmanim/core/errors",
+  "moonmanim/core/math",
+  "moonmanim/core/mobject",
+}
+
+// Values
+pub fn svg_frame(Camera2D, Frame) -> String raise @errors.EngineError
+
+// Errors
+
+// Types and methods
+pub struct Camera2D {
+  pixel_width : Int32
+  pixel_height : Int32
+  frame_width : Double
+  frame_height : Double
+  center : @math.Vec3
+  background : @mobject.Color
+}
+pub fn Camera2D::new(pixel_width? : Int32, pixel_height? : Int32, frame_height? : Double, center? : @math.Vec3, background? : @mobject.Color) -> Self raise @errors.EngineError
+pub fn Camera2D::project(Self, @math.Vec3) -> @math.Vec3
+
+#derive(Eq, @debug.Debug)
+pub(all) struct Frame {
+  index : Int64
+  time : Double
+  items : ReadOnlyArray[@mobject.DrawItem]
+}
+
+pub struct SvgRenderer {
+  // private fields
+}
+pub fn SvgRenderer::new(Camera2D, (Int64, String) -> Unit raise) -> Self
+pub impl Renderer for SvgRenderer
+
+// Type aliases
+
+// Traits
+pub(open) trait Renderer {
+  fn render(Self, Frame) -> Unit raise
+}

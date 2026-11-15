@@ -1,0 +1,31 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/coordinates"
+
+import {
+  "moonmanim/core/errors",
+  "moonmanim/core/geometry",
+  "moonmanim/core/math",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+pub struct NumberPlane {
+  x_min : Double
+  x_max : Double
+  y_min : Double
+  y_max : Double
+  transform : @math.Affine2
+}
+pub fn NumberPlane::axes(Self) -> @geometry.Path raise @errors.EngineError
+pub fn NumberPlane::coordinates(Self, @math.Vec3) -> @math.Vec3 raise @errors.EngineError
+pub fn NumberPlane::grid(Self, step? : Double) -> @geometry.Path raise @errors.EngineError
+pub fn NumberPlane::new(x_min? : Double, x_max? : Double, y_min? : Double, y_max? : Double, transform? : @math.Affine2) -> Self raise @errors.EngineError
+pub fn NumberPlane::plot(Self, (Double) -> Double?, samples? : Int32, breaks? : Array[Double]) -> @geometry.Path raise @errors.EngineError
+pub fn NumberPlane::point(Self, Double, Double) -> @math.Vec3
+
+// Type aliases
+
+// Traits

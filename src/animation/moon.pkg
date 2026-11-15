@@ -1,0 +1,11 @@
+import {
+  "moonmanim/core/math",
+  "moonmanim/core/geometry",
+  "moonmanim/core/mobject",
+  "moonmanim/core/errors",
+  "moonbitlang/core/debug",
+}
+
+import {
+  "moonbitlang/core/test",
+} for "test"

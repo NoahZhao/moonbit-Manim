@@ -1,0 +1,26 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/timeline"
+
+import {
+  "moonbitlang/core/debug",
+  "moonmanim/core/errors",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+#derive(Eq, @debug.Debug)
+pub struct FrameRate {
+  numerator : Int32
+  denominator : Int32
+}
+pub fn FrameRate::fps60() -> Self
+pub fn FrameRate::frame_count(Self, Double) -> Int64 raise @errors.EngineError
+pub fn FrameRate::new(Int32, denominator? : Int32) -> Self raise @errors.EngineError
+pub fn FrameRate::time(Self, Int64) -> Double
+
+// Type aliases
+
+// Traits
