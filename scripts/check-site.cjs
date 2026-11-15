@@ -79,7 +79,19 @@ for (const t of [0, 0.5, 1]) {
 }
 assert.ok(JSON.parse(context.MoonManim.render('pythagoras', 0, -1, 2, 0)).error);
 const lesson = JSON.parse(context.MoonManim.describeLesson());
-assert.equal(lesson.duration, 12);
+const narration = JSON.parse(fs.readFileSync(path.join(site, 'assets/narration/tangent.json'), 'utf8'));
+near(lesson.duration, narration.duration);
+near(lesson.narration.duration, lesson.duration);
+assert.ok(fs.statSync(path.join(site, lesson.narration.source)).size > 1000);
+assert.ok(fs.readFileSync(path.join(site, 'assets/narration/tangent.vtt'), 'utf8').startsWith('WEBVTT'));
+lesson.narration.cues.forEach((cue, i) => {
+  assert.equal(cue.text, narration.segments[i].text);
+  near(cue.start, narration.segments[i].start);
+  near(cue.end, narration.segments[i].end);
+  const sample = JSON.parse(context.MoonManim.renderLesson(cue.start / lesson.duration));
+  assert.equal(sample.bookmark, cue.key);
+  assert.equal(sample.phase, cue.text);
+});
 assert.equal(lesson.chapters.length, 6);
 assert.deepEqual(lesson.parameters.map(p => p.key), ['x', 'h']);
 for (const chapter of lesson.chapters) {
@@ -118,7 +130,9 @@ for (const name of projects) {
   assert.ok(html.includes(`?scene=${name}#playground`), `Missing project link: ${name}`);
   assert.ok(fs.readFileSync(path.join(site, 'assets/projects', name + '.svg'), 'utf8').startsWith('<svg '));
 }
-assert.equal((html.match(/<video\b/g) || []).length, 7);
+assert.equal((html.match(/<video\b/g) || []).length, 8);
+assert.ok(fs.statSync(path.join(site, 'assets/demos/cnn.mp4')).size > 1000);
+assert.ok(fs.statSync(path.join(site, 'assets/demos/cnn.webp')).size > 1000);
 assert.ok(fs.existsSync(path.join(site, 'assets/licenses/MATHJAX-LICENSE.txt')));
 assert.ok(fs.existsSync(path.join(site, 'assets/social.png')));
-console.log(`Six browser projects verified: matrices, arc lengths, area invariance, secant limits, oscillator coordinates and morph endpoints. Seven videos and ${assets} local links/assets verified.`);
+console.log(`Six browser projects verified: matrices, arc lengths, area invariance, secant limits, oscillator coordinates and morph endpoints. Eight videos and ${assets} local links/assets verified.`);

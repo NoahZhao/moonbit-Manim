@@ -1,0 +1,52 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moonmanim/core/narration"
+
+import {
+  "moonbitlang/core/json",
+  "moonmanim/core/errors",
+}
+
+// Values
+pub fn beat(String, rate? : Double, pause_after? : Double, style? : String, pitch? : Double, energy? : Double) -> SpeechBeat
+
+pub fn speech(String, String, beats? : Array[SpeechBeat]) -> Speech
+
+// Errors
+
+// Types and methods
+pub struct NarrationCue {
+  key : String
+  text : String
+  start : Double
+  end : Double
+}
+
+pub struct NarrationTrack {
+  source : String
+  language : String
+  duration : Double
+  cues : ReadOnlyArray[NarrationCue]
+}
+pub fn NarrationTrack::bookmark(Self, String) -> Double raise @errors.EngineError
+pub fn NarrationTrack::describe(Self) -> @json.Json
+pub fn NarrationTrack::new(String, String, Array[Speech], Array[Double]) -> Self raise @errors.EngineError
+pub fn NarrationTrack::sample(Self, Double) -> NarrationCue raise @errors.EngineError
+
+pub(all) struct Speech {
+  key : String
+  text : String
+  beats : ReadOnlyArray[SpeechBeat]
+}
+
+pub(all) struct SpeechBeat {
+  text : String
+  rate : Double
+  pause_after : Double
+  style : String
+  pitch : Double
+  energy : Double
+}
+
+// Type aliases
+
+// Traits

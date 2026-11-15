@@ -265,3 +265,155 @@ fn groups_demo(scene : @scene.Scene, phase : Ref[String]) -> Unit raise {
   )
   hold(scene, phase, "Complete", 0.4)
 }
+
+///|
+/// A small, deterministic CNN pass: a 5x5 input, a moving 3x3 kernel and a
+/// 3x3 feature map. The scene makes the receptive field and weighted sum
+/// visible without pretending to train a model.
+fn cnn_demo(scene : @scene.Scene, phase : Ref[String]) -> Unit raise {
+  let cyan = @mobject.Color::rgb(0.33, 0.82, 0.92)
+  let teal = @mobject.Color::rgb(0.32, 0.88, 0.68)
+  let amber = @mobject.Color::rgb(1.0, 0.72, 0.34)
+  let pink = @mobject.Color::rgb(1.0, 0.43, 0.66)
+  let input_x = -4.6
+  let input_y = 1.35
+  let output_x = 2.0
+  let output_y = 1.75
+  let cell = 0.62
+  let gap = 0.07
+  let stride = cell + gap
+  let grid_line = (x, y, color, opacity) => {
+    let state = shape(
+      @geometry.square(cell),
+      color,
+      fill=0.0,
+      transform=@math.Affine2::translation(x, y),
+    )
+    { ..state, style: { ..state.style, stroke_width: 1.5, opacity, }, }
+  }
+  let input_cells : Array[@mobject.ObjectId] = []
+  for row in 0..<5 {
+    for col in 0..<5 {
+      let value = ((row * 5 + col) % 5).to_double() / 5.0
+      let id = scene.add(
+        grid_line(
+          input_x + col.to_double() * stride,
+          input_y - row.to_double() * stride,
+          cyan,
+          0.28 + value * 0.42,
+        ),
+      )
+      input_cells.push(id)
+    }
+  }
+  let output_cells : Array[@mobject.ObjectId] = []
+  let output_targets : Array[@mobject.ObjectState] = []
+  for row in 0..<3 {
+    for col in 0..<3 {
+      let target = grid_line(
+        output_x + col.to_double() * stride,
+        output_y - row.to_double() * stride,
+        teal,
+        1.0,
+      )
+      let id = scene.add({ ..target, style: { ..target.style, opacity: 0.0, }, })
+      output_cells.push(id)
+      output_targets.push(target)
+    }
+  }
+  let kernel = scene.add({
+    ..shape(
+      @geometry.square(cell * 3.0 + gap * 2.0),
+      amber,
+      fill=0.08,
+      transform=@math.Affine2::translation(input_x + stride, input_y - stride),
+    ),
+    z_index: 5,
+    style: {
+      ..@mobject.Style::default(),
+      stroke: amber,
+      fill: amber,
+      stroke_width: 4.0,
+      fill_opacity: 0.08,
+    },
+  })
+  hold(scene, phase, "A pixel grid enters the convolution layer", 0.6)
+  play(
+    scene,
+    phase,
+    "Input: 5 × 5 activation map",
+    input_cells.map(id => @animation.fade_in(id)),
+    0.8,
+  )
+  hold(
+    scene, phase, "The kernel reads only a local 3 × 3 receptive field", 0.7,
+  )
+  play(scene, phase, "Kernel: 3 × 3 weights", [@animation.create(kernel)], 0.8)
+  let positions = [
+    @math.Vec3::new(input_x + stride, input_y - stride),
+    @math.Vec3::new(input_x + stride * 2.0, input_y - stride),
+    @math.Vec3::new(input_x + stride * 3.0, input_y - stride),
+    @math.Vec3::new(input_x + stride, input_y - stride * 2.0),
+    @math.Vec3::new(input_x + stride * 2.0, input_y - stride * 2.0),
+    @math.Vec3::new(input_x + stride * 3.0, input_y - stride * 2.0),
+    @math.Vec3::new(input_x + stride, input_y - stride * 3.0),
+    @math.Vec3::new(input_x + stride * 2.0, input_y - stride * 3.0),
+    @math.Vec3::new(input_x + stride * 3.0, input_y - stride * 3.0),
+  ]
+  for index in 0..<positions.length() {
+    let row = index / 3
+    let col = index % 3
+    play(
+      scene,
+      phase,
+      "Slide window: local multiply + sum → feature map[" +
+      index.to_string() +
+      "]",
+      [
+        @animation.shift(
+          kernel,
+          positions[index].sub(positions[(index - 1).max(0)]),
+          easing=Linear,
+        ),
+        @animation.transform(
+          output_cells[row * 3 + col],
+          output_targets[row * 3 + col],
+        ),
+      ],
+      0.55,
+    )
+  }
+  let connector = scene.add({
+    ..shape(
+      @geometry.line(
+        @math.Vec3::new(input_x + stride * 4.0, input_y - stride * 2.0),
+        @math.Vec3::new(output_x - 0.45, output_y - stride * 1.0),
+      ),
+      pink,
+    ),
+    style: {
+      ..@mobject.Style::default(),
+      stroke: pink,
+      stroke_width: 2.5,
+      opacity: 0.0,
+    },
+  })
+  play(
+    scene,
+    phase,
+    "The local responses assemble into a feature map",
+    [@animation.fade_in(connector)],
+    0.6,
+  )
+  hold(
+    scene, phase, "Convolution preserves structure while detecting a pattern", 0.9,
+  )
+  play(
+    scene,
+    phase,
+    "One layer: input → kernel → activation map",
+    [@animation.fade_out(kernel), @animation.fade_out(connector)],
+    0.7,
+  )
+  hold(scene, phase, "Complete", 0.4)
+}

@@ -7,21 +7,24 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const { spawn } = require('node:child_process');
 const sharp = require('sharp');
+const { readFileSync } = require('node:fs');
 
 const root = path.resolve(__dirname, '..');
 const flags = new Set(process.argv.slice(2));
-for (const flag of flags) if (!['--lessons', '--dynamics', '--stills'].includes(flag)) throw new Error('Unknown option: ' + flag);
+for (const flag of flags) if (!['--lessons', '--dynamics', '--cnn', '--stills'].includes(flag)) throw new Error('Unknown option: ' + flag);
 const lessons = flags.has('--lessons');
 const dynamics = flags.has('--dynamics');
-if (lessons && dynamics) throw new Error('Choose either --lessons or --dynamics');
+const cnn = flags.has('--cnn');
+if ([lessons, dynamics, cnn].filter(Boolean).length > 1) throw new Error('Choose one video family');
 const stillsOnly = flags.has('--stills');
 const command = dynamics ? 'src/cmd/dynamics' : lessons ? 'src/cmd/lessons' : 'src/cmd/videos';
-const output = path.join(root, 'output', dynamics ? 'dynamics' : lessons ? 'lessons' : 'videos');
+const output = path.join(root, 'output', dynamics ? 'dynamics' : lessons ? 'lessons' : cnn ? 'cnn' : 'videos');
 const ffmpeg = process.env.MOONMANIM_FFMPEG || 'ffmpeg';
+const narration = dynamics ? JSON.parse(readFileSync(path.join(root, 'site/assets/narration/tangent.json'), 'utf8')) : null;
 const scenes = dynamics ? [
   { name: 'tangent', file: '01-tangent', title: '从割线到切线：让导数动起来',
     subtitle: 'Moving points / Secant limit / Tangent slope',
-    frames: 720, posters: [180, 360, 420, 480, 600, 690], contact: [420, 600] },
+    frames: narration.frames, posters: narration.segments.map(s => Math.round((s.start + s.duration / 2) * 60)), contact: narration.segments.slice(1, 3).map(s => Math.round((s.start + s.duration / 2) * 60)) },
 ] : lessons ? [
   { name: 'formula', file: '01-quadratic', title: '配方法：从方程到两个根',
     subtitle: 'Completing the square / Semantic formula matching / Graph verification',
@@ -32,6 +35,10 @@ const scenes = dynamics ? [
   { name: 'pythagoras', file: '03-pythagoras', title: '勾股定理：面积重排证明',
     subtitle: 'Four congruent triangles / Area conservation / Algebraic cancellation',
     frames: 1278, posters: [180, 480, 840, 1200], contact: [480, 1200] },
+] : cnn ? [
+  { name: 'cnn', file: '01-cnn', title: '卷积神经网络：从像素到特征图',
+    subtitle: 'Receptive field / Kernel scan / Feature map', frames: 627,
+    posters: [60, 180, 360, 480], contact: [180, 480] },
 ] : [
   { name: 'morph', file: '01-geometry', title: 'Geometry transforms',
     subtitle: 'Create / Transform / Rotate / Fade', frames: 645 },
@@ -90,7 +97,8 @@ async function exportScene(config) {
   const encoder = stillsOnly ? null : spawn(ffmpeg, [
     '-hide_banner', '-loglevel', 'error', '-y',
     '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-video_size', '1280x720',
-    '-framerate', '60', '-i', 'pipe:0', '-an',
+    '-framerate', '60', '-i', 'pipe:0',
+    ...(dynamics ? ['-i', path.join(root, 'site', narration.source), '-c:a', 'copy', '-t', String(narration.duration)] : ['-an']),
     '-vf', 'scale=out_color_matrix=bt709',
     '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-threads', '2',
     '-pix_fmt', 'yuv420p', '-color_primaries', 'bt709', '-color_trc', 'bt709',

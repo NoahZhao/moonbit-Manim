@@ -25,7 +25,7 @@ fn tangent_frame(t : Double, x : Double, initial_gap : Double) -> String raise {
 ///|
 #cfg(target="js")
 fn describe_lesson() -> String {
-  tangent_model().lesson.describe().stringify() catch {
+  tangent_model().describe().stringify() catch {
     _ => "{\"error\":\"Lesson unavailable\"}"
   }
 }
@@ -35,7 +35,7 @@ fn describe_lesson() -> String {
 fn render_lesson(progress : Double) -> String {
   let result = try {
     let model = tangent_model()
-    model.at(progress * model.lesson.duration).stringify()
+    model.at_progress(progress).stringify()
   } catch {
     _ => "{\"error\":\"Invalid lesson time\"}"
   }

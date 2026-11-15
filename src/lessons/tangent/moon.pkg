@@ -1,4 +1,5 @@
 import {
+  "moonmanim/core/narration",
   "moonmanim/core/lesson",
   "moonmanim/core/coordinates",
   "moonmanim/core/geometry",

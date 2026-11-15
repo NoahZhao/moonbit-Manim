@@ -1,0 +1,182 @@
+{
+  "version": 1,
+  "provider": "macos-say",
+  "voice": "Tingting",
+  "rate": 145,
+  "language": "zh-CN",
+  "source": "assets/narration/tangent.m4a",
+  "sampleRate": 48000,
+  "fps": 60,
+  "frames": 2574,
+  "duration": 42.9,
+  "segments": [
+    {
+      "key": "observe",
+      "text": "观察抛物线上的两个点。粉色点和绿色点，确定一条割线。",
+      "beats": [
+        {
+          "text": "观察抛物线上的两个点。",
+          "rate": 132,
+          "pauseAfter": 0.34,
+          "style": "curious",
+          "pitch": 0,
+          "energy": 0
+        },
+        {
+          "text": "粉色点和绿色点，确定一条割线。",
+          "rate": 151,
+          "pauseAfter": 0.28,
+          "style": "inviting",
+          "pitch": 0,
+          "energy": 0
+        }
+      ],
+      "start": 0,
+      "end": 7.166666666666667,
+      "duration": 7.166666666666667,
+      "frames": 430,
+      "spokenDuration": 6.957833333333333,
+      "cacheKey": "c469e1332f10724fe1b8e2d238630fdd173616a523fc301588a47634bae8a33c"
+    },
+    {
+      "key": "approach",
+      "text": "让绿色点逐渐靠近粉色点。当间距趋近零，割线就趋近切线。",
+      "beats": [
+        {
+          "text": "让绿色点逐渐靠近粉色点。",
+          "rate": 138,
+          "pauseAfter": 0.38,
+          "style": "curious",
+          "pitch": 0,
+          "energy": 0
+        },
+        {
+          "text": "当间距趋近零，割线就趋近切线。",
+          "rate": 126,
+          "pauseAfter": 0.48,
+          "style": "reveal",
+          "pitch": 0,
+          "energy": 0
+        }
+      ],
+      "start": 7.166666666666667,
+      "end": 14.983333333333333,
+      "duration": 7.816666666666666,
+      "frames": 469,
+      "spokenDuration": 7.6165,
+      "cacheKey": "f22ba314382ead536027eb75012387b56756301fad9280956c3d343c3c719b7b"
+    },
+    {
+      "key": "travel",
+      "text": "让观察点沿曲线移动。切线的斜率，从负数经过零，再变成正数。",
+      "beats": [
+        {
+          "text": "让观察点沿曲线移动。",
+          "rate": 142,
+          "pauseAfter": 0.3,
+          "style": "inviting",
+          "pitch": 0,
+          "energy": 0
+        },
+        {
+          "text": "切线的斜率，从负数经过零，再变成正数。",
+          "rate": 132,
+          "pauseAfter": 0.42,
+          "style": "reveal",
+          "pitch": 0,
+          "energy": 0
+        }
+      ],
+      "start": 14.983333333333333,
+      "end": 23,
+      "duration": 8.016666666666667,
+      "frames": 481,
+      "spokenDuration": 7.800458333333333,
+      "cacheKey": "2c1ef416f0cac0160147e29eaf9055d217575249f5d999e6de8b5dc2e5aed4dc"
+    },
+    {
+      "key": "return",
+      "text": "回到曲线下降的位置。这里的切线斜率，是负数。",
+      "beats": [
+        {
+          "text": "回到曲线下降的位置。",
+          "rate": 135,
+          "pauseAfter": 0.32,
+          "style": "calm",
+          "pitch": 0,
+          "energy": 0
+        },
+        {
+          "text": "这里的切线斜率，是负数。",
+          "rate": 128,
+          "pauseAfter": 0.34,
+          "style": "calm",
+          "pitch": 0,
+          "energy": 0
+        }
+      ],
+      "start": 23,
+      "end": 28.816666666666666,
+      "duration": 5.816666666666666,
+      "frames": 349,
+      "spokenDuration": 5.60975,
+      "cacheKey": "5c3808b9f08f3d18fe5f00cf9f0b9fbc035750d1b32b1b115cfb063f551f9dbd"
+    },
+    {
+      "key": "separate",
+      "text": "再次拉开两个点。割线斜率与导数，出现了差距。",
+      "beats": [
+        {
+          "text": "再次拉开两个点。",
+          "rate": 142,
+          "pauseAfter": 0.3,
+          "style": "curious",
+          "pitch": 0,
+          "energy": 0
+        },
+        {
+          "text": "割线斜率与导数，出现了差距。",
+          "rate": 123,
+          "pauseAfter": 0.4,
+          "style": "reveal",
+          "pitch": 0,
+          "energy": 0
+        }
+      ],
+      "start": 28.816666666666666,
+      "end": 34.86666666666667,
+      "duration": 6.05,
+      "frames": 363,
+      "spokenDuration": 5.838145833333333,
+      "cacheKey": "27c8a34a9fa859b1880ec68a063b2762cea91487c8052bc8e72f54d3fd1007d0"
+    },
+    {
+      "key": "explore",
+      "text": "再让间距趋近零。你也可以切换自由探索，亲手调整位置和间距。",
+      "beats": [
+        {
+          "text": "再让间距趋近零。",
+          "rate": 138,
+          "pauseAfter": 0.32,
+          "style": "inviting",
+          "pitch": 0,
+          "energy": 0
+        },
+        {
+          "text": "你也可以切换自由探索，亲手调整位置和间距。",
+          "rate": 128,
+          "pauseAfter": 0.5,
+          "style": "inviting",
+          "pitch": 0,
+          "energy": 0
+        }
+      ],
+      "start": 34.86666666666667,
+      "end": 42.9,
+      "duration": 8.033333333333333,
+      "frames": 482,
+      "spokenDuration": 7.826583333333334,
+      "cacheKey": "a64efd7bbd5ba4a6bd9e9fc8ba8c04424e90abc69c1f3274a73572031ebc4847"
+    }
+  ]
+}

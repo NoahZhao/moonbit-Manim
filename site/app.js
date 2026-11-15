@@ -5,6 +5,8 @@
   const $$ = (selector) => [...document.querySelectorAll(selector)];
   const stage = $('#lab-stage');
   const progress = $('#progress');
+  const narrationAudio = $('#narration-audio');
+  let audioRequest = 0;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const sourceBase = 'https://github.com/NoahZhao/moonbit-Manim/blob/main/';
   const lesson = window.MoonManim?.describeLesson ? JSON.parse(window.MoonManim.describeLesson()) : null;
@@ -97,18 +99,43 @@
 
   function setPlaying(playing) {
     state.playing = playing;
+    const request = ++audioRequest;
+    if (!playing) narrationAudio.pause();
     $('#play-toggle').textContent = playing ? 'Ⅱ' : '▶';
     $('#play-toggle').setAttribute('aria-pressed', String(playing));
     $('#play-toggle').setAttribute('aria-label', playing ? '暂停实验动画' : '播放实验动画');
     if (playing && state.scene === 'tangent') {
+      $$('video').forEach(video => video.pause());
       if (state.progress >= 1) state.progress = 0;
-      animationTime = state.progress * lesson.duration;
+      seekNarration(state.progress * lesson.duration);
+      narrationAudio.play().catch(error => {
+        if (request !== audioRequest) return;
+        setPlaying(false);
+        toast('旁白暂时无法播放，请重试');
+        console.error('Narration playback failed:', error);
+      });
       return;
     }
     if (playing) animationTime = state.scene === 'bezier' || scenes[state.scene].loop
       ? state.progress * 6
       : Math.acos(1 - 2 * state.progress) / Math.PI * 4;
   }
+
+  function seekNarration(time) {
+    if (Math.abs(narrationAudio.currentTime - time) > 0.01) narrationAudio.currentTime = time;
+  }
+  narrationAudio.addEventListener('ended', () => {
+    if (state.scene !== 'tangent' || state.lessonMode !== 'follow') return;
+    setPlaying(false);
+    state.progress = 1;
+    drawLab();
+  });
+  $('#narration-toggle').addEventListener('click', () => {
+    narrationAudio.muted = !narrationAudio.muted;
+    $('#narration-toggle').setAttribute('aria-pressed', String(!narrationAudio.muted));
+    $('#narration-toggle').textContent = narrationAudio.muted ? '旁白：关' : '旁白：开';
+  });
+  $('#narration-rate').addEventListener('change', event => { narrationAudio.playbackRate = Number(event.target.value); });
 
   function syncHeroButton() {
     $('#hero-toggle').textContent = heroPaused ? '▶' : 'Ⅱ';
@@ -239,6 +266,7 @@
         lastFrame = JSON.parse(window.MoonManim.renderLesson(state.progress));
         if (lastFrame.error || !lastFrame.svg) throw new Error(lastFrame.error || 'Missing lesson frame');
         state.parameters = [lastFrame.values.x, lastFrame.values.gap, 0];
+        if (!state.playing) seekNarration(state.progress * lesson.duration);
       } else {
         lastFrame = frame(state.scene, state.scene === 'tangent' ? 0 : state.progress, state.parameters);
       }
@@ -379,7 +407,10 @@
     });
   }));
   $$('video').forEach((video) => {
-    video.addEventListener('play', () => $$('video').forEach((other) => { if (other !== video) other.pause(); }));
+    video.addEventListener('play', () => {
+      setPlaying(false);
+      $$('video').forEach((other) => { if (other !== video) other.pause(); });
+    });
     video.addEventListener('error', () => toast('视频加载失败，请检查网络后重试'));
   });
   $('#copy-code').addEventListener('click', async () => {
@@ -429,14 +460,14 @@
     previousTime = time;
     if (!document.hidden) {
       if (!heroPaused && heroVisible) heroTime += delta;
-      if (state.playing && labVisible) animationTime += delta;
+      if (state.playing && labVisible && state.scene !== 'tangent') animationTime += delta;
       if (time - previousDraw >= 1000 / 30) {
         previousDraw = time;
         if (!heroPaused && heroVisible) drawHero((1 - Math.cos(heroTime * 0.65)) / 2, heroTime * 0.15);
         if (state.playing && labVisible) {
           if (state.scene === 'tangent') {
-            state.progress = Math.min(1, animationTime / lesson.duration);
-            if (state.progress >= 1) setPlaying(false);
+            state.progress = Math.min(1, narrationAudio.currentTime / lesson.duration);
+            if (narrationAudio.ended) setPlaying(false);
           } else state.progress = state.scene === 'bezier' || scenes[state.scene].loop
             ? (animationTime / 6) % 1
             : (1 - Math.cos(animationTime * Math.PI / 4)) / 2;

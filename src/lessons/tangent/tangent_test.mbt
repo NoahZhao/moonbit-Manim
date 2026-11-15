@@ -14,10 +14,16 @@ test "geometry is independent of seek order and manual exploration" {
 ///|
 test "tangent timeline and exploration have stable exact limits" {
   let model = @tangent.Tangent::new()
-  @test.assert_eq(model.lesson.duration, 12.0)
-  @test.assert_eq(model.lesson.sample(4.0).get("h"), 0.0)
-  @test.assert_eq(model.lesson.sample(7.0).get("x"), 2.6)
-  @test.assert_eq(model.lesson.sample(12.0).get("h"), 0.0)
+  @test.assert_eq(model.lesson.duration, model.narration.duration)
+  @test.assert_eq(
+    model.lesson.sample(model.narration.bookmark("travel")).get("h"),
+    0.0,
+  )
+  @test.assert_eq(
+    model.lesson.sample(model.narration.bookmark("return")).get("x"),
+    2.6,
+  )
+  @test.assert_eq(model.lesson.sample(model.lesson.duration).get("h"), 0.0)
   let picture = model.manual(0.0, 0.0).stringify()
   @test.assert_eq(picture.contains("NaN"), false)
   @test.assert_eq(picture.contains("Infinity"), false)

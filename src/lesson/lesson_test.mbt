@@ -23,6 +23,40 @@ fn example() -> @lesson.Lesson raise {
 }
 
 ///|
+test "retiming preserves chapter targets and keeps source timing immutable" {
+  let original = example()
+  let timed = original.retime([2.0, 4.0, 2.0])
+  @test.assert_eq(timed.duration, 8.0)
+  @test.assert_eq(original.duration, 4.0)
+  @test.assert_eq(timed.sample(4.0).get("x"), original.sample(2.0).get("x"))
+  @test.assert_eq(timed.sample(6.0).chapter, 2)
+  @test.assert_eq(timed.sample(6.0).get("x"), 2.0)
+  @test.assert_raise(() => original.retime([1.0]))
+  @test.assert_raise(() => original.retime([1.0, 0.0, 1.0]))
+}
+
+///|
+test "normalized seeking preserves non-binary chapter boundaries" {
+  let durations = [
+    346.0 / 60.0,
+    367.0 / 60.0,
+    383.0 / 60.0,
+    275.0 / 60.0,
+    284.0 / 60.0,
+    379.0 / 60.0,
+  ]
+  let lesson = @lesson.Lesson::new(
+    [parameter()],
+    durations.map(d => @lesson.cue("a", "b", d)),
+  )
+  let mut start = 0.0
+  for i, duration in durations {
+    @test.assert_eq(lesson.sample_progress(start / lesson.duration).chapter, i)
+    start = start + duration
+  }
+}
+
+///|
 test "absolute samples have exact boundaries and stable random access" {
   let lesson = example()
   @test.assert_eq(lesson.duration, 4.0)

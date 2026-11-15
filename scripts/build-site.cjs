@@ -42,6 +42,7 @@ if (process.argv.includes('--media')) {
   const sharp = require('sharp');
   const demos = [
     ['dynamics/01-tangent.mp4', 'tangent', 7],
+    ['cnn/01-cnn.mp4', 'cnn', 4],
     ['lessons/01-quadratic.mp4', 'quadratic', 13],
     ['lessons/02-linear-algebra.mp4', 'matrix', 14],
     ['lessons/03-pythagoras.mp4', 'pythagoras', 19],

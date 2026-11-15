@@ -1,6 +1,6 @@
 # 一份课程，视频与交互
 
-本次完成的创新是把“看动画”与“操作模型”连接起来。首个案例是 12 秒的割线与切线课程，六个章节可播放、暂停、拖动或直接跳转。选择“自由探索”时接管当前的 x 和 h，返回讲解则恢复原来暂停的课程时刻。视频卡片的接管按钮支持从视频当前时刻进入探索。
+本次完成的创新是把“看动画”与“操作模型”连接起来。首个案例是 33.9 秒的割线与切线课程，六个章节可播放、暂停、拖动或直接跳转。选择“自由探索”时接管当前的 x 和 h，返回讲解则恢复原来暂停的课程时刻。视频卡片的接管按钮支持从视频当前时刻进入探索。
 
 ## 定义与数据流
 
@@ -54,3 +54,14 @@ npm run site:serve
 `lesson:check` 实际运行 native 离线适配器，与已编译的网页 JavaScript 在 10 个时刻比较章节、全部参数和所有 SVG 数值坐标，容差为 1e-7 像素。核心测试覆盖章节边界、输入冻结、无效目标、随机采样、探索隔离及逆向跳转。视频导出器添加的标题和字幕属于展示层，不参与几何一致性比较。
 
 部署时须同时提交 `site/assets/engine.js`、视频及封面；GitHub Pages 不会自动编译 MoonBit。
+
+
+## NarrationTrack 与音频时间线
+
+`src/narration` 是与 TTS 服务无关的核心模块。`NarrationTrack::new` 接收音频地址、语言、带稳定 key 的旁白段和实测时长，生成不可变字幕区间与动画书签。`bookmark(key)` 返回开始时刻，`sample(time)` 支持任意跳转。割线课程使用同一组测量值调用 `Lesson.retime`，因此动画与字幕边界一致。
+
+`npm run narration` 从 MoonBit 导出旁白文本，通过构建期 provider 合成音频。当前支持 macOS `say`（默认 Tingting，190 字/词每分钟）以及 `MOONMANIM_TTS_RECORDINGS=/path/to/wav` 提供的录音；目录下按书签 key 命名 WAV。可通过 `MOONMANIM_TTS_VOICE`、`MOONMANIM_TTS_RATE` 和 `MOONMANIM_FFMPEG` 配置。缓存按文本、提供方、声音、语速及录音内容计算 SHA-256。其他平台可以直接使用已提交的音频，或提供录音构建；运行时不需要语音服务和密钥。
+
+每段语音转为 48kHz 单声道 PCM，测量实际样本数，补齐到 60fps 帧边界并加 200ms 停顿。产物是 `site/assets/narration/tangent.m4a`、测量清单和 WebVTT 字幕，以及嵌入 MoonBit 的 `narration.generated.mbt`。字幕精度为人工划分的语句段，不声称逐词强制对齐。修改旁白后应依次运行 `npm run narration`、`npm run dynamics`、`npm run site:media` 和检查命令。
+
+网页以 HTMLAudioElement.currentTime 作为讲解时钟；倍速通过 playbackRate 同时影响音频和动画。静音仍保留音频时钟，探索、章节跳转和重置会暂停或定位音轨。导出器把相同音轨写入 MP4，视频包含烧录字幕并附带可选 WebVTT。语音资产的生成信息记录于 tangent.json。

@@ -88,7 +88,7 @@ npm run dynamics-stills   # 关键帧；不需要 FFmpeg
 npm run dynamics          # 完整视频；需要 FFmpeg
 ```
 
-产物位于 `output/dynamics/`：`01-tangent.mp4` 为 12 秒、1280×720、60 fps 的无声视频；`demo-contact-sheet.png` 为关键帧接触表。原始场景可直接运行 `moon run src/cmd/dynamics --target native --release --deny-warn` 输出流式 JSONL SVG 帧。Node/sharp 与 FFmpeg 仅负责光栅化和编码，所有几何、参数动画及 TeX 公式对象由 MoonBit 引擎生成。
+产物位于 `output/dynamics/`：`01-tangent.mp4` 为 33.9 秒、1280×720、60 fps 的无声视频；`demo-contact-sheet.png` 为关键帧接触表。原始场景可直接运行 `moon run src/cmd/dynamics --target native --release --deny-warn` 输出流式 JSONL SVG 帧。Node/sharp 与 FFmpeg 仅负责光栅化和编码，所有几何、参数动画及 TeX 公式对象由 MoonBit 引擎生成。
 
 设计参考本地 Manim CE 的 ValueTracker、Mobject Updater 与 Scene 更新生命周期，并采用适合 MoonBit 的场景所属句柄、静态类型回调及显式依赖声明。这里不承诺与 Python Manim 的任意回调行为兼容。
 

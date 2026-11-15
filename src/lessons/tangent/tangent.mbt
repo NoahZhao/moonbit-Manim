@@ -29,6 +29,7 @@ fn dynamic_shape(
 /// Geometry, parameter schema and narration are shared by video and browser.
 pub struct Tangent {
   lesson : @lesson.Lesson
+  narration : @narration.NarrationTrack
   priv scene : @scene.Scene
   priv position : @scene.ValueTracker
   priv gap : @scene.ValueTracker
@@ -95,6 +96,14 @@ pub fn Tangent::new() -> Tangent raise {
       ),
     ],
   )
+  let durations = narration_durations()
+  let narration = @narration.NarrationTrack::new(
+    "assets/narration/tangent.m4a",
+    "zh-CN",
+    narration_script(),
+    durations,
+  )
+  let lesson = lesson.retime(durations)
   let scene = @scene.Scene::new(LessonSink::{ })
   let blue = @mobject.Color::rgb(0.49, 0.62, 1.0)
   let teal = @mobject.Color::rgb(0.36, 0.79, 0.74)
@@ -223,7 +232,7 @@ pub fn Tangent::new() -> Tangent raise {
   let camera = @render.Camera2D::new(
     background=@mobject.Color::rgb(0.055, 0.071, 0.106),
   )
-  { lesson, scene, position, gap, camera, }
+  { lesson, narration, scene, position, gap, camera, }
 }
 
 ///|
@@ -254,7 +263,20 @@ fn Tangent::draw(self : Tangent, sample : @lesson.Sample) -> @json.Json raise {
     "progress": @json.Json::number(sample.progress),
     "chapter": @json.Json::number(sample.chapter.to_double()),
     "title": @json.Json::string(sample.title),
-    "phase": @json.Json::string(sample.caption),
+    "phase": @json.Json::string(
+      if sample.chapter < 0 {
+        sample.caption
+      } else {
+        self.narration.sample(sample.time).text
+      },
+    ),
+    "bookmark": @json.Json::string(
+      if sample.chapter < 0 {
+        ""
+      } else {
+        self.narration.sample(sample.time).key
+      },
+    ),
     "svg": @json.Json::string(
       @render.svg_frame(self.camera, self.scene.snapshot()),
     ),

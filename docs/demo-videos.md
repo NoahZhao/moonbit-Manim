@@ -1,6 +1,6 @@
 # 当前引擎的视频示例
 
-本文记录最初的三个基础示例。新增公式推导、矩阵变换和定理证明视频见 [数学教学说明](teaching.zh-CN.md)，输出位于 output/lessons。
+本文记录基础示例以及 CNN 卷积演示。新增公式推导、矩阵变换和定理证明视频见 [数学教学说明](teaching.zh-CN.md)，输出位于 output/lessons。
 
 所有示例均为 1280×720、60 fps、H.264/yuv420p 的无声 MP4。视频中的几何、时间推进、描绘、变形与组变换来自现有 MoonBit 核心。
 
@@ -10,6 +10,8 @@
 | 02-path-creation.mp4 | 8.8 秒 | 参数速度不均的直线；贝塞尔曲线；断开子路径；Linear 与 Smooth 的速度差别 |
 | 03-group-transforms.mp4 | 11 秒 | 多个叶子对象同时描绘；嵌套变换；父节点旋转、平移和透明度 |
 | 00-all-demos.mp4 | 30.55 秒 | 上述三段视频的连续合集 |
+
+| output/cnn/01-cnn.mp4 | 10.45 秒 | 5×5 输入、3×3 卷积核滑动，以及 3×3 特征图逐格激活；无音频 |
 
 ## 当前进度的含义
 
@@ -46,6 +48,9 @@ MoonBit Scene.play / wait
 
 ~~~sh
 make demo-videos
+
+# 仅生成 CNN 演示
+npm run cnn
 ~~~
 
 如果 sharp 或 FFmpeg 不在默认搜索路径中，可以显式指定：

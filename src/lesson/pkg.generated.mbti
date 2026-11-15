@@ -30,7 +30,9 @@ pub struct Lesson {
 pub fn Lesson::describe(Self) -> @json.Json
 pub fn Lesson::explore(Self, Array[(String, Double)]) -> Sample raise @errors.EngineError
 pub fn Lesson::new(Array[Parameter], Array[Cue]) -> Self raise @errors.EngineError
+pub fn Lesson::retime(Self, Array[Double]) -> Self raise @errors.EngineError
 pub fn Lesson::sample(Self, Double) -> Sample raise @errors.EngineError
+pub fn Lesson::sample_progress(Self, Double) -> Sample raise @errors.EngineError
 
 pub(all) struct Parameter {
   key : String

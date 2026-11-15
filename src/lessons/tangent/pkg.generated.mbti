@@ -4,18 +4,23 @@ package "moonmanim/core/lessons/tangent"
 import {
   "moonbitlang/core/json",
   "moonmanim/core/lesson",
+  "moonmanim/core/narration",
 }
 
 // Values
+pub fn narration_script() -> Array[@narration.Speech]
 
 // Errors
 
 // Types and methods
 pub struct Tangent {
   lesson : @lesson.Lesson
+  narration : @narration.NarrationTrack
   // private fields
 }
 pub fn Tangent::at(Self, Double) -> @json.Json raise
+pub fn Tangent::at_progress(Self, Double) -> @json.Json raise
+pub fn Tangent::describe(Self) -> @json.Json
 pub fn Tangent::manual(Self, Double, Double) -> @json.Json raise
 pub fn Tangent::new() -> Self raise
 

@@ -6,7 +6,7 @@
 
 ## 项目展示网站
 
-[访问 MoonManim 展示站](https://noahzhao.github.io/moonbit-Manim/)，探索六个交互项目：矩阵变换、贝塞尔曲线、勾股定理、割线与切线、利萨如曲线及几何变形，观看七段数学动画。支持项目直达链接、调整参数、拖动进度、导出 SVG，并适配手机屏幕。
+[访问 MoonManim 展示站](https://noahzhao.github.io/moonbit-Manim/)，探索六个交互项目：矩阵变换、贝塞尔曲线、勾股定理、割线与切线、利萨如曲线及几何变形，观看八段数学动画，其中新增 CNN 卷积核滑动与特征图演示。支持项目直达链接、调整参数、拖动进度、导出 SVG，并适配手机屏幕。
 
 本地预览：`npm run site:serve`，打开 http://127.0.0.1:4173/moonbit-Manim/。网站源码位于 `site/`；首次部署需要在仓库 Settings → Pages 中选择 GitHub Actions，详见 [网站维护与部署说明](docs/website.zh-CN.md)。
 
@@ -40,6 +40,7 @@ moon run src/cmd/demo --target native --deny-warn > output/foundation.svg
 - output/videos/02-path-creation.mp4：线性/平滑缓动下的弧长描绘及断开子路径，8.8 秒。
 - output/videos/03-group-transforms.mp4：并行动画、嵌套组旋转、平移与透明度，11 秒。
 - output/videos/00-all-demos.mp4：全部示例合集。
+- output/cnn/01-cnn.mp4：5×5 输入、3×3 卷积核与 3×3 特征图的无声演示，10.45 秒。
 
 场景源码位于 src/cmd/videos。每一帧由 MoonBit 场景运行器和 SVG 后端生成，scripts/render-videos.cjs 使用 sharp 光栅化并通过 FFmpeg 编码，按帧流式处理。标题、阶段说明和计时是导出器添加的展示标签，不代表文本 API 或 LaTeX 已实现。完整说明见 [视频示例说明](docs/demo-videos.md)。
 
@@ -131,7 +132,7 @@ scene.wait(0.5)
 
 首个创新案例：**同一份课程生成视频与交互网页**。打开 [割线与切线课程](https://noahzhao.github.io/moonbit-Manim/?scene=tangent#playground)，跟随六个讲解章节，随时切换到“自由探索”接管当前参数，再返回暂停的位置继续。视频卡片上的“在视频当前时刻自由探索”可直接接续视频进度。[实现与复现说明](docs/lessons.zh-CN.md)。
 
-运行 `npm run dynamics` 或 `make dynamics-videos`，导出 **12 秒、720p60** 的割线到切线动画：两个参数控制动点位置和两点间距，展示差商趋近导数。视频位于 `output/dynamics/01-tangent.mp4`。`npm run dynamics-stills` 只生成关键帧与接触表，无需 FFmpeg。公式是引擎内的 TeX 矢量对象；导出器添加标题、阶段字幕与计时。
+运行 `npm run dynamics` 或 `make dynamics-videos`，导出 **33.9 秒、720p60** 的割线到切线动画：两个参数控制动点位置和两点间距，展示差商趋近导数。视频位于 `output/dynamics/01-tangent.mp4`。`npm run dynamics-stills` 只生成关键帧与接触表，无需 FFmpeg。公式是引擎内的 TeX 矢量对象；导出器添加标题、阶段字幕与计时。
 
 完整示例位于 [src/cmd/dynamics](src/cmd/dynamics/main.mbt)，时钟、依赖声明、冲突和生命周期语义见 [动态几何开发说明](docs/dynamics.zh-CN.md)。
 
@@ -165,7 +166,7 @@ scene.wait(0.5)
 
 ## 验证
 
-目前包含 82 项测试，覆盖几何、弧长、不可变快照、对象生命周期、动画时钟与错误隔离，以及错开播放、矩阵动画、公式项匹配、坐标映射、绘图断点、定理拼图、标量驱动、依赖循环、父组变换、更新暂停、删除清理和有理帧率的动态端点。新增课程的章节边界、任意时刻采样、参数校验、探索隔离与逆向拖动恢复检查。弧长使用有解析解的抛物线独立验证；勾股定理重排使用面积与覆盖检查验证。
+目前包含 85 项测试，覆盖几何、弧长、不可变快照、对象生命周期、动画时钟与错误隔离，以及错开播放、矩阵动画、公式项匹配、坐标映射、绘图断点、定理拼图、标量驱动、依赖循环、父组变换、更新暂停、删除清理和有理帧率的动态端点。新增课程的章节边界、任意时刻采样、参数校验、探索隔离与逆向拖动恢复检查。弧长使用有解析解的抛物线独立验证；勾股定理重排使用面积与覆盖检查验证。
 
 ~~~sh
 moon fmt --check

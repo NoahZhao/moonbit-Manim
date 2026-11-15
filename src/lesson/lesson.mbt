@@ -262,3 +262,40 @@ pub fn Lesson::describe(self : Lesson) -> @json.Json {
     "chapters": @json.Json::array(chapters.iter().collect()),
   })
 }
+
+///|
+/// Recompile chapter timings after audio measurement, retaining scalar targets.
+pub fn Lesson::retime(
+  self : Lesson,
+  durations : Array[Double],
+) -> Lesson raise @errors.EngineError {
+  if durations.length() != self.segments.length() {
+    raise @errors.InvalidArgument(
+      "one measured duration is required per chapter",
+    )
+  }
+  let cues : Array[Cue] = []
+  for i, segment in self.segments {
+    cues.push({ ..segment.cue, duration: durations[i], })
+  }
+  Lesson::new(self.parameters.iter().collect(), cues)
+}
+
+///|
+/// Preserve exact published chapter boundaries when converting UI progress
+/// back to seconds; division followed by multiplication can lose one ULP.
+pub fn Lesson::sample_progress(
+  self : Lesson,
+  progress : Double,
+) -> Sample raise @errors.EngineError {
+  if !@math.finite(progress) {
+    raise @errors.InvalidArgument("progress must be finite")
+  }
+  let progress = @math.clamp01(progress)
+  for segment in self.segments {
+    if progress == segment.start / self.duration {
+      return self.sample(segment.start)
+    }
+  }
+  self.sample(progress * self.duration)
+}

@@ -8,12 +8,15 @@
     "lessons": "node scripts/render-videos.cjs --lessons",
     "lesson-stills": "node scripts/render-videos.cjs --lessons --stills",
     "demos": "node scripts/render-videos.cjs",
+    "narration": "node scripts/build-narration.cjs",
     "dynamics": "node scripts/render-videos.cjs --dynamics",
+    "cnn": "node scripts/render-videos.cjs --cnn",
     "dynamics-stills": "node scripts/render-videos.cjs --dynamics --stills",
     "site:build": "node scripts/build-site.cjs",
     "site:media": "node scripts/build-site.cjs --media",
     "site:check": "node scripts/check-site.cjs",
     "lesson:check": "node scripts/check-lessons.cjs",
+    "narration:check": "node scripts/check-narration.cjs",
     "site:serve": "node scripts/serve-site.cjs"
   },
   "devDependencies": {
