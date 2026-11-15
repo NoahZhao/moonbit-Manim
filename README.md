@@ -1,94 +1,180 @@
+<div align="center">
+
 # MoonManim
 
-用 MoonBit 逐步构建面向数学讲解的程序化动画引擎，目标是具备 3b1b Manim 式的几何表达、动画编排和离线制作能力。
+### 用 MoonBit 把数学变成可以运行、检查和探索的过程
 
-当前已具备二维几何与动画核心、坐标平面与函数绘图、语义公式项动画、ValueTracker 与依赖排序 Updater，以及完整数学教学案例。数学、对象、时间、场景和逐帧 SVG 均由 MoonBit 实现，运行核心不需要 Python、浏览器或第三方 Mooncakes 依赖。公式由构建时 MathJax 排版为路径；离线视频由 Node/sharp 与 FFmpeg 导出。
+一个面向数学教学与科学可视化的程序化动画引擎：同一份场景描述，同时生成可交互网页、逐帧 SVG 和离线视频。
 
-## 项目展示网站
+[在线展示站](https://noahzhao.github.io/moonbit-Manim/) · [能力矩阵](https://noahzhao.github.io/moonbit-Manim/features.html) · [架构说明](docs/architecture.zh-CN.md) · [MIT License](LICENSE)
 
-[访问 MoonManim 展示站](https://noahzhao.github.io/moonbit-Manim/)，探索六个交互项目：矩阵变换、贝塞尔曲线、勾股定理、割线与切线、利萨如曲线及几何变形，观看八段数学动画，其中新增 CNN 卷积核滑动与特征图演示。支持项目直达链接、调整参数、拖动进度、导出 SVG，并适配手机屏幕。
+<br>
 
-本地预览：`npm run site:serve`，打开 http://127.0.0.1:4173/moonbit-Manim/。网站源码位于 `site/`；首次部署需要在仓库 Settings → Pages 中选择 GitHub Actions，详见 [网站维护与部署说明](docs/website.zh-CN.md)。
+<img src="site/assets/demos/cnn.webp" alt="CNN 卷积核在输入网格上滑动并生成特征图" width="760">
 
-## 快速运行
+<sub>同一个场景可以解释几何、导数，也可以解释 CNN 的感受野与特征图。</sub>
 
-本项目使用当前 MoonBit 文本格式的 moon.mod / moon.pkg。已验证工具链：
+</div>
 
-- moon 0.1.20261104
-- moonc v0.10.20+65efd5b93
+## 为什么这个项目有意义
 
-在仓库根目录运行：
+静态图片能展示结论，却很难展示“结论是怎样产生的”。数学课堂、算法课程和科研报告真正需要的，是一条可以暂停、跳转、修改参数并重新验证的过程。
 
-~~~sh
+MoonManim 把这条过程保存成有结构的数据：几何对象、公式符号、参数轨道、动画时间和渲染输出彼此分离。结果不再是一段只能播放的媒体，而是可以继续探索的计算模型。
+
+这也是 MoonManim 与 Manim 的核心差异：项目不追求 Python API 兼容层，而是以 MoonBit 为第一语言，重新设计一个静态类型、跨后端、可验证的数学动画核心。
+
+## 先看结果
+
+| 入口 | 读者可以看到什么 |
+| --- | --- |
+| [交互实验](https://noahzhao.github.io/moonbit-Manim/#playground) | 六个可以直接拖动参数的数学项目：矩阵、贝塞尔曲线、勾股定理、割线与切线、利萨如曲线、轮廓变形 |
+| [能力矩阵](https://noahzhao.github.io/moonbit-Manim/features.html) | 20 项能力的实现状态、证据入口和当前边界 |
+| [CNN 演示](https://noahzhao.github.io/moonbit-Manim/assets/demos/cnn.mp4) | 5×5 输入网格、3×3 卷积核、感受野滑动和 3×3 特征图，10.45 秒无声视频 |
+| [割线与切线课程](https://noahzhao.github.io/moonbit-Manim/?scene=tangent#playground) | 六个讲解章节；暂停视频后可以接管参数，自由探索，再回到同一时间线 |
+
+站点是静态 GitHub Pages，不需要登录，也不需要在浏览器中安装 MoonBit。所有展示资源都已经提交到 `site/`，打开网页即可体验。
+
+## 三项核心创新
+
+### 1. 一份课程，两个出口：视频与交互共享同一时间线
+
+割线课程不是“先做视频、再手写一个网页版本”。课程模型中的参数、章节、目标状态和时间边界由 MoonBit 定义：
+
+```text
+Lesson + ValueTracker + Updater
+              │
+              ├── 浏览器：实时 SVG、参数拖动、章节跳转
+              └── 视频：逐帧求值、字幕/书签、H.264 导出
+```
+
+因此，视频第 12 秒对应网页中的同一个参数状态；修订课程时，不需要维护两套运动逻辑。这是内容生产和数字教材都需要的“单一事实来源”。
+
+### 2. 数学对象不是像素：公式和几何拥有语义身份
+
+公式由可拆分的 TeX 部分组成，几何由路径、轮廓和控制点组成。公式项可以按语义 key 匹配，保留对象身份后移动、变色和转场；路径可以按弧长测量、截取和变形。
+
+这让动画能够解释“哪个符号变成了哪个符号”“哪个局部区域产生了这个特征”，而不是只把上一张图片淡出、下一张图片淡入。
+
+对应实现：[Formula](src/text/formula.mbt) · [PathMeasure](src/geometry/measure.mbt) · [PathMorph](src/geometry/path.mbt)
+
+### 3. 动态几何有可检查的执行契约
+
+`ValueTracker` 和 `Updater` 通过显式依赖构成有向无环图。每一帧按固定顺序执行：
+
+```text
+采样动画 → 更新声明过依赖的几何 → 渲染冻结 Frame
+```
+
+场景会拒绝跨场景句柄、循环依赖、并行动画冲突和非有限数值；时间使用有理帧率向上量化。结果可以做逐帧比较，网页和原生检查点已经用 1e-7 像素容差进行一致性验证。
+
+对应实现：[Scene](src/scene/scene.mbt) · [Updater](src/scene/updater.mbt) · [FrameRate](src/timeline/clock.mbt)
+
+## 从几何到算法：一个 CNN 示例
+
+CNN 不是一个与引擎无关的插图，而是用相同的场景运行器生成的算法过程：
+
+1. 显示 5×5 输入激活图；
+2. 把 3×3 kernel 放到局部感受野；
+3. 沿行列滑动窗口；
+4. 每次局部乘加完成后，点亮输出特征图对应位置。
+
+```text
+输入激活图       局部感受野 / 卷积核        输出特征图
+┌─────────┐          ┌───┐                  ┌─────┐
+│ 5 × 5   │   ───→   │3×3│   ───→           │ 3×3 │
+└─────────┘          └───┘                  └─────┘
+```
+
+场景源码在 [`src/cmd/videos/scenes.mbt`](src/cmd/videos/scenes.mbt)，生成命令为：
+
+```sh
+npm run cnn
+```
+
+这个案例说明引擎的用途不局限于几何证明：只要过程可以被表达为对象、状态和时间，就能制作成可观察的算法讲解。
+
+## 当前能力快照
+
+| 主题 | 已验证能力 | 状态 |
+| --- | --- | --- |
+| 几何 | 三次贝塞尔路径、弧长测量、部分路径、坐标平面、函数采样、轮廓变形 | 已验证 |
+| 动画 | Create、Write、Transform、Shift、Rotate、Fade、ApplyAffine、并行与错峰编排 | 已验证 |
+| 数学表达 | TeX → 矢量路径、语义公式项、公式转场、教学场景和面积证明 | 已验证 |
+| 运行时 | Native、JavaScript、Wasm、Wasm-GC、SVG 后端、流式视频导出 | 已验证 |
+| 课程 | 章节时间线、参数目标、视频接续、字幕与旁白轨道 | 部分已验证 |
+| 下一层架构 | 数学语义场景图、Scene IR、增量求值、可替换 TTS Provider | 实验中 / 计划中 |
+
+完整状态、源码入口和证据链接见[能力矩阵](https://noahzhao.github.io/moonbit-Manim/features.html)。
+
+## 架构：同一核心，多个输出
+
+```mermaid
+flowchart LR
+    A[数学模型 / 公式 / 参数] --> B[MoonBit Scene]
+    B --> C[确定性时间线]
+    C --> D[冻结 Frame]
+    D --> E[SVG Renderer]
+    D --> F[JSONL Frame Stream]
+    E --> G[浏览器交互]
+    F --> H[sharp + FFmpeg]
+    H --> I[MP4 / WebP]
+```
+
+核心依赖方向保持单向：
+
+```text
+math → geometry → mobject → animation
+                         ↘ scene → timeline / render
+                         ↘ text / teaching / lesson
+```
+
+渲染器只接收冻结的 `Frame`，不依赖浏览器 DOM，也不持有原生图形指针。浏览器和视频导出器因此可以共享同一个场景模型，同时保持各自的输出策略。
+
+## 五分钟运行一个场景
+
+已验证工具链：Moon 0.1.20261104、moonc v0.10.20+65efd5b93、Node.js 22+、FFmpeg（视频导出需要）。
+
+```sh
+# 1. 获取仓库
+git clone https://github.com/NoahZhao/moonbit-Manim.git
+cd moonbit-Manim
+
+# 2. 安装构建脚本依赖
+npm ci
+
+# 3. 检查和测试 MoonBit 核心
 moon check --target all --deny-warn
 moon test --target all --deny-warn
+
+# 4. 生成一个 SVG 基础场景
 mkdir -p output
 moon run src/cmd/demo --target native --deny-warn > output/foundation.svg
-~~~
 
-基础示例实际求值 225 帧，仅保存其中 6 个检查点，组合成一张 SVG：方形淡入 → 方形变圆 → 平移 → 淡出。可以用本地图像查看器打开 output/foundation.svg。这两个基础示例输出 SVG；完整视频示例见下文。
+# 5. 生成 CNN 视频
+npm run cnn
+```
 
-运行 make demo 会同时生成 output/foundation.svg 和 output/create.svg；后者求值 121 帧，展示曲线按弧长逐步描绘，灰框来自解析计算的曲线边界。make demo-create 可以单独运行描绘示例。
+常用命令：
 
-也可以运行 make check、make test。make test 还会验证 native release，覆盖本机调试和发布构建的差异。
+```sh
+make check             # 格式与全目标检查
+make test              # 调试 / native release 测试
+npm run site:build     # 编译浏览器 MoonBit 引擎并更新 site/assets/engine.js
+npm run site:check     # 检查网页入口、引擎输出和所有静态资源
+npm run site:serve     # 本地预览 GitHub Pages
+```
 
-## Demo 视频
+如果只想看线上效果，直接打开[展示站](https://noahzhao.github.io/moonbit-Manim/)即可。
 
-目前已生成三段 1280×720、60 fps 的无声 MP4，以及一个 30.55 秒的合集：
+## 用代码写一个动画
 
-- output/videos/01-geometry.mp4：方形、圆、三角形之间的变形及旋转，10.75 秒。
-- output/videos/02-path-creation.mp4：线性/平滑缓动下的弧长描绘及断开子路径，8.8 秒。
-- output/videos/03-group-transforms.mp4：并行动画、嵌套组旋转、平移与透明度，11 秒。
-- output/videos/00-all-demos.mp4：全部示例合集。
-- output/cnn/01-cnn.mp4：5×5 输入、3×3 卷积核与 3×3 特征图的无声演示，10.45 秒。
+下面的场景不依赖浏览器，也不依赖 Python。`Scene` 负责时间，`ObjectState` 保存对象状态，Renderer 决定输出格式。
 
-场景源码位于 src/cmd/videos。每一帧由 MoonBit 场景运行器和 SVG 后端生成，scripts/render-videos.cjs 使用 sharp 光栅化并通过 FFmpeg 编码，按帧流式处理。标题、阶段说明和计时是导出器添加的展示标签，不代表文本 API 或 LaTeX 已实现。完整说明见 [视频示例说明](docs/demo-videos.md)。
-
-重新导出需要 Node.js、sharp 和 FFmpeg。设置 NODE_PATH 指向包含 sharp 的 node_modules，设置 MOONMANIM_FFMPEG 指向编码器，然后执行 make demo-videos；若依赖已经可以直接找到，也可直接运行该目标。
-
-## 代码结构
-
-~~~text
-moon.mod                   模块配置；默认 native，代码位于 src
-src/
-  errors/                  公共错误类型
-  math/                    Vec3、Affine2、数值工具
-  geometry/                贝塞尔路径、解析边界、弧长度量、部分路径、变形
-  coordinates/             坐标映射、网格、坐标轴和函数采样
-  mobject/                 Color、Style、ObjectState、ObjectId、Store
-  animation/               描述符、缓动、预备动画与无状态采样
-  timeline/                有理帧率与帧时钟
-  render/                  Frame、Renderer、Camera2D、SVG 参考后端
-  scene/                   顺序场景运行器、标量轨道、动态几何依赖与播放生命周期
-  text/                    TeX 矢量资产、基线布局、语义公式项匹配
-  teaching/                公式资产与可验证的勾股定理拼图构造
-  cmd/demo/                完整基础场景
-  cmd/create/              按弧长描绘与解析边界示例
-  cmd/videos/              三个完整视频场景与 JSONL 帧流
-  cmd/lessons/             配方法、矩阵变换、勾股定理教学场景
-  cmd/dynamics/            ValueTracker 驱动的动点、割线极限与切线
-  cmd/web/                 浏览器交互实验与 JavaScript 桥接
-assets/tex/                TeX 片段、路径资产和上游许可
-site/                      GitHub Pages 展示站、浏览器运行时与精选视频
-scripts/compile-tex.cjs     构建时 TeX → 三次贝塞尔资产
-scripts/render-videos.cjs   示例视频导出适配器
-docs/architecture.zh-CN.md  长期架构设计
-manim-main/                原有 CE 参考源码；不参与 MoonBit 构建
-~~~
-
-依赖方向：math → geometry → mobject → animation；scene 组合这些能力及 timeline、render；text 在场景层之上提供公式布局与转场。渲染接口不依赖场景运行器，核心不持有原生图形指针。
-
-pkg.generated.mbti 是工具链生成的公开 API 清单，可用 moon info --target all 更新与检查各目标接口。
-
-## 编写场景
-
-以下代码可作为一个 executable 包的 main.mbt。该包需要导入示例中使用的 scene、animation、geometry、mobject、render 包，配置方式见 src/cmd/demo/moon.pkg。
-
-~~~moonbit
+```moonbit
 fn main raise {
   let camera = @render.Camera2D::new()
   let renderer = @render.SvgRenderer::new(camera, (index, svg) => {
-    // 示例只输出一个检查点；生产输出器可在这里逐帧写文件。
     if index == 90L { println(svg) }
   })
   let scene = @scene.Scene::new(renderer)
@@ -108,97 +194,64 @@ fn main raise {
   scene.play([@animation.transform(square, circle)], duration=1.0)
   scene.play([@animation.fade_out(square)], duration=0.5)
 }
-~~~
+```
 
-自定义后端实现 render.Renderer trait，接收冻结的 Frame。帧中的路径、样式和对象列表不可变，可以保留用于检查；默认运行器逐帧推送，不缓存整段动画。输出接口同步执行，自然产生背压，并允许传播文件或编码器错误。
+## 质量与可复现性
 
-## 动态几何与导数示例
+- **85 项 MoonBit 测试**：覆盖几何精度、弧长、对象生命周期、动画时钟、Updater 依赖、公式项匹配、课程边界和探索隔离。
+- **跨端检查**：原生适配器与已提交的浏览器 JavaScript 在课程检查点比较章节、参数和 SVG 坐标。
+- **逐帧导出检查**：视频导出器检查帧序号、帧数、尺寸、结束记录和编码器退出状态。
+- **静态部署**：GitHub Pages 直接发布已编译资产，不要求线上安装 MoonBit；每次 `site/` 变更由 GitHub Actions 检查后部署。
 
-一个标量轨道可以同时驱动多个对象。Updater 返回新的对象状态，依赖项在同一帧内先完成更新；函数曲线上的动点、切线和投影线无需手动编写逐帧循环。
+运行完整检查：
 
-~~~moonbit
-let x = scene.add_tracker(-2.0)
-let dot = scene.add(@mobject.ObjectState::shape(@geometry.circle(0.08)))
-scene.set_updater(dot, (context, state) => {
-  let value = context.get_value(x)
-  {
-    ..state,
-    transform: @math.Affine2::translation(value, value * value / 4.0),
-  }
-}, trackers=[x])
-scene.play([], values=[@scene.value_to(x, 2.0, easing=Linear)], duration=3.0)
-scene.wait(0.5)
-~~~
-
-首个创新案例：**同一份课程生成视频与交互网页**。打开 [割线与切线课程](https://noahzhao.github.io/moonbit-Manim/?scene=tangent#playground)，跟随六个讲解章节，随时切换到“自由探索”接管当前参数，再返回暂停的位置继续。视频卡片上的“在视频当前时刻自由探索”可直接接续视频进度。[实现与复现说明](docs/lessons.zh-CN.md)。
-
-运行 `npm run dynamics` 或 `make dynamics-videos`，导出 **33.9 秒、720p60** 的割线到切线动画：两个参数控制动点位置和两点间距，展示差商趋近导数。视频位于 `output/dynamics/01-tangent.mp4`。`npm run dynamics-stills` 只生成关键帧与接触表，无需 FFmpeg。公式是引擎内的 TeX 矢量对象；导出器添加标题、阶段字幕与计时。
-
-完整示例位于 [src/cmd/dynamics](src/cmd/dynamics/main.mbt)，时钟、依赖声明、冲突和生命周期语义见 [动态几何开发说明](docs/dynamics.zh-CN.md)。
-
-## 已实现的行为契约
-
-- Vec3 使用 Double，保留 Z 以便后续扩展；当前场景变换和相机是二维 XY。Shift 不接受非零 Z，三维还未实现。
-- Affine2 使用列向量。a.compose(b) 表示先应用 b，再应用 a；旋转参数为弧度。
-- 路径使用三次贝塞尔曲线。线段精确升阶；圆由四段三次曲线近似，最大径向误差约为半径的 0.000273 倍。
-- Contour 必须连续，闭合轮廓必须显式回到起点；构造时拷贝输入数组，随后只暴露只读数据。
-- Cubic.subsegment 按 de Casteljau 精确提取参数区间，保留三次曲线表示。Cubic.bounds / Path.bounds 通过三个坐标导数的根计算边界，不使用控制点包围盒；空路径返回 None。
-- Path.measure 在播放前建立自适应弧长索引，使用弦长/控制多边形长度之差分配绝对误差预算。默认容差为 1.0e-6 个度量空间单位，最大细分深度为 30、总叶片上限为 65536；超限明确报错。uncertainty 是细分估计的不确定度，不是包含浮点舍入的区间认证。
-- PathMeasure.point_at / partial 按弧长比例定位，支持参数速度不均的直线、回折曲线、多段路径与多个断开的子路径。metric_transform 可指定世界坐标等度量空间，返回的点与路径仍保留源坐标。部分轮廓保持开放，选中完整轮廓时保留闭合状态；[0,1] 精确保留原路径。
-- PathMorph 在准备阶段细分曲线，对齐对应轮廓的段数，保留输入与精确端点。第一版按轮廓顺序匹配，要求轮廓数量和闭合状态一致。
-- Store 采用带所属存储和 generation 的稳定句柄，拒绝跨场景或已删除的句柄。删除父节点会删除子树；槽位重用不会使旧句柄重新生效。
-- 组构成拥有式树，拒绝循环。重新设置父节点保留局部变换。父节点影响子节点的变换和透明度；绘制顺序为全局 z_index，再按加入顺序排序。
-- 透明度按祖先乘积传播，当前不实现隔离组的离屏透明合成。描边宽度固定为输出像素；默认线帽、连接为圆形。
-- Transform、Shift、Rotate、FadeIn、FadeOut、Create、Write、ApplyAffine 已接入 Scene.play。源快照在实际播放开始时获取，采样不修改起始或目标数据，非有限进度会报错。
-- Create 对叶子矢量对象按世界弧长描绘，包含自身及祖先的非均匀缩放。Linear 缓动给出恒定弧长速度；默认 Smooth 会调制速度。部分路径暂不填充，完成时恢复精确原路径、变换和样式；不新建或替换对象身份。
-- Transform 保留源 ObjectId，并在完成时提交目标状态；不将目标作为第二个场景对象插入。带子节点的对象暂不支持 Transform，可通过 Shift/Rotate/Fade 操作整组。
-- 显式 Rotate 插值角度，保留刚体旋转。一般 Transform 将两端的局部变换烘焙入路径后做几何插值；需要刚体运动时使用 Rotate。
-- 同一次 play 的动画共享时钟，play_staggered 支持错开启动，并以指定总时长完成。拒绝相同对象或祖先/后代的并行动画。缓动提供 Linear 和五次 Smooth。
-- Scene 拥有 ValueTracker，拒绝跨场景、删除后的句柄以及非有限数值。value_to 在播放开始时获取起值，通过 play 的 values 参数与对象动画共享时钟；同一标量的并行动画报冲突。play_staggered 中的标量使用整段时长，不参与对象错开。
-- Updater 通过显式对象和标量依赖构成有向无环图，自动考虑祖先变换并拒绝循环。每个对象最多绑定一个 Updater；上下文只允许读取已声明的依赖，提供冻结的局部状态、世界变换、时间和 dt。回调分阶段求值，整轮成功后才提交几何状态。
-- 每帧先采样动画，再计算动态几何，最后渲染；wait 同样执行 Updater。被动画操作的对象及其祖先/后代 Updater 暂停到该片段结束，其他跟随对象继续更新。删除对象、子树或标量后，自动解绑引用失效依赖的 Updater，保留其他对象的当前几何。
-- Updater 首帧 dt=0，后续按有理帧率推进；精确端点额外计算一次几何但不输出帧。端点时间使用向上量化后的场景时间；零时长片段和 Scene.update 以 dt=0 刷新。snapshot 只读取，不触发回调。
-- ApplyAffine 支持整组的矩阵动画；Write 支持矢量轮廓描写和填充显现。MathTex 可按显式语义 key 匹配相同公式项并保留身份，不同字形使用替换和淡入淡出。
-- 所有正时长片段独立向上量化到整帧；采样区间为 [0,duration)，完成时提交精确端点，不重复编码一个结束帧。逻辑时间由已输出帧数与有理帧率决定。
-- duration=0 提交结束状态并执行清理，不输出帧。FadeOut 完成后移除对象及其子树。
-- 场景输入和动画预备错误在输出前发生，不改变对象或推进时间。Renderer 回调可以读取状态，但不能修改或重入场景。
-- 渲染或 Updater 回调发生错误后，Scene 进入失败状态并停止接受播放和修改；已写入的外部数据及用户闭包副作用无法回滚，重试需重新构造场景和输出器。frame_index 只统计成功交付的帧。
-
-## 验证
-
-目前包含 85 项测试，覆盖几何、弧长、不可变快照、对象生命周期、动画时钟与错误隔离，以及错开播放、矩阵动画、公式项匹配、坐标映射、绘图断点、定理拼图、标量驱动、依赖循环、父组变换、更新暂停、删除清理和有理帧率的动态端点。新增课程的章节边界、任意时刻采样、参数校验、探索隔离与逆向拖动恢复检查。弧长使用有解析解的抛物线独立验证；勾股定理重排使用面积与覆盖检查验证。
-
-~~~sh
+```sh
 moon fmt --check
 moon test --target all --deny-warn
 moon test --target native --release --deny-warn
-~~~
+npm run site:check
+npm run lesson:check
+```
 
-## 数学教学案例
+## 项目结构
 
-新增三段 720p60 教学动画：配方法求根（19.3 秒）、矩阵与行列式（18 秒）、勾股定理面积重排（21.3 秒）。合集位于 output/lessons/00-all-lessons.mp4。
+```text
+src/math/          Vec3、Affine2、有限值工具
+src/geometry/      贝塞尔路径、边界、弧长、部分路径、变形
+src/mobject/       Color、Style、ObjectState、Store
+src/animation/     动画描述符、缓动、无状态采样
+src/scene/         场景运行器、ValueTracker、Updater、依赖排序
+src/text/          TeX 资产、公式布局、语义项匹配
+src/lesson/        课程参数、章节、绝对时间采样
+src/cmd/videos/    基础视频与 CNN 算法演示
+src/cmd/dynamics/  割线、切线和动态几何课程
+src/cmd/web/       浏览器交互与 JavaScript 桥接
+site/              GitHub Pages 静态站点与已编译资源
+scripts/           TeX、视频、旁白和站点构建工具
+docs/              架构、课程、网站和视频说明
+```
 
-~~~sh
-npm ci
-make lesson-stills  # 检查关键帧，不需要 FFmpeg
-make lesson-videos  # 需要 PATH 中存在 FFmpeg，或设置 MOONMANIM_FFMPEG
-~~~
+## 路线图与边界
 
-公式资产已提交，仅运行 MoonBit 无需 npm。编辑 assets/tex/fragments.json 后，用 make tex-assets 重编译公式。教学 API、公式项匹配语义和限制见 [教学开发说明](docs/teaching.zh-CN.md)。
+已经交付的重点是二维几何、公式动画、动态依赖、课程时间线和跨端静态输出。下一步会优先完善：
 
-## 下一阶段
+1. 数学语义场景图：连接公式符号、几何对象和讲解意图；
+2. Scene IR 与增量求值：支撑可视化编辑、跨端执行和大型交互场景；
+3. 可替换旁白 Provider：让本地 TTS、云端 TTS 和真人录音共享同一时间线；
+4. 移动相机、动态数值标签、更完整的公式布局与字形匹配。
 
-基础核心之后，按以下顺序扩展：
+当前尚未提供完整 Manim 兼容层、运行时 TeX 编译、三维 / GPU 后端、通用 SVG 导入或正式的引擎内媒体编码。视频目前由独立的 Node/sharp + FFmpeg 适配器完成；这些边界会在能力矩阵中持续更新。
 
-1. 原生 Cairo 后端、像素帧与流式视频编码，形成离线视频闭环。
-2. 在现有 ValueTracker / Updater 基础上扩展移动相机、轨迹与动态数值标签。
-3. 通用 SVG 导入、运行时公式编译、完整公式布局与字形匹配。
-4. 更丰富的动画组合、布局和缓存，之后再推进三维和 GPU。
+## 参与项目
 
-当前尚未提供原生 Cairo、引擎内置视频编码、运行时 TeX 编译、移动相机、任意拓扑匹配或完整 Manim 兼容层。Updater 支持顺序求值与固定帧步长，不承诺任意闭包可跳转时间或自动重放。示例视频通过独立适配器编码，后续会将媒体输出接入正式引擎工作流。
+欢迎提交数学教学案例、几何构造、渲染后端、测试用例和文档改进。一个好的贡献应当同时说明：
+
+1. 数学对象或教学目标是什么；
+2. 场景状态如何随时间变化；
+3. 如何在 native 与 browser / SVG 输出中验证结果。
+
+请先阅读 [架构说明](docs/architecture.zh-CN.md)、[教学开发说明](docs/teaching.zh-CN.md) 和[动态几何说明](docs/dynamics.zh-CN.md)，再提交 Issue 或 Pull Request。
 
 ## 许可证
 
-本项目原创代码采用 [MIT 许可证](LICENSE)，版权归 MoonManim contributors 所有。
-
-第三方依赖和资产遵循各自的许可证。MathJax 生成的公式矢量资产保留其 Apache-2.0 许可与来源说明，详见 [公式资产来源](assets/tex/NOTICE.md) 和 [MathJax 许可证](assets/tex/MATHJAX-LICENSE.txt)。
+MoonManim 原创代码采用 [MIT 许可证](LICENSE)。公式资产使用 MathJax 生成，第三方许可证与来源见 [assets/tex/NOTICE.md](assets/tex/NOTICE.md) 和 [MathJax 许可证](assets/tex/MATHJAX-LICENSE.txt)。
