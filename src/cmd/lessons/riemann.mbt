@@ -18,6 +18,9 @@ fn riemann(
       @math.Affine2::scaling(2.15, 0.72),
     ),
   )
+  let grid = scene.add(
+    shape(plane.grid(step=0.5), cyan, opacity=0.12, width=1.0),
+  )
   let axes = scene.add(shape(plane.axes(), white, opacity=0.32, width=1.5))
   let curve_segments : Array[@geometry.Cubic] = []
   for index in 0..<64 {
@@ -66,7 +69,7 @@ fn riemann(
     scene,
     phase,
     "绘制坐标轴与函数 y = x²",
-    [@animation.create(axes), @animation.create(curve)],
+    [@animation.create(grid), @animation.create(axes), @animation.create(curve)],
     1.5,
   )
   play(
@@ -92,26 +95,40 @@ fn riemann(
     scene,
     phase,
     "左端点矩形求和：L₄ = 7/4",
-    bars.map(id => @animation.fade_in(id)),
+    bars.map(id => @animation.create(id)),
     0.7,
   )
   hold(scene, phase, "每个矩形用左端点高度近似曲线", 0.6)
-  let sum4 = spec(assets, [("sum", "L_4=\\frac74", amber)])
-  equation.transition(sum4, origin=@math.Vec3::new(2.0, 1.55), duration=1.0)
-  let bars16 = riemann_bars(scene, plane, 16, amber)
-  replace_bars(scene, phase, bars, bars16, "增加到 16 个窄矩形", 0.9)
-  bars = bars16
+  let sum4 = riemann_sum(assets, 4, amber, white)
+  equation.transition(
+    sum4,
+    origin=@math.Vec3::new(2.0 - sum4.width / 2.0, 1.55),
+    duration=1.0,
+  )
+  bars = refine_riemann_bars(scene, phase, plane, bars, 4, amber, 16)
   hold(scene, phase, "L₁₆ = 155/64，阶梯更贴近曲线", 0.5)
-  let sum16 = spec(assets, [("sum", "L_{16}=\\frac{155}{64}", amber)])
-  equation.transition(sum16, origin=@math.Vec3::new(2.0, 1.55), duration=0.8)
-  let bars32 = riemann_bars(scene, plane, 32, amber)
-  replace_bars(scene, phase, bars, bars32, "继续细分到 32 个矩形", 0.9)
-  bars = bars32
+  let sum16 = riemann_sum(assets, 16, amber, white)
+  equation.transition(
+    sum16,
+    origin=@math.Vec3::new(2.0 - sum16.width / 2.0, 1.55),
+    duration=0.8,
+  )
+  bars = refine_riemann_bars(scene, phase, plane, bars, 16, amber, 32)
   hold(scene, phase, "L₃₂ = 651/256，误差继续缩小", 0.7)
+  let sum32 = riemann_sum(assets, 32, amber, white)
+  equation.transition(
+    sum32,
+    origin=@math.Vec3::new(2.0 - sum32.width / 2.0, 1.55),
+    duration=0.8,
+  )
   let integral = spec(assets, [
     ("integral", "\\int_0^2 x^2\\,dx=\\frac83", cyan),
   ])
-  equation.transition(integral, origin=@math.Vec3::new(1.3, 1.55), duration=1.1)
+  equation.transition(
+    integral,
+    origin=@math.Vec3::new(2.0 - integral.width / 2.0, 1.55),
+    duration=1.1,
+  )
   hold(
     scene, phase, "原函数 x³/3 在端点相减，得到精确面积 8/3", 0.8,
   )
@@ -132,42 +149,106 @@ fn riemann_bars(
   color : @mobject.Color,
 ) -> Array[@mobject.ObjectId] raise {
   let ids : Array[@mobject.ObjectId] = []
-  let dx = 2.0 / count.to_double()
   for index in 0..<count {
-    let x = index.to_double() * dx
-    let height = (x * x).max(0.025)
-    let center = plane.point(x + dx / 2.0, height / 2.0)
-    let state = shape(
-      @geometry.rectangle(dx * 2.15, height * 0.72),
-      color,
-      fill=0.18,
-      width=1.2,
-    )
-    ids.push(
-      scene.add({
-        ..state,
-        transform: @math.Affine2::translation(center.x, center.y),
-      }),
-    )
+    let state = riemann_bar_state(plane, index, count, color)
+    ids.push(scene.add(state))
   }
   ids
 }
 
 ///|
-fn replace_bars(
+fn riemann_bar_state(
+  plane : @coordinates.NumberPlane,
+  index : Int32,
+  count : Int32,
+  color : @mobject.Color,
+) -> @mobject.ObjectState raise {
+  let dx = 2.0 / count.to_double()
+  let x = index.to_double() * dx
+  let exact_height = x * x
+  let height = exact_height.max(0.025)
+  let center = plane.point(x + dx / 2.0, height / 2.0)
+  let state = shape(
+    @geometry.rectangle(dx * 2.15, height * 0.72),
+    color,
+    fill=0.18,
+    width=1.2,
+  )
+  { ..state, transform: @math.Affine2::translation(center.x, center.y), }
+}
+
+///|
+/// Each old interval contracts into its leftmost child while new right
+/// subintervals are drawn. Nested left samples preserve the old height.
+fn refine_riemann_bars(
   scene : @scene.Scene,
   phase : Ref[String],
+  plane : @coordinates.NumberPlane,
   previous : Array[@mobject.ObjectId],
-  next : Array[@mobject.ObjectId],
-  message : String,
-  duration : Double,
-) -> Unit raise {
+  old_count : Int32,
+  color : @mobject.Color,
+  new_count : Int32,
+) -> Array[@mobject.ObjectId] raise {
+  let next : Array[@mobject.ObjectId] = []
   let animations : Array[@animation.Animation] = []
-  for id in previous {
-    animations.push(@animation.fade_out(id))
+  let factor = new_count / old_count
+  for index in 0..<old_count {
+    let first = index * factor
+    let left_state = riemann_bar_state(plane, first, new_count, color)
+    animations.push(@animation.transform(previous[index], left_state))
+    next.push(previous[index])
+    for offset in 1..<factor {
+      let child = first + offset
+      let right_state = riemann_bar_state(plane, child, new_count, color)
+      let right_id = scene.add(right_state)
+      animations.push(@animation.create(right_id))
+      next.push(right_id)
+    }
   }
-  for id in next {
-    animations.push(@animation.fade_in(id))
+  play(
+    scene,
+    phase,
+    if new_count == 16 {
+      "4 个旧矩形收缩，右侧子区间逐一显现"
+    } else {
+      "16 个旧矩形继续二分，矩形宽度减半"
+    },
+    animations,
+    1.15,
+  )
+  next
+}
+
+///|
+fn riemann_sum(
+  assets : @text.TexAsset,
+  count : Int32,
+  amber : @mobject.Color,
+  white : @mobject.Color,
+) -> @text.MathTex raise {
+  let subscript = if count == 4 {
+    "{}_4"
+  } else if count == 16 {
+    "{}_{16}"
+  } else {
+    "{}_{32}"
   }
-  play(scene, phase, message, animations, duration)
+  let fraction = if count == 4 {
+    "\\frac74"
+  } else if count == 16 {
+    "\\frac{155}{64}"
+  } else {
+    "\\frac{651}{256}"
+  }
+  spec(
+    assets,
+    [
+      ("sum", "L", amber),
+      ("subscript", subscript, amber),
+      ("equals", "=", white),
+      ("value", fraction, amber),
+    ],
+    size=0.68,
+    gap=0.05,
+  )
 }
