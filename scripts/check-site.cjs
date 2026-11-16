@@ -143,11 +143,13 @@ for (const name of projects) {
   assert.ok(html.includes(`?scene=${name}#playground`), `Missing project link: ${name}`);
   assert.ok(fs.readFileSync(path.join(site, 'assets/projects', name + '.svg'), 'utf8').startsWith('<svg '));
 }
-assert.equal((html.match(/<video\b/g) || []).length, 9);
+assert.equal((html.match(/<video\b/g) || []).length, 10);
 assert.ok(fs.statSync(path.join(site, 'assets/demos/cnn.mp4')).size > 1000);
 assert.ok(fs.statSync(path.join(site, 'assets/demos/cnn.webp')).size > 1000);
 assert.ok(fs.statSync(path.join(site, 'assets/demos/cnn-pooling.mp4')).size > 1000);
 assert.ok(fs.statSync(path.join(site, 'assets/demos/cnn-pooling.webp')).size > 1000);
+assert.ok(fs.statSync(path.join(site, 'assets/demos/riemann.mp4')).size > 1000);
+assert.ok(fs.statSync(path.join(site, 'assets/demos/riemann.webp')).size > 1000);
 assert.ok(fs.existsSync(path.join(site, 'assets/licenses/MATHJAX-LICENSE.txt')));
 assert.ok(fs.existsSync(path.join(site, 'assets/social.png')));
-console.log(`Six browser projects verified: matrices, arc lengths, area invariance, secant limits, oscillator coordinates and morph endpoints. Nine videos and ${assets} local links/assets verified.`);
+console.log(`Six browser projects verified: matrices, arc lengths, area invariance, secant limits, oscillator coordinates and morph endpoints. Ten videos and ${assets} local links/assets verified.`);

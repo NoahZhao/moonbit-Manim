@@ -10,8 +10,13 @@ fn main raise {
 fn run() -> Unit raise {
   let args = @env.args()
   let name = if args.length() > 1 { args[1] } else { "formula" }
-  if name != "formula" && name != "matrix" && name != "pythagoras" {
-    raise @errors.InvalidArgument("expected formula, matrix or pythagoras")
+  if name != "formula" &&
+    name != "matrix" &&
+    name != "pythagoras" &&
+    name != "riemann" {
+    raise @errors.InvalidArgument(
+      "expected formula, matrix, pythagoras or riemann",
+    )
   }
   let phase : Ref[String] = { val: "Ready", }
   let camera = @render.Camera2D::new(
@@ -42,7 +47,8 @@ fn run() -> Unit raise {
     match name {
       "formula" => quadratic(scene, assets, phase)
       "matrix" => linear_algebra(scene, assets, phase)
-      _ => pythagoras(scene, assets, phase)
+      "pythagoras" => pythagoras(scene, assets, phase)
+      _ => riemann(scene, assets, phase)
     }
   } catch {
     @errors.InvalidArgument(message) => abort(phase.val + ": " + message)

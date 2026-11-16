@@ -47,6 +47,7 @@ if (process.argv.includes('--media')) {
     ['lessons/01-quadratic.mp4', 'quadratic', 13],
     ['lessons/02-linear-algebra.mp4', 'matrix', 14],
     ['lessons/03-pythagoras.mp4', 'pythagoras', 19],
+    ['lessons/04-riemann-sum.mp4', 'riemann', 10],
     ['videos/01-geometry.mp4', 'geometry', 5],
     ['videos/02-path-creation.mp4', 'bezier', 5],
     ['videos/03-group-transforms.mp4', 'groups', 6],

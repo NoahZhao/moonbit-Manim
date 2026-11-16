@@ -35,6 +35,9 @@ const scenes = dynamics ? [
   { name: 'pythagoras', file: '03-pythagoras', title: '勾股定理：面积重排证明',
     subtitle: 'Four congruent triangles / Area conservation / Algebraic cancellation',
     frames: 1278, posters: [180, 480, 840, 1200], contact: [480, 1200] },
+  { name: 'riemann', file: '04-riemann-sum', title: '黎曼和：从矩形到定积分',
+    subtitle: '黎曼和 / 二次函数面积 / 定积分',
+    frames: 879, posters: [120, 360, 600, 840], contact: [360, 840] },
 ] : cnn ? [
   { name: 'cnn', file: '01-cnn', title: '卷积神经网络：从像素到特征图',
     subtitle: 'Receptive field / Kernel scan / Feature map', frames: 627,

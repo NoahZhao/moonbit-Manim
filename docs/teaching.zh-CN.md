@@ -2,15 +2,16 @@
 
 本阶段把数学教学建立在引擎 API 上：公式是可寻址的矢量对象，坐标平面是实际路径，定理案例的几何拼图来自可测试的构造。核心仍由 MoonBit 实现，教学场景不依赖浏览器或 Python。
 
-## 三个案例
+## 四个案例
 
 | 场景 | 数学内容 | 引擎能力 | 视频 |
 | --- | --- | --- | --- |
 | formula | x² + 6x = 7 → 两边加 9 → (x+3)² = 16 → x+3 = ±4 → x=1 或 x=-7；抛物线交点核验 | 语义公式项匹配、Write、函数绘图 | output/lessons/01-quadratic.mp4，19.3 秒 |
 | matrix | 剪切保持面积，竖直拉伸使面积增至 3/2；对应 det A=1、det B=3/2 | NumberPlane、基向量、整组 ApplyAffine | output/lessons/02-linear-algebra.mp4，18 秒 |
 | pythagoras | 四个全等直角三角形在同一大正方形内重排；c² 的空隙变为 a²、b² 两个空隙 | Polygon、精确平移、公式消项 | output/lessons/03-pythagoras.mp4，21.3 秒 |
+| riemann | 用 4、16、32 个左端点矩形近似 y=x² 在 [0,2] 下的面积，并收敛到定积分 8/3 | NumberPlane、面积矩形、语义公式转场 | output/lessons/04-riemann-sum.mp4，14.65 秒 |
 
-三段合集：output/lessons/00-all-lessons.mp4，58.6 秒。视频为 1280×720、60 fps，无音轨。教学场景源码位于 src/cmd/lessons。
+四段合集：output/lessons/00-all-lessons.mp4，73.25 秒。视频为 1280×720、60 fps，无音轨。教学场景源码位于 src/cmd/lessons。
 
 勾股定理的图中取 a=2、b=3 以便观看；构造 Pythagoras::new(a,b) 接受一般正边长。验证包含不同长宽比的面积计算，以及重排前后在同一方形中的覆盖与不重叠检查。画面中的相同颜色不意味着所有公式项语义相同，重复项用独立 key 区分。
 
@@ -25,7 +26,7 @@ moon run src/cmd/lessons --target native --release formula > output/formula.json
 # 导出工具依赖：Node.js 20+、sharp，以及带 libx264 的 FFmpeg。
 npm ci
 make lesson-stills   # 只输出关键帧和接触表，无需 FFmpeg
-make lesson-videos   # 输出三个视频及合集
+make lesson-videos   # 输出四个视频及合集
 ~~~
 
 如果 FFmpeg 不在 PATH，设置 MOONMANIM_FFMPEG=/absolute/path/to/ffmpeg。Node 只执行构建时公式排版、帧光栅化、字幕叠加和编码；逐帧对象状态和公式项运动由 MoonBit 求值。标题、中文阶段说明和计时仍为导出器叠加，公式和图形则是引擎对象。
