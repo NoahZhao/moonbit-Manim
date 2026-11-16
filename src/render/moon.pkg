@@ -2,6 +2,7 @@ import {
   "moonmanim/core/math",
   "moonmanim/core/mobject",
   "moonmanim/core/errors",
+  "moonbitlang/core/math" @scalar,
   "moonbitlang/core/debug",
 }
 

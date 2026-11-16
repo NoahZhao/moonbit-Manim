@@ -21,6 +21,23 @@ test "camera maps world origin and up direction to output pixels" {
 }
 
 ///|
+test "perspective camera makes nearby points larger" {
+  let camera = @render.Perspective3D::new(focal_length=4.0)
+  let near = camera.project(@math.Vec3::new(1.0, 0.0, z=2.0))
+  let far = camera.project(@math.Vec3::new(1.0, 0.0, z=-2.0))
+  @test.assert_eq(near.x > far.x, true)
+  @test.assert_eq(near.z > far.z, true)
+}
+
+///|
+test "perspective camera preserves rotated depth" {
+  let camera = @render.Perspective3D::new(yaw=1.5707963267948966)
+  let view = camera.rotate(@math.Vec3::new(1.0, 0.0))
+  @test.assert_eq(view.z < -0.99, true)
+  @test.assert_eq(view.x.abs() < 1.0e-9, true)
+}
+
+///|
 test "SVG preserves contour closure, fill rule, opacity and pixel stroke width" {
   let store = @mobject.Store::new()
   ignore(

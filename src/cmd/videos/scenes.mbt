@@ -662,7 +662,8 @@ fn space_demo(scene : @scene.Scene, phase : Ref[String]) -> Unit raise {
       amber,
     ),
   )
-  let cube = scene.add(space_cube(0.0, 0.0, cyan))
+  let initial_states = space_cube_parts(0.0, 0.0, cyan)
+  let cube_ids = initial_states.map(state => scene.add(state))
   hold(scene, phase, "保留 Vec3 的 x、y、z 坐标", 0.45)
   play(
     scene,
@@ -679,36 +680,41 @@ fn space_demo(scene : @scene.Scene, phase : Ref[String]) -> Unit raise {
     scene,
     phase,
     "把立方体的 8 个顶点投影到二维画布",
-    [@animation.create(cube)],
+    cube_ids.map(id => @animation.create(id)),
     1.0,
   )
+  let first_turn = space_cube_parts(1.05, 0.42, cyan)
   play(
     scene,
     phase,
     "绕 y 轴旋转：远近由透视缩放表达",
-    [@animation.transform(cube, space_cube(1.05, 0.42, cyan))],
+    cube_ids.mapi((i, id) => @animation.transform(id, first_turn[i])),
     1.6,
   )
+  let second_turn = space_cube_parts(2.35, 0.82, amber)
   play(
     scene,
     phase,
     "绕 x 轴继续旋转，观察前后边的交替",
-    [@animation.transform(cube, space_cube(2.35, 0.82, amber))],
+    cube_ids.mapi((i, id) => @animation.transform(id, second_turn[i])),
     1.6,
   )
-  hold(scene, phase, "每条线段都来自一对三维顶点", 0.7)
+  hold(
+    scene, phase, "亮面朝向镜头，暗线表示被遮挡的空间边", 0.7,
+  )
+  let third_turn = space_cube_parts(3.95, 0.28, pink)
   play(
     scene,
     phase,
     "回到另一侧视角：同一组顶点仍保持拓扑对应",
-    [@animation.transform(cube, space_cube(3.95, 0.28, pink))],
+    cube_ids.mapi((i, id) => @animation.transform(id, third_turn[i])),
     1.8,
   )
   play(
     scene,
     phase,
     "空间几何 → 透视投影 → SVG 路径",
-    [@animation.fade_out(cube)],
+    cube_ids.map(id => @animation.fade_out(id)),
     0.8,
   )
   play(
@@ -726,66 +732,131 @@ fn space_demo(scene : @scene.Scene, phase : Ref[String]) -> Unit raise {
 }
 
 ///|
-fn space_cube(
+/// Build independently animatable faces and edges. Face winding is used as
+/// a lightweight visibility test, while z_index keeps translucent surfaces
+/// behind the brighter wireframe in the 2D renderer.
+fn space_cube_parts(
   yaw : Double,
   pitch : Double,
   color : @mobject.Color,
-) -> @mobject.ObjectState raise {
+) -> Array[@mobject.ObjectState] raise {
   let vertices = [
-    @math.Vec3::new(-1.35, -1.35, z=-1.35),
-    @math.Vec3::new(1.35, -1.35, z=-1.35),
-    @math.Vec3::new(1.35, 1.35, z=-1.35),
-    @math.Vec3::new(-1.35, 1.35, z=-1.35),
-    @math.Vec3::new(-1.35, -1.35, z=1.35),
-    @math.Vec3::new(1.35, -1.35, z=1.35),
-    @math.Vec3::new(1.35, 1.35, z=1.35),
-    @math.Vec3::new(-1.35, 1.35, z=1.35),
+    @math.Vec3::new(-1.55, -1.55, z=-1.55),
+    @math.Vec3::new(1.55, -1.55, z=-1.55),
+    @math.Vec3::new(1.55, 1.55, z=-1.55),
+    @math.Vec3::new(-1.55, 1.55, z=-1.55),
+    @math.Vec3::new(-1.55, -1.55, z=1.55),
+    @math.Vec3::new(1.55, -1.55, z=1.55),
+    @math.Vec3::new(1.55, 1.55, z=1.55),
+    @math.Vec3::new(-1.55, 1.55, z=1.55),
   ]
-  let edges : Array[(Int32, Int32)] = [
-    (0, 1),
-    (1, 2),
-    (2, 3),
-    (3, 0),
-    (4, 5),
-    (5, 6),
-    (6, 7),
-    (7, 4),
-    (0, 4),
-    (1, 5),
-    (2, 6),
-    (3, 7),
+  let faces : Array[Array[Int32]] = [
+    [4, 5, 6, 7],
+    [0, 3, 2, 1],
+    [1, 2, 6, 5],
+    [0, 4, 7, 3],
+    [2, 3, 7, 6],
+    [0, 1, 5, 4],
   ]
-  let contours : Array[@geometry.Contour] = []
-  for (start, end) in edges {
-    contours.push(
-      @geometry.Contour::new([
-        @geometry.Cubic::line(
-          project_space(vertices[start], yaw, pitch),
-          project_space(vertices[end], yaw, pitch),
-        ),
-      ]),
-    )
+  let projector = @render.Perspective3D::new(
+    camera_distance=7.8,
+    focal_length=5.35,
+    yaw~,
+    pitch~,
+  )
+  let rotated = vertices.map(point => projector.rotate(point))
+  let projected = rotated.map(point => {
+    let projected = projector.project_rotated(point)
+    @math.Vec3::new(projected.x - 0.15, projected.y + 0.35, z=projected.z)
+  })
+  let visible_faces : Array[Bool] = []
+  for face in faces {
+    let u = rotated[face[1]].sub(rotated[face[0]])
+    let v = rotated[face[2]].sub(rotated[face[0]])
+    visible_faces.push(u.cross(v).z > 0.0)
   }
-  let state = shape(@geometry.Path::new(contours), color)
-  { ..state, style: { ..state.style, stroke_width: 3.2, }, }
-}
-
-///|
-fn project_space(
-  point : @math.Vec3,
-  yaw : Double,
-  pitch : Double,
-) -> @math.Vec3 {
-  let cy = @scalar.cos(yaw)
-  let sy = @scalar.sin(yaw)
-  let cp = @scalar.cos(pitch)
-  let sp = @scalar.sin(pitch)
-  let x1 = cy * point.x + sy * point.z
-  let z1 = -sy * point.x + cy * point.z
-  let y2 = cp * point.y - sp * z1
-  let z2 = sp * point.y + cp * z1
-  let camera = 7.0
-  let depth = (camera - z2).max(0.75)
-  let scale = 4.1 / depth
-  @math.Vec3::new(x1 * scale - 0.15, y2 * scale + 0.35)
+  let result : Array[@mobject.ObjectState] = []
+  for index in 0..<faces.length() {
+    let face = faces[index]
+    let points = face.map(vertex => projected[vertex])
+    let lit = visible_faces[index]
+    let face_color = match index % 3 {
+      0 => color
+      1 => color.lerp(@mobject.Color::rgb(1.0, 0.66, 0.28), 0.42)
+      _ => color.lerp(@mobject.Color::rgb(1.0, 0.34, 0.62), 0.34)
+    }
+    result.push({
+      ..@mobject.ObjectState::shape(@geometry.polygon(points), style={
+        ..@mobject.Style::default(),
+        stroke: face_color,
+        fill: face_color,
+        stroke_width: if lit {
+          1.8
+        } else {
+          1.1
+        },
+        stroke_opacity: if lit {
+          0.72
+        } else {
+          0.16
+        },
+        fill_opacity: if lit {
+          0.24
+        } else {
+          0.035
+        },
+      }),
+      z_index: if lit {
+        2
+      } else {
+        1
+      },
+    })
+  }
+  let edges : Array[(Int32, Int32, Int32, Int32)] = [
+    (0, 1, 1, 5),
+    (1, 2, 1, 2),
+    (2, 3, 1, 4),
+    (3, 0, 1, 3),
+    (4, 5, 0, 5),
+    (5, 6, 0, 2),
+    (6, 7, 0, 4),
+    (7, 4, 0, 3),
+    (0, 4, 3, 5),
+    (1, 5, 2, 5),
+    (2, 6, 2, 4),
+    (3, 7, 3, 4),
+  ]
+  for (start, end, face_a, face_b) in edges {
+    let lit = visible_faces[face_a] || visible_faces[face_b]
+    let edge_color = if lit {
+      color
+    } else {
+      color.lerp(@mobject.Color::rgb(0.16, 0.2, 0.28), 0.58)
+    }
+    let edge = @geometry.line(projected[start], projected[end])
+    result.push({
+      ..@mobject.ObjectState::shape(edge, style={
+        ..@mobject.Style::default(),
+        stroke: edge_color,
+        fill: edge_color,
+        stroke_width: if lit {
+          3.6
+        } else {
+          1.4
+        },
+        stroke_opacity: if lit {
+          0.98
+        } else {
+          0.24
+        },
+      }),
+      z_index: if lit {
+        4
+      } else {
+        3
+      },
+    })
+  }
+  result
 }

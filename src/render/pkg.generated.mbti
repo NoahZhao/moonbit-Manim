@@ -32,6 +32,17 @@ pub(all) struct Frame {
   items : ReadOnlyArray[@mobject.DrawItem]
 }
 
+pub(all) struct Perspective3D {
+  camera_distance : Double
+  focal_length : Double
+  yaw : Double
+  pitch : Double
+}
+pub fn Perspective3D::new(camera_distance? : Double, focal_length? : Double, yaw? : Double, pitch? : Double) -> Self raise @errors.EngineError
+pub fn Perspective3D::project(Self, @math.Vec3) -> @math.Vec3
+pub fn Perspective3D::project_rotated(Self, @math.Vec3) -> @math.Vec3
+pub fn Perspective3D::rotate(Self, @math.Vec3) -> @math.Vec3
+
 pub struct SvgRenderer {
   // private fields
 }
