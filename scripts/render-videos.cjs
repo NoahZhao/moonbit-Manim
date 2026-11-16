@@ -39,6 +39,9 @@ const scenes = dynamics ? [
   { name: 'cnn', file: '01-cnn', title: '卷积神经网络：从像素到特征图',
     subtitle: 'Receptive field / Kernel scan / Feature map', frames: 627,
     posters: [60, 180, 360, 480], contact: [180, 480] },
+  { name: 'cnn-pool', file: '02-cnn-pooling', title: '卷积神经网络：激活与池化',
+    subtitle: '有符号响应 / ReLU 非线性 / 2×2 最大池化', frames: 483,
+    posters: [60, 165, 300, 420], contact: [165, 420] },
 ] : [
   { name: 'morph', file: '01-geometry', title: 'Geometry transforms',
     subtitle: 'Create / Transform / Rotate / Fade', frames: 645 },

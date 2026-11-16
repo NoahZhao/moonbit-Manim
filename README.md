@@ -30,7 +30,8 @@ MoonManim 把这条过程保存成有结构的数据：几何对象、公式符�
 | --- | --- |
 | [交互实验](https://noahzhao.github.io/moonbit-Manim/#playground) | 六个可以直接拖动参数的数学项目：矩阵、贝塞尔曲线、勾股定理、割线与切线、利萨如曲线、轮廓变形 |
 | [能力矩阵](https://noahzhao.github.io/moonbit-Manim/features.html) | 20 项能力的实现状态、证据入口和当前边界 |
-| [CNN 演示](https://noahzhao.github.io/moonbit-Manim/assets/demos/cnn.mp4) | 5×5 输入网格、3×3 卷积核、感受野滑动和 3×3 特征图，10.45 秒无声视频 |
+| [CNN 卷积演示](https://noahzhao.github.io/moonbit-Manim/assets/demos/cnn.mp4) | 5×5 输入网格、3×3 卷积核、感受野滑动和 3×3 特征图，10.45 秒无声视频 |
+| [CNN 激活与池化](https://noahzhao.github.io/moonbit-Manim/assets/demos/cnn-pooling.mp4) | 显示有符号响应经 ReLU 归零，再由 2×2 最大池化生成特征图 |
 | [割线与切线课程](https://noahzhao.github.io/moonbit-Manim/?scene=tangent#playground) | 六个讲解章节；暂停视频后可以接管参数，自由探索，再回到同一时间线 |
 
 站点是静态 GitHub Pages，不需要登录，也不需要在浏览器中安装 MoonBit。所有展示资源都已经提交到 `site/`，打开网页即可体验。
@@ -198,7 +199,7 @@ fn main raise {
 
 ## 质量与可复现性
 
-- **85 项 MoonBit 测试**：覆盖几何精度、弧长、对象生命周期、动画时钟、Updater 依赖、公式项匹配、课程边界和探索隔离。
+- **86 项 MoonBit 测试**：覆盖几何精度、弧长、对象生命周期、动画时钟、Updater 依赖、公式项匹配、课程边界和探索隔离。
 - **跨端检查**：原生适配器与已提交的浏览器 JavaScript 在课程检查点比较章节、参数和 SVG 坐标。
 - **逐帧导出检查**：视频导出器检查帧序号、帧数、尺寸、结束记录和编码器退出状态。
 - **静态部署**：GitHub Pages 直接发布已编译资产，不要求线上安装 MoonBit；每次 `site/` 变更由 GitHub Actions 检查后部署。

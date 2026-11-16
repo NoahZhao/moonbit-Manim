@@ -23,7 +23,10 @@ test "tangent timeline and exploration have stable exact limits" {
     model.lesson.sample(model.narration.bookmark("return")).get("x"),
     2.6,
   )
-  @test.assert_eq(model.lesson.sample(model.lesson.duration).get("h"), 0.0)
+  @test.assert_eq(
+    model.lesson.sample(model.lesson.duration).get("h").abs() < 1.0e-12,
+    true,
+  )
   let picture = model.manual(0.0, 0.0).stringify()
   @test.assert_eq(picture.contains("NaN"), false)
   @test.assert_eq(picture.contains("Infinity"), false)

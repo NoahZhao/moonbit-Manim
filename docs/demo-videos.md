@@ -1,17 +1,17 @@
 # 当前引擎的视频示例
 
-本文记录基础示例以及 CNN 卷积演示。新增公式推导、矩阵变换和定理证明视频见 [数学教学说明](teaching.zh-CN.md)，输出位于 output/lessons。
+本文记录基础示例以及 CNN 卷积、ReLU 与最大池化演示。公式推导、矩阵变换和定理证明视频见 [数学教学说明](teaching.zh-CN.md)，输出位于 output/lessons。
 
 所有示例均为 1280×720、60 fps、H.264/yuv420p 的无声 MP4。视频中的几何、时间推进、描绘、变形与组变换来自现有 MoonBit 核心。
 
-| 文件（位于 output/videos） | 时长 | 观察点 |
+| 文件 | 时长 | 观察点 |
 | --- | --- | --- |
-| 01-geometry.mp4 | 10.75 秒 | Create 描边；方形 → 圆 → 三角形；刚体旋转；颜色/填充插值；淡出 |
-| 02-path-creation.mp4 | 8.8 秒 | 参数速度不均的直线；贝塞尔曲线；断开子路径；Linear 与 Smooth 的速度差别 |
-| 03-group-transforms.mp4 | 11 秒 | 多个叶子对象同时描绘；嵌套变换；父节点旋转、平移和透明度 |
-| 00-all-demos.mp4 | 30.55 秒 | 上述三段视频的连续合集 |
-
+| output/videos/01-geometry.mp4 | 10.75 秒 | Create 描边；方形 → 圆 → 三角形；刚体旋转；颜色/填充插值；淡出 |
+| output/videos/02-path-creation.mp4 | 8.8 秒 | 参数速度不均的直线；贝塞尔曲线；断开子路径；Linear 与 Smooth 的速度差别 |
+| output/videos/03-group-transforms.mp4 | 11 秒 | 多个叶子对象同时描绘；嵌套变换；父节点旋转、平移和透明度 |
+| output/videos/00-all-demos.mp4 | 30.55 秒 | 上述三段视频的连续合集 |
 | output/cnn/01-cnn.mp4 | 10.45 秒 | 5×5 输入、3×3 卷积核滑动，以及 3×3 特征图逐格激活；无音频 |
+| output/cnn/02-cnn-pooling.mp4 | 8.05 秒 | 有符号响应经 ReLU 归零，再按 2×2 窗口与步长 2 计算最大池化；无音频 |
 
 ## 当前进度的含义
 

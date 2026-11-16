@@ -4,8 +4,14 @@
 fn main raise {
   let args = @env.args()
   let name = if args.length() > 1 { args[1] } else { "morph" }
-  if name != "morph" && name != "create" && name != "groups" && name != "cnn" {
-    raise @errors.InvalidArgument("expected morph, create, groups or cnn")
+  if name != "morph" &&
+    name != "create" &&
+    name != "groups" &&
+    name != "cnn" &&
+    name != "cnn-pool" {
+    raise @errors.InvalidArgument(
+      "expected morph, create, groups, cnn or cnn-pool",
+    )
   }
   let phase : Ref[String] = { val: "Ready", }
   let camera = @render.Camera2D::new(
@@ -39,7 +45,8 @@ fn main raise {
     "morph" => morph_demo(scene, phase)
     "create" => create_demo(scene, phase)
     "groups" => groups_demo(scene, phase)
-    _ => cnn_demo(scene, phase)
+    "cnn" => cnn_demo(scene, phase)
+    _ => cnn_pool_demo(scene, phase)
   }
   println(
     @json.Json::object({
