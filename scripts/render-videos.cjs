@@ -52,6 +52,9 @@ const scenes = dynamics ? [
     subtitle: 'Straight curves / Bezier curves / Separate contours', frames: 528 },
   { name: 'groups', file: '03-group-transforms', title: 'Groups in motion',
     subtitle: 'Parallel animation / Nested transforms / Parent opacity', frames: 660 },
+  { name: 'space', file: '04-space-cube', title: '空间几何：旋转立方体与透视投影',
+    subtitle: 'Vec3 / Perspective projection / Topology-preserving morph', frames: 588,
+    posters: [60, 180, 300, 420, 540], contact: [180, 420] },
 ];
 
 function watch(child) {

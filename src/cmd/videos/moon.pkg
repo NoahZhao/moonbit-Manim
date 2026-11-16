@@ -6,6 +6,7 @@ import {
   "moonmanim/core/math",
   "moonmanim/core/render",
   "moonmanim/core/errors",
+  "moonbitlang/core/math" @scalar,
   "moonbitlang/core/env",
   "moonbitlang/core/json",
 }

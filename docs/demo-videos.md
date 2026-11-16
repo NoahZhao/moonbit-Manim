@@ -9,6 +9,7 @@
 | output/videos/01-geometry.mp4 | 10.75 秒 | Create 描边；方形 → 圆 → 三角形；刚体旋转；颜色/填充插值；淡出 |
 | output/videos/02-path-creation.mp4 | 8.8 秒 | 参数速度不均的直线；贝塞尔曲线；断开子路径；Linear 与 Smooth 的速度差别 |
 | output/videos/03-group-transforms.mp4 | 11 秒 | 多个叶子对象同时描绘；嵌套变换；父节点旋转、平移和透明度 |
+| output/videos/04-space-cube.mp4 | 9.8 秒 | Vec3 空间顶点；绕 y/x 轴旋转；透视投影；拓扑保持的 SVG 线框 |
 | output/videos/00-all-demos.mp4 | 30.55 秒 | 上述三段视频的连续合集 |
 | output/cnn/01-cnn.mp4 | 10.45 秒 | 5×5 输入、3×3 卷积核滑动，以及 3×3 特征图逐格激活；无音频 |
 | output/cnn/02-cnn-pooling.mp4 | 8.05 秒 | 有符号响应经 ReLU 归零，再按 2×2 窗口与步长 2 计算最大池化；无音频 |

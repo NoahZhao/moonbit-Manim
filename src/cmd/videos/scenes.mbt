@@ -626,3 +626,166 @@ fn cnn_pool_demo(scene : @scene.Scene, phase : Ref[String]) -> Unit raise {
   play(scene, phase, "卷积 → ReLU → 最大池化", cleanup, 0.7)
   hold(scene, phase, "演示完成", 0.35)
 }
+
+///|
+/// A spatial case that keeps Vec3 coordinates until the final projection.
+/// The existing SVG renderer remains 2D; this scene demonstrates a reusable
+/// 3D-to-2D projection layer instead of treating 3D as a textured screenshot.
+fn space_demo(scene : @scene.Scene, phase : Ref[String]) -> Unit raise {
+  let cyan = @mobject.Color::rgb(0.34, 0.84, 0.94)
+  let amber = @mobject.Color::rgb(1.0, 0.74, 0.32)
+  let pink = @mobject.Color::rgb(1.0, 0.42, 0.66)
+  let axis_x = scene.add(
+    shape(
+      @geometry.arrow(
+        @math.Vec3::new(-0.35, -2.65),
+        @math.Vec3::new(1.55, -2.65),
+      ),
+      pink,
+    ),
+  )
+  let axis_y = scene.add(
+    shape(
+      @geometry.arrow(
+        @math.Vec3::new(-0.35, -2.65),
+        @math.Vec3::new(-0.35, -0.8),
+      ),
+      cyan,
+    ),
+  )
+  let axis_z = scene.add(
+    shape(
+      @geometry.arrow(
+        @math.Vec3::new(-0.35, -2.65),
+        @math.Vec3::new(-1.2, -1.4),
+      ),
+      amber,
+    ),
+  )
+  let cube = scene.add(space_cube(0.0, 0.0, cyan))
+  hold(scene, phase, "保留 Vec3 的 x、y、z 坐标", 0.45)
+  play(
+    scene,
+    phase,
+    "空间坐标轴：x / y / z",
+    [
+      @animation.create(axis_x),
+      @animation.create(axis_y),
+      @animation.create(axis_z),
+    ],
+    0.9,
+  )
+  play(
+    scene,
+    phase,
+    "把立方体的 8 个顶点投影到二维画布",
+    [@animation.create(cube)],
+    1.0,
+  )
+  play(
+    scene,
+    phase,
+    "绕 y 轴旋转：远近由透视缩放表达",
+    [@animation.transform(cube, space_cube(1.05, 0.42, cyan))],
+    1.6,
+  )
+  play(
+    scene,
+    phase,
+    "绕 x 轴继续旋转，观察前后边的交替",
+    [@animation.transform(cube, space_cube(2.35, 0.82, amber))],
+    1.6,
+  )
+  hold(scene, phase, "每条线段都来自一对三维顶点", 0.7)
+  play(
+    scene,
+    phase,
+    "回到另一侧视角：同一组顶点仍保持拓扑对应",
+    [@animation.transform(cube, space_cube(3.95, 0.28, pink))],
+    1.8,
+  )
+  play(
+    scene,
+    phase,
+    "空间几何 → 透视投影 → SVG 路径",
+    [@animation.fade_out(cube)],
+    0.8,
+  )
+  play(
+    scene,
+    phase,
+    "清除坐标轴",
+    [
+      @animation.fade_out(axis_x),
+      @animation.fade_out(axis_y),
+      @animation.fade_out(axis_z),
+    ],
+    0.6,
+  )
+  hold(scene, phase, "空间立体案例完成", 0.35)
+}
+
+///|
+fn space_cube(
+  yaw : Double,
+  pitch : Double,
+  color : @mobject.Color,
+) -> @mobject.ObjectState raise {
+  let vertices = [
+    @math.Vec3::new(-1.35, -1.35, z=-1.35),
+    @math.Vec3::new(1.35, -1.35, z=-1.35),
+    @math.Vec3::new(1.35, 1.35, z=-1.35),
+    @math.Vec3::new(-1.35, 1.35, z=-1.35),
+    @math.Vec3::new(-1.35, -1.35, z=1.35),
+    @math.Vec3::new(1.35, -1.35, z=1.35),
+    @math.Vec3::new(1.35, 1.35, z=1.35),
+    @math.Vec3::new(-1.35, 1.35, z=1.35),
+  ]
+  let edges : Array[(Int32, Int32)] = [
+    (0, 1),
+    (1, 2),
+    (2, 3),
+    (3, 0),
+    (4, 5),
+    (5, 6),
+    (6, 7),
+    (7, 4),
+    (0, 4),
+    (1, 5),
+    (2, 6),
+    (3, 7),
+  ]
+  let contours : Array[@geometry.Contour] = []
+  for (start, end) in edges {
+    contours.push(
+      @geometry.Contour::new([
+        @geometry.Cubic::line(
+          project_space(vertices[start], yaw, pitch),
+          project_space(vertices[end], yaw, pitch),
+        ),
+      ]),
+    )
+  }
+  let state = shape(@geometry.Path::new(contours), color)
+  { ..state, style: { ..state.style, stroke_width: 3.2, }, }
+}
+
+///|
+fn project_space(
+  point : @math.Vec3,
+  yaw : Double,
+  pitch : Double,
+) -> @math.Vec3 {
+  let cy = @scalar.cos(yaw)
+  let sy = @scalar.sin(yaw)
+  let cp = @scalar.cos(pitch)
+  let sp = @scalar.sin(pitch)
+  let x1 = cy * point.x + sy * point.z
+  let z1 = -sy * point.x + cy * point.z
+  let y2 = cp * point.y - sp * z1
+  let z2 = sp * point.y + cp * z1
+  let camera = 7.0
+  let depth = (camera - z2).max(0.75)
+  let scale = 4.1 / depth
+  @math.Vec3::new(x1 * scale - 0.15, y2 * scale + 0.35)
+}

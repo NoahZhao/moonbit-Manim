@@ -51,6 +51,7 @@ if (process.argv.includes('--media')) {
     ['videos/01-geometry.mp4', 'geometry', 5],
     ['videos/02-path-creation.mp4', 'bezier', 5],
     ['videos/03-group-transforms.mp4', 'groups', 6],
+    ['videos/04-space-cube.mp4', 'space', 5],
   ];
   const directory = path.join(site, 'assets/demos');
   fs.mkdirSync(directory, { recursive: true });

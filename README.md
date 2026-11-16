@@ -33,6 +33,7 @@ MoonManim 把这条过程保存成有结构的数据：几何对象、公式符�
 | [CNN 卷积演示](https://noahzhao.github.io/moonbit-Manim/assets/demos/cnn.mp4) | 5×5 输入网格、3×3 卷积核、感受野滑动和 3×3 特征图，10.45 秒无声视频 |
 | [CNN 激活与池化](https://noahzhao.github.io/moonbit-Manim/assets/demos/cnn-pooling.mp4) | 显示有符号响应经 ReLU 归零，再由 2×2 最大池化生成特征图 |
 | [黎曼和与定积分](https://noahzhao.github.io/moonbit-Manim/assets/demos/riemann.mp4) | 4、16、32 个矩形连续细分逼近曲线下面积，并连接到精确积分 8/3 |
+| [3D 旋转立方体](https://noahzhao.github.io/moonbit-Manim/assets/demos/space.mp4) | 在 MoonBit 中保留 Vec3 空间坐标，绕双轴旋转并用透视投影生成 SVG 线框 |
 | [割线与切线课程](https://noahzhao.github.io/moonbit-Manim/?scene=tangent#playground) | 六个讲解章节；暂停视频后可以接管参数，自由探索，再回到同一时间线 |
 
 站点是静态 GitHub Pages，不需要登录，也不需要在浏览器中安装 MoonBit。所有展示资源都已经提交到 `site/`，打开网页即可体验。

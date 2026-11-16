@@ -8,9 +8,10 @@ fn main raise {
     name != "create" &&
     name != "groups" &&
     name != "cnn" &&
-    name != "cnn-pool" {
+    name != "cnn-pool" &&
+    name != "space" {
     raise @errors.InvalidArgument(
-      "expected morph, create, groups, cnn or cnn-pool",
+      "expected morph, create, groups, cnn, cnn-pool or space",
     )
   }
   let phase : Ref[String] = { val: "Ready", }
@@ -46,7 +47,8 @@ fn main raise {
     "create" => create_demo(scene, phase)
     "groups" => groups_demo(scene, phase)
     "cnn" => cnn_demo(scene, phase)
-    _ => cnn_pool_demo(scene, phase)
+    "cnn-pool" => cnn_pool_demo(scene, phase)
+    _ => space_demo(scene, phase)
   }
   println(
     @json.Json::object({
