@@ -6,7 +6,10 @@
 
 一个面向数学教学与科学可视化的程序化动画引擎：同一份场景描述，同时生成可交互网页、逐帧 SVG 和离线视频。
 
-[在线展示站](https://noahzhao.github.io/moonbit-Manim/) · [能力矩阵](https://noahzhao.github.io/moonbit-Manim/features.html) · [架构说明](docs/architecture.zh-CN.md) · [MIT License](LICENSE)
+[![Mooncakes v0.1.0](https://img.shields.io/badge/Mooncakes-v0.1.0-3169E0)](https://mooncakes.io/docs/NoahZhao/moonmanim@0.1.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+[在线展示站](https://noahzhao.github.io/moonbit-Manim/) · [Mooncakes / API 文档](https://mooncakes.io/docs/NoahZhao/moonmanim@0.1.0) · [能力矩阵](https://noahzhao.github.io/moonbit-Manim/features.html) · [架构说明](docs/architecture.zh-CN.md)
 
 <br>
 
@@ -15,6 +18,37 @@
 <sub>同一个场景可以解释几何、导数，也可以解释 CNN 的感受野与特征图。</sub>
 
 </div>
+
+## 从 Mooncakes 安装
+
+**`NoahZhao/moonmanim@0.1.0` 已发布。** 在已有 MoonBit 项目的根目录中添加引擎依赖：
+
+```sh
+moon add NoahZhao/moonmanim@0.1.0
+```
+
+在动画入口包的 `cmd/main/moon.pkg` 中导入需要的子包：
+
+```moonbit
+import {
+  "NoahZhao/moonmanim/animation",
+  "NoahZhao/moonmanim/geometry",
+  "NoahZhao/moonmanim/mobject",
+  "NoahZhao/moonmanim/render",
+  "NoahZhao/moonmanim/scene",
+}
+
+pkgtype(kind: "executable")
+```
+
+将下方的[动画示例](#用代码写一个动画)保存为 `cmd/main/main.mbt`，然后运行：
+
+```sh
+mkdir -p output
+moon run cmd/main --target native > output/animation.svg
+```
+
+打开 `output/animation.svg`，即可看到方形变成圆形过程中的一帧。完整公共接口见 [v0.1.0 API 文档](https://mooncakes.io/docs/NoahZhao/moonmanim@0.1.0)；离线视频导出使用仓库中的 Node.js 与 FFmpeg 工具，见[源码运行步骤](#五分钟运行一个场景)。
 
 ## 为什么这个项目有意义
 
@@ -179,6 +213,7 @@ npm run site:serve     # 本地预览 GitHub Pages
 fn main raise {
   let camera = @render.Camera2D::new()
   let renderer = @render.SvgRenderer::new(camera, (index, svg) => {
+    // 输出 1.5 秒处的一帧 SVG（默认 60 FPS）。
     if index == 90L { println(svg) }
   })
   let scene = @scene.Scene::new(renderer)
@@ -202,7 +237,7 @@ fn main raise {
 
 ## 质量与可复现性
 
-- **86 项 MoonBit 测试**：覆盖几何精度、弧长、对象生命周期、动画时钟、Updater 依赖、公式项匹配、课程边界和探索隔离。
+- **88 项 MoonBit 测试**：覆盖几何精度、弧长、对象生命周期、动画时钟、Updater 依赖、公式项匹配、课程边界和探索隔离。
 - **跨端检查**：原生适配器与已提交的浏览器 JavaScript 在课程检查点比较章节、参数和 SVG 坐标。
 - **逐帧导出检查**：视频导出器检查帧序号、帧数、尺寸、结束记录和编码器退出状态。
 - **静态部署**：GitHub Pages 直接发布已编译资产，不要求线上安装 MoonBit；每次 `site/` 变更由 GitHub Actions 检查后部署。
