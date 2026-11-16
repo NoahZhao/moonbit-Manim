@@ -1,15 +1,15 @@
 import {
-  "moonmanim/core/math",
-  "moonmanim/core/geometry",
-  "moonmanim/core/mobject",
-  "moonmanim/core/animation",
-  "moonmanim/core/scene",
-  "moonmanim/core/errors",
+  "NoahZhao/moonmanim/math",
+  "NoahZhao/moonmanim/geometry",
+  "NoahZhao/moonmanim/mobject",
+  "NoahZhao/moonmanim/animation",
+  "NoahZhao/moonmanim/scene",
+  "NoahZhao/moonmanim/errors",
   "moonbitlang/core/json",
 }
 
 import {
   "moonbitlang/core/test",
-  "moonmanim/core/render",
-  "moonmanim/core/timeline",
+  "NoahZhao/moonmanim/render",
+  "NoahZhao/moonmanim/timeline",
 } for "test"

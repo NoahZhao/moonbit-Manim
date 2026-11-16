@@ -1,12 +1,12 @@
 import {
-  "moonmanim/core/math",
-  "moonmanim/core/mobject",
-  "moonmanim/core/errors",
+  "NoahZhao/moonmanim/math",
+  "NoahZhao/moonmanim/mobject",
+  "NoahZhao/moonmanim/errors",
   "moonbitlang/core/math" @scalar,
   "moonbitlang/core/debug",
 }
 
 import {
   "moonbitlang/core/test",
-  "moonmanim/core/geometry",
+  "NoahZhao/moonmanim/geometry",
 } for "test"

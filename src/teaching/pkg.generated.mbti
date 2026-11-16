@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonmanim/core/teaching"
+package "NoahZhao/moonmanim/teaching"
 
 import {
-  "moonmanim/core/errors",
-  "moonmanim/core/geometry",
-  "moonmanim/core/math",
+  "NoahZhao/moonmanim/errors",
+  "NoahZhao/moonmanim/geometry",
+  "NoahZhao/moonmanim/math",
 }
 
 // Values

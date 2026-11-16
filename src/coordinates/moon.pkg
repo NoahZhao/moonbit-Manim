@@ -1,7 +1,7 @@
 import {
-  "moonmanim/core/math",
-  "moonmanim/core/geometry",
-  "moonmanim/core/errors",
+  "NoahZhao/moonmanim/math",
+  "NoahZhao/moonmanim/geometry",
+  "NoahZhao/moonmanim/errors",
 }
 
 import {

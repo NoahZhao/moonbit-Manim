@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonmanim/core/narration"
+package "NoahZhao/moonmanim/narration"
 
 import {
+  "NoahZhao/moonmanim/errors",
   "moonbitlang/core/json",
-  "moonmanim/core/errors",
 }
 
 // Values

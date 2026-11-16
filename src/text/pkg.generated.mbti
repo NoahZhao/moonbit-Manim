@@ -1,12 +1,12 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonmanim/core/text"
+package "NoahZhao/moonmanim/text"
 
 import {
-  "moonmanim/core/errors",
-  "moonmanim/core/geometry",
-  "moonmanim/core/math",
-  "moonmanim/core/mobject",
-  "moonmanim/core/scene",
+  "NoahZhao/moonmanim/errors",
+  "NoahZhao/moonmanim/geometry",
+  "NoahZhao/moonmanim/math",
+  "NoahZhao/moonmanim/mobject",
+  "NoahZhao/moonmanim/scene",
 }
 
 // Values

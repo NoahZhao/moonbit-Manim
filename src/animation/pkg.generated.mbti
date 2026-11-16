@@ -1,11 +1,11 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonmanim/core/animation"
+package "NoahZhao/moonmanim/animation"
 
 import {
+  "NoahZhao/moonmanim/errors",
+  "NoahZhao/moonmanim/math",
+  "NoahZhao/moonmanim/mobject",
   "moonbitlang/core/debug",
-  "moonmanim/core/errors",
-  "moonmanim/core/math",
-  "moonmanim/core/mobject",
 }
 
 // Values

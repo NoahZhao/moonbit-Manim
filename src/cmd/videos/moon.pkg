@@ -1,11 +1,11 @@
 import {
-  "moonmanim/core/scene",
-  "moonmanim/core/animation",
-  "moonmanim/core/geometry",
-  "moonmanim/core/mobject",
-  "moonmanim/core/math",
-  "moonmanim/core/render",
-  "moonmanim/core/errors",
+  "NoahZhao/moonmanim/scene",
+  "NoahZhao/moonmanim/animation",
+  "NoahZhao/moonmanim/geometry",
+  "NoahZhao/moonmanim/mobject",
+  "NoahZhao/moonmanim/math",
+  "NoahZhao/moonmanim/render",
+  "NoahZhao/moonmanim/errors",
   "moonbitlang/core/env",
   "moonbitlang/core/json",
 }

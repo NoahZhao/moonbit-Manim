@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonmanim/core/lessons/tangent"
+package "NoahZhao/moonmanim/lessons/tangent"
 
 import {
+  "NoahZhao/moonmanim/lesson",
+  "NoahZhao/moonmanim/narration",
   "moonbitlang/core/json",
-  "moonmanim/core/lesson",
-  "moonmanim/core/narration",
 }
 
 // Values

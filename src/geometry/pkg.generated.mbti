@@ -1,10 +1,10 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonmanim/core/geometry"
+package "NoahZhao/moonmanim/geometry"
 
 import {
+  "NoahZhao/moonmanim/errors",
+  "NoahZhao/moonmanim/math",
   "moonbitlang/core/debug",
-  "moonmanim/core/errors",
-  "moonmanim/core/math",
 }
 
 // Values

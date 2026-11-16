@@ -1,10 +1,10 @@
 import {
-  "moonmanim/core/scene",
-  "moonmanim/core/animation",
-  "moonmanim/core/geometry",
-  "moonmanim/core/mobject",
-  "moonmanim/core/math",
-  "moonmanim/core/render",
+  "NoahZhao/moonmanim/scene",
+  "NoahZhao/moonmanim/animation",
+  "NoahZhao/moonmanim/geometry",
+  "NoahZhao/moonmanim/mobject",
+  "NoahZhao/moonmanim/math",
+  "NoahZhao/moonmanim/render",
 }
 
 pkgtype(kind: "executable")

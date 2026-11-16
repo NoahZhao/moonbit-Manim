@@ -1,8 +1,8 @@
 import {
-  "moonmanim/core/math",
-  "moonmanim/core/geometry",
-  "moonmanim/core/mobject",
-  "moonmanim/core/errors",
+  "NoahZhao/moonmanim/math",
+  "NoahZhao/moonmanim/geometry",
+  "NoahZhao/moonmanim/mobject",
+  "NoahZhao/moonmanim/errors",
   "moonbitlang/core/debug",
 }
 

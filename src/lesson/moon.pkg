@@ -1,7 +1,7 @@
 import {
-  "moonmanim/core/animation",
-  "moonmanim/core/math",
-  "moonmanim/core/errors",
+  "NoahZhao/moonmanim/animation",
+  "NoahZhao/moonmanim/math",
+  "NoahZhao/moonmanim/errors",
   "moonbitlang/core/json",
 }
 

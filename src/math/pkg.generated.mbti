@@ -1,9 +1,9 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonmanim/core/math"
+package "NoahZhao/moonmanim/math"
 
 import {
+  "NoahZhao/moonmanim/errors",
   "moonbitlang/core/debug",
-  "moonmanim/core/errors",
 }
 
 // Values

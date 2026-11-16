@@ -1,6 +1,6 @@
 import {
-  "moonmanim/core/lessons/tangent",
-  "moonmanim/core/timeline",
+  "NoahZhao/moonmanim/lessons/tangent",
+  "NoahZhao/moonmanim/timeline",
   "moonbitlang/core/env",
   "moonbitlang/core/json",
 }
